@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/email-spoofing by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Email Spoofing</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="iwnkHHy06qM6uEklc01ZvtW77BYNoEccv2TQow7KEV8SGWku/e6KnfeWxKzc9SNZMQJ4OBgvWtXcELTyTMFJrA==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/email-spoofing" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Email Spoofing" />
+<meta property="og:description"  content="Email spoofing is the sending of email messages with a forged &quot;from&quot; address. Let&#39;s see how spoofed emails could harm your users. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/email-spoofing/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="Email spoofing is the sending of email messages with a forged &quot;from&quot; address. Let&#39;s see how spoofed emails could harm your users. →" />
+
+<meta name="twitter:title"       content="Email Spoofing">
+<meta name="twitter:description" content="Email spoofing is the sending of email messages with a forged &quot;from&quot; address. Let&#39;s see how spoofed emails could harm your users. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises email_spoofing unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/email-spoofing/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          Email Spoofing
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/email-spoofing/icon.gif')"></div>
+
+  <div class="strip">
+    Email Spoofing
+  </div>
+  <div class="blurb">
+
+    <p>Email spoofing is the sending of email messages with a forged &quot;from&quot; address.</p>
+
+    <p>
+      <strong>
+        Let's see how spoofed emails could harm your users.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="Email Spoofing"
+             data-id="email_spoofing"
+             data-captions="on" >
+
+          
+        <div id="email-spoofing" class="container">
+  <div class="row top">
+
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6">
+
+      <a class="unselectable" href="#password-phishing"><div id="start" class=" instruction" introductory="true"><p>Emails are sent via the <strong>Simple Mail Transfer Protocol</strong>. SMTP does not have a mechanism for authentication, so malicious actors often send emails using a spoofed “from” address to mislead the recipient about the sender of the message.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#phony-password-change-requests"><div id="password-phishing" class=" instruction" show="#phishing-email"><p><strong>A common method of attack is “phishing” - sending emails that attempt to trick a user into sharing their login credentials.</strong> Phishing emails will often warn a user that somebody has tried to access their account, and suggest they change their password immediately.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#password-stealing"><div id="phony-password-change-requests" class=" instruction" show="#phishing-email,#phishing-site"><p>However, the “password change” link will take the user to a malicious site owned by the phisher - but one that looks completely authentic.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#innocuous-redirect"><div id="password-stealing" class=" instruction" show="#phishing-email,#phishing-site,#password-theft" trigger="passwordTheft"><p>Your user will be asked to enter their old authentication details - which will be saved off to a database of stolen passwords.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#helping-email-providers"><div id="innocuous-redirect" class=" instruction" show="#real-reset"><p>Then the site will then redirect to the legitimate password reset page for <strong>your</strong> site, so the user does not suspect anything.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#sender-policy-framework"><div id="helping-email-providers" class=" instruction"><p><strong>Protecting against phishing emails is largely in the hands of the email service provider.</strong> Email service providers spend a great deal of resources trying to detect spam and malicious emails - you can help them protect your users in a couple of ways.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#domain-key-identified-mail"><div id="sender-policy-framework" class=" instruction" show="#spf"><p>By changing your DNS records to list a <strong>Sender Policy Framework (SPF)</strong>, you can explicitly state which servers are allowed to send email from your domain. This will help flag spoofed emails sent by malicious actors.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#dkim-signatures"><div id="domain-key-identified-mail" class=" instruction"><p>By implementing <strong>Domain Key Identified Mail (DKIM)</strong>, you can prove that an email was legitimately sent from your domain, and that it wasn’t modified in transit.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#try-it"><div id="dkim-signatures" class=" instruction" show="#dkim-calculation"><p>DKIM adds a <strong>digital signature</strong> to the email header. The mail receiving program will recalculate the signature on receipt to verify the mail is authentic and has not been tampered with.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#finish"><div id="try-it" class=" instruction" show="#dkim-email,#dkim-code,#dkim-headers"><p>Edit the email below and watch how the DKIM signature changes.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="../prevention/email-spoofing.html"><div id="finish" class=" instruction"><div class="icon"><img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" /></div><div class="message"><p>Let’s see how to implement these protective measures.</p>
+</div><div class="next"></div></div></a>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+
+  </div>
+
+  <div class="row bottom">
+
+    <div class="col-sm-12 illustrations">
+
+      <div id="phishing-email" class="illustration hide-by-default initially-hidden">
+        <div 
+     class="browser "
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">gmail.com</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+          <img class="email-logo" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/email-spoofing/google-1b1c0bb3bd06547c1494364702e170d28b9f19b93b513563a89d3a30f5402467.png" />
+
+          <div class="email">
+            <div class="warning-block">
+              Someone has your password!
+            </div>
+
+            <div class="email-body">
+              <p>
+                Somebody just used your password to sign into your account.
+              </p>
+
+              <p>
+                <strong>IP Address:</strong> 112.133.112.021
+              </p>
+
+              <p>
+                <strong>Location:</strong> Romania
+              </p>
+
+              <p>
+                Google stopped this sign-in attempt. If you do not recognize
+                the details above, you should change your password immediately.
+              </p>
+            </div>
+
+            <div class="change-password-button">
+              Change My Password
+            </div>
+          </div>
+
+
+
+  </div>
+</div>      </div>
+
+      <div id="phishing-site" class="illustration hide-by-default initially-hidden">
+        <div 
+     class="browser "
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">gggmail.com/reset</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+          <img class="site-logo" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/email-spoofing/google-1b1c0bb3bd06547c1494364702e170d28b9f19b93b513563a89d3a30f5402467.png" />
+
+          <div class="prompt">
+            Please re-enter your password
+          </div>
+
+          <div class="password-reset">
+            <input class="password-reset-box" type="password" placeholder="Password" class="">
+            <div class="button">
+              Sign in
+            </div>
+          </div>
+
+
+  </div>
+</div>      </div>
+
+      <div id="real-reset" class="illustration hide-by-default initially-hidden">
+        <div 
+     class="browser "
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">gmail.com/reset</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+          <img class="site-logo" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/email-spoofing/google-1b1c0bb3bd06547c1494364702e170d28b9f19b93b513563a89d3a30f5402467.png" />
+
+          <div class="prompt error">
+            Password incorrect!
+          </div>
+
+          <div class="password-reset">
+            <input class="password-reset-box-failed" type="password" placeholder="Please re-enter password" value="">
+            <div class="button">
+              Sign in
+            </div>
+          </div>
+
+
+  </div>
+</div>      </div>
+
+      <div id="password-theft" class="illustration hide-by-default initially-hidden">
+        <div class="browser terminal">
+          <div class="nav">
+            <span class="buttons">
+              <span class="button red">    </span>
+              <span class="button orange"> </span>
+              <span class="button green">  </span>
+            </span>
+          </div>
+          <div class="frame logs">Password harvesting started...
+
+<div id="stolen-password"></div>
+</div>
+        </div>
+      </div>
+
+      <div id="spf" class="illustration hide-by-default initially-hidden">
+        <img class="spf" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/email-spoofing/spf-4a8d3ad6b817e480a8129be84420f4a0a02a053a5a4f59e7987499c70822aa7c.png" />
+      </div>
+
+      <div id="dkim-calculation" class="illustration hide-by-default initially-hidden">
+        <pre  class="snippet  "><code class="ruby "># @return [DkimHeader] Constructed signature for the mail message
+def dkim_header
+  dkim_header = DkimHeader.new
+
+  raise &quot;A private key is required&quot; unless private_key
+  raise &quot;A domain is required&quot;      unless domain
+  raise &quot;A selector is required&quot;    unless selector
+
+  # Add basic DKIM info
+  dkim_header[&#39;v&#39;] = &#39;1&#39;
+  dkim_header[&#39;a&#39;] = signing_algorithm
+  dkim_header[&#39;c&#39;] = &quot;#{header_canon}/#{body_canon}&quot;
+  dkim_header[&#39;d&#39;] = domain
+  dkim_header[&#39;i&#39;] = identity if identity
+  dkim_header[&#39;q&#39;] = &#39;dns/txt&#39;
+  dkim_header[&#39;s&#39;] = selector
+  dkim_header[&#39;t&#39;] = (time || Time.now).to_i
+
+  # Add body hash and blank signature
+  dkim_header[&#39;bh&#39;]= digest_alg.digest(canonical_body)
+  dkim_header[&#39;h&#39;] = signed_headers.join(&#39;:&#39;)
+  dkim_header[&#39;b&#39;] = &#39;&#39;
+
+  # Calculate signature based on intermediate signature header
+  headers = canonical_header
+  headers &lt;&lt; dkim_header.to_s(header_canonicalization)
+  dkim_header[&#39;b&#39;] = private_key.sign(digest_alg, headers)
+
+  dkim_header
+end</code></pre>        <div class="caption">
+          An implementation of the DKIM signature algorithm in Ruby.
+        </div>
+      </div>
+
+      <div id="dkim-email" class="illustration hide-by-default initially-hidden">
+        <div 
+     class="browser "
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">email.com</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+          <div class="new-message-header">
+            New Message
+          </div>
+
+          <div class="section">
+            <label>To</label>
+            <input type="text" class="to recalculate-dkim" name="to" value="questions@southwest.com"/>
+          </div>
+
+          <div class="section">
+            <label>Subject</label>
+            <input type="text" class="subject recalculate-dkim" name="subject" value="Quick question"/>
+          </div>
+
+          <textarea name="body" class="body recalculate-dkim">Does your airline fly in other directions too?</textarea>
+
+
+  </div>
+</div>      </div>
+
+      <div id="dkim-code" class="illustration hide-by-default initially-hidden">
+
+      </div>
+
+      <div id="dkim-headers" class="illustration hide-by-default initially-hidden">
+        <div class="debug">
+          <div class="debug-header selected">SMTP Envelope</div>
+          <div class="section">
+
+            <div class="field">
+              <div class="key">To:</div>
+              <div class="value to">questions@southwest.com</div>
+            </div>
+
+            <div class="field">
+              <div class="key">From:</div>
+              <div class="value">Mr Friendly &lt;user@email.com&gt;</div>
+            </div>
+
+            <div class="field">
+              <div class="key">Subject:</div>
+              <div class="value subject">Quick question</div>
+            </div>
+
+            <div class="field">
+              <div class="key">Content-Type:</div>
+              <div class="value">text/plain</div>
+            </div>
+
+            <div class="field">
+              <div class="key">DKIM-Signature:</div>
+              <div class="value signature">DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.com;
+q=dns/txt; s=dkim;
+bh=01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b;
+h=from:subject:to:content-type;
+b=FzZNv/CLejBrRm+Mba/DtI2XNyv6+PdZBLTZXgLcJcPDayAO3SmG16aQZEHY+UPIsPDydFKty
+OwOroWkeKqHqOuOWDc4nFt6lRLUIg09QRsGQ2aeVCZA5lmQvx9c0cFmvWF/H02KeFTHDI9/Brx+
+RxA1U4oR4XSsMxZ8sDTRLqM=?YAlYATAdGxjXMXHGM5l/WcY5Jb6T7f4DdMjrOQc1aoiiZb078M
+XOmgwxHDe1yhJs1mHN/PhVa3/z3l4/OByK4IzUZ73jWF+Owxw6vCvB2pgvnVApREAcMsMfgtEn3
+A5rrf15nkyZxLizeNc/dinVzQKfBzIw4zIzdLXzpwfleYQG53kmh9nc6TbeJVEkYhIf6+i7Z/s/
+qJY9cJzG2VTJr/kvJ9ufAgjyE1D9jm1BXhwpklYkjnxgaqnC4dHXXf8rvvRHydo8dtPNl55xdqb
+J0BIwCqdAd1AS4tdo4bHP6dboGeOwifasJfR6wts5Sd3aKr6YNBUYtT70wA6n8Ok/kgbx6fpcOM
+4FBGcwF0OUz6M9by1h5S+GeRaj2q1DQRCQV735UUHUuyfMP8dUSFwMsmKCmsnapm+Ffvkjjp7BU
+JdpWoZz2K+VGxsDBsBeQWvVL4O95mnvcr1NWD1awTe/5sPD40SDYTNqa5z8kGeaq6i0AUpyCL0p
+8F8bIBQc9g/zIkZ7vKH6jLsTO0pvg44MvuH+gHXD5EUivVTHh7ZTt7BbK/0yKBhd5ClOnUCxxEK
+4r335PcH12Cg6YdVyPEcvuYhUWxYZROUIL4YkMMO4/lmDQJW6turahMybMDi0lVxf0sahvGkxMG
+0+gAaXCpDEIQ==</div>
+            </div>
+
+            <div class="body">
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function typing(target, text, andThen) {
+    sounds.play('typing-short')
+
+    $(target)
+      .data('typed', null)
+      .typed({
+          strings: [ text ],
+          typeSpeed: 10,
+          startDelay: 500,
+          contentType: 'text',
+          showCursor: false,
+          onStringTyped: function () {
+            if (andThen !== undefined) andThen();
+          }
+        }
+      );
+  }
+
+  function passwordTheft() {
+    typing(".password-reset-box", "butterbeans", function() {
+      $("#phishing-site .browser").addClass("loading")
+      setTimeout(function() {
+        typing("#stolen-password", "butterbeans")
+      }, 2000)
+    })
+  }
+
+  $(".recalculate-dkim").on('change keyup', function() {
+    setTimeout(recalculateDKIM, 10);
+  })
+
+  function recalculateDKIM() {
+    var to      = $("input.to").val();
+    var subject = $("input.subject").val();
+    var body    = $("input.body").val();
+
+    var signature = generateDKIMSignature({
+          'To':           to,
+          'From':         'user@email.com',
+          'Subject':      subject,
+          'Content-Type': 'text/plain'
+        },
+        body,
+        'email.com',
+        'dkim',
+        'Oh No A Spooky Skeleton');
+
+    $("#dkim-headers .value.to").text(to);
+    $("#dkim-headers .value.subject").text(subject);
+    $("#dkim-headers .value.body").text(body);
+    $("#dkim-headers .value.signature").text(signature);
+  }
+</script>
+
+<script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cryptico-e1e60f57a5dadbe69869e102f24636f2c8637a7947541d26523c0cab6701f55a.js"></script>
+<script src="../../d1o5lmfp4gliop.cloudfront.net/assets/dkim-973542cc760729af25cbd7614f3e1e97994f095d47d6b744aa033eb55242759b.js"></script>
+
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/email-spoofing by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:23 GMT -->
+</html>

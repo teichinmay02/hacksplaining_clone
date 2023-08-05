@@ -1,0 +1,266 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 03 Aug 2023 18:16:21 at https://www. .com/ http://www. .com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+  
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.hacksplaining.com/ http://www.hacksplaining.com/ -O1 "C:\My Web Sites\hackshplain" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+
+
+Information, Warnings and Errors reported for this mirror:
+
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+  
+	such as username/password authentication for websites  his project 
+  
+	do not share these files/folders if you want these inf emain private 
+  
+  
+  
+18:17:05	Error: 	"Not Found" (404) at link https://www. signers/subtlepatterns/patterns/hip-square.png (from https://d1o5lmfp4gliop.c /assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css)
+  
+18:17:48	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2 (from https://www.hacksplaining.com/login) 
+  
+18:17:48	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook (from https://www.hacksplaining.com/login) 
+  
+18:17:48	Error: 	"Not Found" (404) at link https://www. .com/auth/github (from https://www.hacksplaining.com/login) 
+  
+18:17:48	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin (from https://www.hacksplaining.com/login) 
+  
+18:17:56	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fdirectory-traversal (from https://www. .com/login?next=%2Fexercises%2Fdirectory-traversal)
+  
+18:17:56	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fdirectory-traversal (from https://ww ng.com/login?next=%2Fexercises%2Fdirectory-traversal)
+  
+18:17:56	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fdirectory-traversal (from https://www.hacksplai n?next=%2Fexercises%2Fdirectory-traversal)
+  
+18:17:56	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fdirectory-traversal (from https://www. .com/login?next=%2Fexercises%2Fdirectory-traversal)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/purchased (from https://www.hacksplaining.com/purchase) 
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fbroken-access-control (from ht ksplaining.com/login?next=%2Fexercises%2Fbroken-access-control)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fbroken-access-control (from https://www.hack /login?next=%2Fexercises%2Fbroken-access-control)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fbroken-access-control (from https://www g.com/login?next=%2Fexercises%2Fbroken-access-control)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fbroken-access-control (from https://www. .com/login?next=%2Fexercises%2Fbroken-access-control)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Finsecure-design (from https: aining.com/login?next=%2Fexercises%2Finsecure-design)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Finsecure-design (from https://www.ha om/login?next=%2Fexercises%2Finsecure-design)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Finsecure-design (from https://w ing.com/login?next=%2Fexercises%2Finsecure-design)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Finsecure-design (from https://www.hacks login?next=%2Fexercises%2Finsecure-design)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Finformation-leakage (from h cksplaining.com/login?next=%2Fexercises%2Finformation-leakage)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Finformation-leakage (from https laining.com/login?next=%2Fexercises%2Finformation-leakage)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Finformation-leakage (from  acksplaining.com/login?next=%2Fexercises%2Finformation-leakage)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Finformation-leakage (from https: aining.com/login?next=%2Fexercises%2Finformation-leakage)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Flax-security-setting ://www.hacksplaining.com/login?next=%2Fexercises%2Flax-security-settings)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Flax-security-settings (from https:// ning.com/login?next=%2Fexercises%2Flax-security-settings)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Flax-security-settings (from htt splaining.com/login?next=%2Fexercises%2Flax-security-settings)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Flax-security-settings (from https://www.hacksplai n?next=%2Fexercises%2Flax-security-settings)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Ftoxic-dependencies (from https://www. .com/login?next=%2Fexercises%2Ftoxic-dependencies)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Ftoxic-dependencies (from http plaining.com/login?next=%2Fexercises%2Ftoxic-dependencies)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Ftoxic-dependencies (from hacksplaining.com/login?next=%2Fexercises%2Ftoxic-dependencies)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Ftoxic-dependencies (from https:/ ining.com/login?next=%2Fexercises%2Ftoxic-dependencies)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fprivilege-escalation //www.hacksplaining.com/login?next=%2Fexercises%2Fprivilege-escalation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fprivilege-escalation (f ww.hacksplaining.com/login?next=%2Fexercises%2Fprivilege-escalation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fprivilege-escalati s://www.hacksplaining.com/login?next=%2Fexercises%2Fprivilege-escalation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fprivilege-escalation (from https laining.com/login?next=%2Fexercises%2Fprivilege-escalation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fsession-fixation (fr w.hacksplaining.com/login?next=%2Fexercises%2Fsession-fixation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fsession-fixation (from https:/ ining.com/login?next=%2Fexercises%2Fsession-fixation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fsession-fixation (from ht ksplaining.com/login?next=%2Fexercises%2Fsession-fixation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fsession-fixation (from https://ww ng.com/login?next=%2Fexercises%2Fsession-fixation)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fweak-session (from ht ksplaining.com/login?next=%2Fexercises%2Fweak-session)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fweak-session (from https://www.hacksplaining xt=%2Fexercises%2Fweak-session)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fweak-session (from https://www.hackspla in?next=%2Fexercises%2Fweak-session)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fweak-session (from https://www.hack /login?next=%2Fexercises%2Fweak-session)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fregex-injection (from h cksplaining.com/login?next=%2Fexercises%2Fregex-injection)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fregex-injection (from https://www.hackspl gin?next=%2Fexercises%2Fregex-injection)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fregex-injection (from https://www.ha om/login?next=%2Fexercises%2Fregex-injection)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fregex-injection (from https://www g.com/login?next=%2Fexercises%2Fregex-injection)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fexercises%2Fxss-dom (from https:/ ining.com/login?next=%2Fexercises%2Fxss-dom)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fexercises%2Fxss-dom (from https://www.hacks login?next=%2Fexercises%2Fxss-dom)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fexercises%2Fxss-dom (from https://www. .com/login?next=%2Fexercises%2Fxss-dom)
+  
+18:18:14	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fexercises%2Fxss-dom (from https://www.hacksplaining.c =%2Fexercises%2Fxss-dom)
+  
+18:18:43	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fquiz%2Fsql-injection (from https://www.ha om/join?next=%2Fquiz%2Fsql-injection)
+  
+18:18:43	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fquiz%2Fsql-injection (from https://www.hackspla n?next=%2Fquiz%2Fsql-injection)
+  
+18:18:43	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fquiz%2Fsql-injection (from https://www.hac m/join?next=%2Fquiz%2Fsql-injection)
+  
+18:18:43	Error: 	"Not Found" (404) at link https://www. .com/auth/linkedin?next=%2Fquiz%2Fsql-injection (from https:// ning.com/join?next=%2Fquiz%2Fsql-injection)
+  
+18:18:44	Error: 	"Not Found" (404) at link https://www. .com/auth/google_oauth2?next=%2Fquiz%2Fcommand-executio ://www.hacksplaining.com/join?next=%2Fquiz%2Fcommand-execution)
+  
+18:18:44	Error: 	"Not Found" (404) at link https://www. .com/auth/facebook?next=%2Fquiz%2Fcommand-execution (from https://www.hacksplaining t=%2Fquiz%2Fcommand-execution)
+  
+18:18:44	Error: 	"Not Found" (404) at link https://www. .com/auth/github?next=%2Fquiz%2Fcommand-execution (from https://www.hackspla n?next=%2Fquiz%2Fcommand-execution)
+  
+18:18:44	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fcommand-execution (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fcommand-execution)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fexercises%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/login?next=%2Fexercises%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fexercises%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/login?next=%2Fexercises%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fexercises%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/login?next=%2Fexercises%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fexercises%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/login?next=%2Fexercises%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fxss-stored (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-stored)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fxss-stored (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-stored)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fxss-stored (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-stored)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fxss-stored (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-stored)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fclick-jacking (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fclick-jacking)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fclick-jacking (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fclick-jacking)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fclick-jacking (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fclick-jacking)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fclick-jacking (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fclick-jacking)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fcsrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fcsrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fcsrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fcsrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fcsrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fcsrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fcsrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fcsrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fxss-reflected (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-reflected)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fxss-reflected (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-reflected)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fxss-reflected (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-reflected)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fxss-reflected (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fxss-reflected)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Ffile-upload (from https://www.hacksplaining.com/join?next=%2Fquiz%2Ffile-upload)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Ffile-upload (from https://www.hacksplaining.com/join?next=%2Fquiz%2Ffile-upload)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Ffile-upload (from https://www.hacksplaining.com/join?next=%2Fquiz%2Ffile-upload)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Ffile-upload (from https://www.hacksplaining.com/join?next=%2Fquiz%2Ffile-upload)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fopen-redirects (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fopen-redirects)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fopen-redirects (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fopen-redirects)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fopen-redirects (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fopen-redirects)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fopen-redirects (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fopen-redirects)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Funencrypted-communication (from https://www.hacksplaining.com/join?next=%2Fquiz%2Funencrypted-communication)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Funencrypted-communication (from https://www.hacksplaining.com/join?next=%2Fquiz%2Funencrypted-communication)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Funencrypted-communication (from https://www.hacksplaining.com/join?next=%2Fquiz%2Funencrypted-communication)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Funencrypted-communication (from https://www.hacksplaining.com/join?next=%2Fquiz%2Funencrypted-communication)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fuser-enumeration (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fuser-enumeration)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fuser-enumeration (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fuser-enumeration)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fuser-enumeration (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fuser-enumeration)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fuser-enumeration (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fuser-enumeration)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fpassword-mismanagement (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fpassword-mismanagement)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fpassword-mismanagement (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fpassword-mismanagement)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fpassword-mismanagement (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fpassword-mismanagement)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fpassword-mismanagement (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fpassword-mismanagement)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Femail-spoofing (from https://www.hacksplaining.com/join?next=%2Fquiz%2Femail-spoofing)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Femail-spoofing (from https://www.hacksplaining.com/join?next=%2Fquiz%2Femail-spoofing)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Femail-spoofing (from https://www.hacksplaining.com/join?next=%2Fquiz%2Femail-spoofing)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Femail-spoofing (from https://www.hacksplaining.com/join?next=%2Fquiz%2Femail-spoofing)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fmalvertising (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fmalvertising)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fmalvertising (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fmalvertising)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fmalvertising (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fmalvertising)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fmalvertising (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fmalvertising)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Flogging-and-monitoring (from https://www.hacksplaining.com/join?next=%2Fquiz%2Flogging-and-monitoring)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Flogging-and-monitoring (from https://www.hacksplaining.com/join?next=%2Fquiz%2Flogging-and-monitoring)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Flogging-and-monitoring (from https://www.hacksplaining.com/join?next=%2Fquiz%2Flogging-and-monitoring)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Flogging-and-monitoring (from https://www.hacksplaining.com/join?next=%2Fquiz%2Flogging-and-monitoring)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fbuffer-overflows (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fbuffer-overflows)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fbuffer-overflows (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fbuffer-overflows)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fbuffer-overflows (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fbuffer-overflows)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fbuffer-overflows (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fbuffer-overflows)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fssrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fssrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fssrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fssrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fssrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fssrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fssrf (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fssrf)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/google_oauth2?next=%2Fquiz%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/facebook?next=%2Fquiz%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/github?next=%2Fquiz%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fdenial-of-service-attacks)
+
+18:18:45	Error: 	"Not Found" (404) at link https://www.hacksplaining.com/auth/linkedin?next=%2Fquiz%2Fdenial-of-service-attacks (from https://www.hacksplaining.com/join?next=%2Fquiz%2Fdenial-of-service-attacks)
+
+
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 24 seconds : 493 links scanned, 368 files written (50049492 bytes overall) [46422530 bytes received at 322378 bytes/sec], 5918910 bytes transferred using HTTP compression in 13 files, ratio 32%, 21.9 requests per connection
+
+(122 errors, 0 warnings, 0 messages)
+

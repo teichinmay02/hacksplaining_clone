@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/prevention/csrf by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Protecting Your Users Against CSRF</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="9KZeARSVkXtgi/HYPfkW6r5yQW8tkGi8skq8we08hmhtttMzlc/xRa2lfFGSQWwNWsvVQTgfdXXRPtiQrzfemw==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/prevention/csrf" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Protecting Your Users Against CSRF" />
+<meta property="og:description"  content="If an attacker can forge HTTP requests to your site, they may be able to trick your users into triggering unintended actions. This is very bad for your users. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/csrf/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="If an attacker can forge HTTP requests to your site, they may be able to trick your users into triggering unintended actions. This is very bad for your users. →" />
+
+<meta name="twitter:title"       content="Protecting Your Users Against CSRF">
+<meta name="twitter:description" content="If an attacker can forge HTTP requests to your site, they may be able to trick your users into triggering unintended actions. This is very bad for your users. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="light-background logged-out prevention  unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      <div class="header">
+  <nav class="navbar navbar-expand-lg ">
+
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsing-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+      <span class="navbar-brand logo">
+        <a href="../index.html">
+          <div class="title"> </div>
+        </a>
+      </span>
+
+      <div class="navbar-collapse collapse justify-content-end" id="collapsing-menu">
+
+        <div class="navbar-nav mr-auto">
+
+        </div>
+
+        <ul class="navbar-nav justify-content-end">
+
+
+            <li class="nav-item nav-features"><a class="nav-link" href="../features.html">Features</a></li>
+            <li class="nav-item nav-lessons"><a class="nav-link" href="../lessons.html">Lessons</a></li>
+            <li class="nav-item nav-enterprise"><a class="nav-link" href="../enterprise.html">Enterprise</a></li>
+            <li class="nav-item nav-owasp top 10"><a class="nav-link" href="../owasp.html">OWASP Top 10</a></li>
+            <li class="nav-item nav-pci compliance"><a class="nav-link" href="../pci.html">PCI Compliance</a></li>
+            <li class="nav-item nav-the book"><a class="nav-link" href="../book.html">The Book</a></li>
+            <li class="nav-item nav-login"><a class="nav-link" href="../login.html">Login</a></li>
+            <li class="nav-item nav-signup"><a class="nav-link" href="../join.html">SignUp</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+
+      
+<script>
+  hljs.configure({ classPrefix: 'code-' });
+  hljs.highlightAll();
+</script>
+
+<div class="main reading csrf">
+
+  <div class="container">
+    <div class="row prevention-tips has-sponsor">
+      <div class="row title modest">
+        Protecting Your Users Against CSRF
+      </div>
+
+      
+<p><strong>Cross-site request forgery</strong> (CSRF) vulnerabilities can be used to trick a 
+user’s browser into performing an unwanted action on your site.</p>
+
+
+
+      <h3 id="risks">Risks</h3>
+
+      <div class="ratings">
+  <div class="rating prevalence common">
+    <div class="category">
+      <span class="category-label">
+        Prevalence
+      </span>
+
+      <span class="description">
+        Common
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons prevalence common">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+      </div>
+   </div>
+  </div>
+
+  <div class="rating exploitability easy">
+    <div class="category">
+      <span class="category-label">
+        Exploitability
+      </span>
+
+      <span class="description">
+        Easy
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons exploitability easy"">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="rating impact harmful">
+    <div class="category">
+      <span class="category-label">
+        Impact
+      </span>
+
+      <span class="description">
+        Harmful
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons impact harmful">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+      <p>Any function that your users can perform deliberately is something they
+can be tricked into performing inadvertently using CSRF. As we saw in our
+<a href="../exercises/csrf.html">example</a>, in the most malign cases, CSRF
+attacks can spread themselves as a <a href="../glossary.html">worm</a>.</p>
+
+<p>CSRF attacks in the past have been used to:</p>
+
+<ul>
+  <li><a href="https://www.darkreading.com/perimeter/hacker-steals-data-on-18m-auction-customers-in-south-korea">Steal confidential data.</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Samy_(computer_worm)">Spread worms on social media.</a></li>
+  <li><a href="https://www.zdnet.com/article/bug-allowed-full-takeover-of-samsung-user-accounts/">Install malware on mobile phones.</a></li>
+</ul>
+
+<p>It is hard to estimate the prevalence of CSRF attacks; often the only
+evidence is the malicious effects caused by the attack. CSRF is routinely
+described as one of the top-ten security vulnerabilities by <a href="../glossary.html">OWASP</a>.</p>
+
+
+
+
+      <h3 id="protection">Protection</h3>
+
+<p>Websites consist of a combination of client-side and server-side code. The
+client-side code is HTML and JavaScript that is rendered by and executed in the 
+browser. This allows users to navigate to other URLs on your site, submit HTML
+forms to the server, and trigger AJAX requests via JavaScript. Your server-side
+code will intercept the data sent in the HTTP request, and act upon it 
+appropriately.</p>
+
+<p><strong>These server-side actions can also be triggered by forged HTTP requests,
+unless you explicitly put in protective measures.</strong> A CSRF attack occurs when a
+malicious actor tricks a victim into clicking on a link, or running some 
+code, that triggers a forged request. (This malicious code is typically 
+hosted on a website owned by the attacker, on another domain – 
+hence the “cross-domain” denomination.)</p>
+
+<p>Protecting against CSRF (commonly pronounced “sea-surf”) requires two things:
+ensuring that GET requests are side-effect free, and ensuring that non-GET requests
+can only be originated from your client-side code.</p>
+
+<h6 id="rest">REST</h6>
+
+<p><a href="../glossary.html">Representation State Transfer (REST)</a> is a series of design 
+principles that assign certain types of action (view, create, delete, update) to 
+different <a href="../glossary.html">HTTP verbs</a>. Following REST-ful designs will keep 
+your code clean and help your site scale. Moreover, REST insists that GET 
+requests are used only to <em>view</em> resources. Keeping your GET requests 
+side-effect free will limit the harm that can be done by maliciously crafted 
+URLs–an attacker will have to work much harder to generate harmful POST 
+requests.</p>
+
+<h6 id="anti-forgery-tokens">Anti-Forgery Tokens</h6>
+
+<p>Even when edit actions are restricted to non-GET requests, you are not entirely 
+protected. POST requests can still be sent to your site from scripts and pages 
+hosted on other domains. In order to ensure that you only handle valid HTTP requests you 
+need to include a <strong>secret</strong> and <strong>unique</strong> token with each HTTP response, and 
+have the server verify that token when it is passed back in subsequent requests
+that use the POST method (or any other method except GET, in fact.)</p>
+
+<p>This is called an <strong>anti-forgery</strong> token. Each time your server renders a page 
+that performs sensitive actions, it should write out an anti-forgery token in a 
+hidden HTML form field. This token must be included with form submissions, 
+or AJAX calls. The server should validate the token when it is returned in 
+subsequent requests, and reject any calls with missing or invalid tokens.</p>
+
+<p>Anti-forgery tokens are typically (strongly) random numbers that are stored
+in a cookie or on the server as they are written out to the hidden field. The 
+server will compare the token attached to the inbound request with the value 
+stored in the cookie. If the values are identical, the server will accept the valid HTTP request.</p>
+
+<p>Most modern frameworks include functions to make adding anti-forgery tokens 
+fairly straightforward. See the <a href="#code-samples">code samples</a> below.</p>
+
+<h6 id="ensure-cookies-are-sent-with-the-samesite-cookie-attribute">Ensure Cookies are sent with the SameSite Cookie Attribute</h6>
+
+<p>The Google Chrome team added a new attribute to the <code>Set-Cookie</code> header 
+to help prevent CSRF, and it quickly became supported by the other browser
+vendors. The <code>Same-Site</code> cookie attribute allows developers to instruct 
+browsers to control whether cookies are sent along with the request 
+initiated by third-party domains.</p>
+
+<p>Setting a Same-Site attribute to a cookie is quite simple:</p>
+
+<pre><code>Set-Cookie: CookieName=CookieValue; SameSite=Lax;
+Set-Cookie: CookieName=CookieValue; SameSite=Strict;
+</code></pre>
+
+<p>A value of <code>Strict</code> will mean than <em>any</em> request initiated by a third-party
+domain to <em>your</em> domain will have any cookies stripped by the browser. 
+This is the most secure setting, since it prevents malicious sites 
+attempting to perform harmful actions under a user’s session.</p>
+
+<p>A value of <code>Lax</code> permits GET request from a third-party domain to <em>your</em> 
+domain to have cookies attached - but <em>only</em> GET  requests. With this 
+setting a user will not have to sign in again to your site if the follow
+a link from another site (say, Google search results). This makes for a 
+friendlier user-experience - but make sure your GET requests are 
+side-effect free!</p>
+
+<h6 id="include-addition-authentication-for-sensitive-actions">Include Addition Authentication for Sensitive Actions</h6>
+
+<p>Many sites require a secondary authentication step, or require re-confirmation
+of login details when the user performs a sensitive action. (Think of a typical
+password reset page – usually the user will have to specify their old password
+before setting a new password.) Not only does this protect users who may 
+accidentally leave themselves logged in on publicly accessible computers, but 
+it also greatly reduces the possibility of CSRF attacks.</p>
+
+<h3 id="code-samples">Code Samples</h3>
+
+<a class="toggle collapsed" data-bs-toggle="collapse" href="#python0bf4b568-5aa6-49a6-a36b-98264285c97e-examples" aria-expanded="false" aria-controls="python0bf4b568-5aa6-49a6-a36b-98264285c97e-examples"><h5 id="python">Python</h5></a><span id="python0bf4b568-5aa6-49a6-a36b-98264285c97e-examples" class="collapse">
+
+<h6 id="django">Django</h6>
+
+<p>To enable CSRF protection in Django,
+<a href="https://docs.djangoproject.com/en/3.1/ref/csrf/">configure your middleware</a>
+appropriately. Then add anti-forgery tokens to your HTML forms in the
+following manner:</p>
+
+<pre class="good"><code class="language-html">
+&lt;form action="." method="post"&gt;
+  {% csrf_token %}
+&lt;/form&gt;  
+
+</code></pre>
+
+<p>Tokens can be checked using a
+<a href="https://docs.djangoproject.com/en/1.8/_modules/django/template/context_processors/">pre-processor</a>,
+or manually.</p>
+
+<h6 id="flask">Flask</h6>
+
+<p>The <a href="https://flask-wtf.readthedocs.io/en/1.0.x/"><code>flask-wtf</code></a> makes is eady to add anti-forgery 
+tokens to your HTML forms. Simply wrap your Flask app in a <code>CSRFProtect</code> object:</p>
+
+<pre class="good"><code class="language-python">
+from flask import Flask
+from flask_wtf.csrf import CSRFProtect
+
+csrf = CSRFProtect()
+
+def create_app():
+    app = Flask(__name__)
+    csrf.init_app(app)
+    
+</code></pre>
+
+<p>Then you can add anti-forgery tokens to HTML forms:</p>
+
+<pre class="good"><code class="language-html">
+&lt;form method="post"&gt;
+    {{ form.csrf_token }}
+&lt;/form&gt;
+   
+</code></pre>
+
+<p>…or incorporate them in AJAX calls:</p>
+
+<pre><code class="language-javascript">
+var csrf_token = "{{ csrf_token() }}";
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) &amp;&amp; !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrf_token);
+        }
+    }
+});
+
+</code></pre>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#ruby54d6f5cb-fffd-4ea9-b831-7059be80458d-examples" aria-expanded="false" aria-controls="ruby54d6f5cb-fffd-4ea9-b831-7059be80458d-examples"><h5 id="ruby">Ruby</h5></a><span id="ruby54d6f5cb-fffd-4ea9-b831-7059be80458d-examples" class="collapse">
+
+<h6 id="rails">Rails</h6>
+
+<p>Rails includes CSRF counter-measures 
+<a href="https://guides.rubyonrails.org/security.html#csrf-countermeasures">out-of-the-box</a>.
+Protecting against CSRF is usually as simple as adding the following snippet in 
+your Rails controller:</p>
+
+<pre><code class="language-ruby">
+protect_from_forgery with: :exception
+
+</code></pre>
+
+<p>Rails will handle the rest of the logic – CSRF tokens will be included in any 
+HTML form, and validated when they are received back in non-GET requests.</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#javaa7decbf7-a99b-499c-9403-9e9e230f99b0-examples" aria-expanded="false" aria-controls="javaa7decbf7-a99b-499c-9403-9e9e230f99b0-examples"><h5 id="java">Java</h5></a><span id="javaa7decbf7-a99b-499c-9403-9e9e230f99b0-examples" class="collapse">
+
+<p><a href="https://owasp.org/www-project-csrfguard/">OWASP</a>
+has a standard library for CSRF protection in Java. If you need stateless
+sessions, <a href="https://blog.jdriven.com/2014/10/stateless-spring-security-part-1-stateless-csrf-protection/">review this example</a>.</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#c35fa854863-4a7f-47e3-95b9-6d7bdc8d4b1a-examples" aria-expanded="false" aria-controls="c35fa854863-4a7f-47e3-95b9-6d7bdc8d4b1a-examples"><h5 id="c35">C#</h5></a><span id="c35fa854863-4a7f-47e3-95b9-6d7bdc8d4b1a-examples" class="collapse">
+
+<p><a href="https://docs.microsoft.com/en-us/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages">This Microsoft</a>
+article illustrates how anti-XSRF tokens are implemented in .NET.</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#node09bb0dea-8881-47ec-9be5-ff4d2196c807-examples" aria-expanded="false" aria-controls="node09bb0dea-8881-47ec-9be5-ff4d2196c807-examples"><h5 id="node">Node</h5></a><span id="node09bb0dea-8881-47ec-9be5-ff4d2196c807-examples" class="collapse">
+
+<h6 id="express">Express</h6>
+
+<p>The <a href="https://github.com/expressjs/csurf">express/csurf</a> library implements CSRF 
+protection for Express.</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#phpb1697dcd-886b-47ee-9574-a49946cbf159-examples" aria-expanded="false" aria-controls="phpb1697dcd-886b-47ee-9574-a49946cbf159-examples"><h5 id="php">PHP</h5></a><span id="phpb1697dcd-886b-47ee-9574-a49946cbf159-examples" class="collapse">
+
+<p><a href="https://wiki.owasp.org/index.php/PHP_CSRF_Guard">OWASP</a> has a description of 
+how to implement CSRF protection in PHP.</p>
+
+</span><h3 id="further-reading">Further Reading</h3>
+
+<ul>
+  <li><a href="https://www.acunetix.com/websitesecurity/csrf-attacks/?utm_source= &amp;utm_medium=post&amp;utm_campaign=articlelink">CSRF Attacks, XSRF or Sea-Surf</a></li>
+  <li><a href="https://www.netsparker.com/blog/web-security/same-site-cookie-attribute-prevent-cross-site-request-forgery/">Using the Same-Site Cookie Attribute to Prevent CSRF Attacks</a></li>
+</ul>
+
+
+    </div>
+
+      
+
+
+
+  </div>
+
+
+    <div class="container">
+      <div class="row quiz-link">
+        <a href="../joind077.html?next=%2Fquiz%2Fcsrf">
+          <div class="link-question">
+            Got all that?
+          </div>
+
+          <div class="link-link">
+            Test Yourself →
+          </div>
+
+          <div class="link-caption">
+            <div>Take our quiz to make sure everything is clear</div>
+          </div>
+</a>      </div>
+    </div>
+
+
+
+</div>
+
+      
+  <footer class="regular">
+  <div class="container">
+    <ul>
+      <li>
+        <a href="../lessons.html">Lessons</a>
+      </li>
+      <li>
+        <a href="../glossary.html">Glossary</a>
+      </li>
+      <li>
+        <a href="../privacy.html">Privacy</a>
+      </li>
+      <li>
+        <a href="../legal.html">Legal</a>
+      </li>
+
+      <li class="pull-right copyright">
+          <a class="contact-us"
+             title="Get in touch"
+             href="mailto:question@ .com"
+             rel="noopener noreferrer">
+            <span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+
+        <a href="../index.html">
+          <span style="font-family: 'Oxygen'">©</span> 2023  
+</a>      </li>
+    </ul>
+  </div>
+</footer>
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/prevention/csrf by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:09 GMT -->
+</html>

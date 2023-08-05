@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/logging-and-monitoring by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Logging and Monitoring</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="AnIhEvq2W7FvS5VYfpUOdbMjzTPNpSmyULdugdVk7KWbYqwge+w7j6JlGNHRLXSSV5pZHdgqNHszwwrQl2+0Vg==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/logging-and-monitoring" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Logging and Monitoring" />
+<meta property="og:description"  content="Comprehensive logging and monitoring will tell you what your site is doing at runtime, which is key to spotting security events Let&#39;s learn how to log and monitor your website&#39;s operations. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="Comprehensive logging and monitoring will tell you what your site is doing at runtime, which is key to spotting security events Let&#39;s learn how to log and monitor your website&#39;s operations. →" />
+
+<meta name="twitter:title"       content="Logging and Monitoring">
+<meta name="twitter:description" content="Comprehensive logging and monitoring will tell you what your site is doing at runtime, which is key to spotting security events Let&#39;s learn how to log and monitor your website&#39;s operations. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises logging_and_monitoring unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          Logging and Monitoring
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/icon.gif')"></div>
+
+  <div class="strip">
+    Logging and Monitoring
+  </div>
+  <div class="blurb">
+
+    <p>Comprehensive logging and monitoring will tell you what your site is doing at runtime, which is key to spotting security events</p>
+
+    <p>
+      <strong>
+        Let's learn how to log and monitor your website's operations.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="Logging and Monitoring"
+             data-id="logging_and_monitoring"
+             data-captions="on" >
+
+          
+        <div id="logging-and-monitoring" class="container">
+  <div class="row top" style="height: 200px">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+      <a class="unselectable" href="#logging"><div id="start" class=" instruction" introductory="true"><p>It’s important to be able observe your web application at runtime, so you can detect issues as they occur and diagnose bugs. To do this effectively, you need to pay attention to how you implement <strong>logging and monitoring</strong>.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#web-server-logs"><div id="logging" class=" instruction" show="#logging-illustration" trigger="startLogging"><p><strong>Logging</strong> refers to having an application write a record of each event that occurs to a file on disk. These “log files” can be read by administrators to analyse what the application was doing at a given point in time.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#code-logging"><div id="web-server-logs" class=" instruction" show="#web-server-logging" trigger="startWebLogging"><p>Web servers typically log a record of each HTTP request they handle, along with a timestamp, the URL and HTTP method, and the HTTP response code.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#log-levels"><div id="code-logging" class=" instruction" show="#code-logs,#code-logs-output" trigger="stopLogging"><p>You should add logging statements to your code to record important events that occur. Each logging statement added to the log file should have a timestamp, and be traceable to a given code file and line number.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#realtime"><div id="log-levels" class=" instruction" show="#log-debug,#log-info,#log-warning" trigger="startLevelsLogging"><p>Logging packages allow you tag each log statement with a <strong>log level</strong>, indicating how significant the event is. This will allow administrators to filter out irrelevant rows form the log file by setting the appropriate configuration.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#storage"><div id="realtime" class=" instruction" show="#log-server" trigger="startShippedLogs"><p>Log files from different services should be viewable at runtime, which means shipping them to a central <strong>log server</strong>. Log servers allow administrators to view consolidated log files in realtime, either via the command line or a dedicated web-console.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#securing-log"><div id="storage" class=" instruction" show="#log-archives"><p>Log files should also be retained for as long as reasonably possible, since old log files can be analyzed to detect attacks or troubleshoot issues. In many industries, keeping old logs files is required by law, so be sure to back them up!</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#data-overload"><div id="securing-log" class=" instruction" show="#insecure-logs"><p>Be careful not to write confidential information like user passwords or personally identifiable information in log files in case an attacker gets hold of them. Store your log files in a secure location (preferably encrypted) for the same reason.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#metrics"><div id="data-overload" class=" instruction" show="#log-data-overload"><p>Log files are very verbose by their nature, so you should use <strong>monitoring</strong> to detect trends in your logged output. You can’t possibly read all of that data in its raw form!</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#error-reporting"><div id="metrics" class=" instruction" show="#website-metrics"><p>Monitoring frequently measures key <strong>metrics</strong> for your web-server, like response times, throughput, server loads and memory usage. This can be rolled up into a monitoring dashboard to make it easy to diagnose the health of the website.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#alerting"><div id="error-reporting" class=" instruction" show="#website-errors"><p>Monitoring can also be used to pick up unexpected or suspicious errors, which can often be an indicator of a cyber-attack. At the very least, you should be collecting records of errors that occur so you can fix any underlying bugs.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#try-it"><div id="alerting" class=" instruction" show="#alerts,#amy-bed"><p>It’s not reasonable to expect administrators to observe your website 24/7, so unusual conditions picked up by your monitoring should trigger <strong>alerts</strong> via email, instant message or text. Make sure the alert “thresholds” are set correctly though, or else you will be getting team-members out of bed constantly!</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#response-plan"><div id="try-it" class=" instruction" show=".interactive-exercise" trigger="startBruteForceAttack"><p>Observe how the logs for this web-server can be used to detect an attempt to brute-force the login screen. Configure an alert that will cause an the administrator to be notified.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#finish"><div id="response-plan" class=" instruction" show="#response-plan-illustration"><p>Finally, make sure you have a <strong>response plan</strong> to follow when alerts are raised! This should be a living document that includes trouble-shooting steps such as restarting servers or adjusting firewalls in response to the problem.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="../prevention/logging-and-monitoring.html"><div id="finish" class=" instruction"><div class="icon"><img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" /></div><div class="message"><p>That’s a lot to keep on top of! Let’s break everything down in a more concrete fashion.</p>
+</div><div class="next"></div></div></a>
+
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 illustrations">
+
+      <div id="logging-illustration" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./application.log</div>
+          <div id="log" class="contents"></div>
+        </div>
+      </div>
+
+      <div id="web-server-logging" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f /var/log/apache2/access.log</div>
+          <div id="web-server-log"  class="contents"></div>
+        </div>
+      </div>
+
+      <div id="log-server" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./application.log</div>
+          <div id="shipped-logs" class="contents"></div>
+        </div>
+        <img class="log-shipping" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/logging-and-monitoring/log-shipping-5a40e4635730533cd45ad183989fd04334e04ae9250f5e639e71dba688473fc7.png" />
+      </div>
+
+      <div id="log-archives" class="hide-by-default initially-hidden">
+        <div class="code-window">
+          <div class="heading">/var/logs/archives</div>
+          <div class="contents">
+<pre><strong>user@localhost:$</strong> ls *
+
+logs-2019-01-01.zip   logs-2019-01-09.zip   logs-2019-01-17.zip  logs-2019-01-25.zip
+logs-2019-01-02.zip   logs-2019-01-10.zip   logs-2019-01-18.zip  logs-2019-01-26.zip
+logs-2019-01-03.zip   logs-2019-01-11.zip   logs-2019-01-19.zip  logs-2019-01-27.zip
+logs-2019-01-04.zip   logs-2019-01-12.zip   logs-2019-01-20.zip  logs-2019-01-29.zip
+logs-2019-01-05.zip   logs-2019-01-13.zip   logs-2019-01-21.zip  logs-2019-01-30.zip
+logs-2019-01-06.zip   logs-2019-01-14.zip   logs-2019-01-22.zip  logs-2019-02-01.zip
+logs-2019-01-07.zip   logs-2019-01-15.zip   logs-2019-01-23.zip  logs-2019-02-02.zip
+logs-2019-01-08.zip   logs-2019-01-16.zip   logs-2019-01-24.zip  logs-2019-02-03.zip</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="insecure-logs" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail ./secrets.log</div>
+          <div class="contents">
+
+            <span class="timestamp">12:59:41.2</span>
+            <span class="level level-info">INFO</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">124</span>
+            <span class="message">albert@gmail.com entered password "cowboy77"</span>
+
+            <br>
+
+            <span class="timestamp">12:59:41.8</span>
+            <span class="level level-info">INFO</span>
+            <span class="code-file">payments.py:</span><span class="line-no">429</span>
+            <span class="message">User supplied credit card number 4012888888881881</span>
+
+            <br>
+
+            <span class="timestamp">12:59:43.2</span>
+            <span class="level level-info">INFO</span>
+            <span class="code-file">profile.py:</span><span class="line-no">403&nbsp;</span>
+            <span class="message">User confirmed social security number is 212-33-1829</span>
+
+            <br>
+
+            <span class="timestamp">12:59:43.8</span>
+            <span class="level level-info">INFO</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">124</span>
+            <span class="message">bill@gmail.com entered password "mermaid9"</span>
+
+            <br>
+
+            <span class="timestamp">12:59:48.8</span>
+            <span class="level level-info">INFO</span>
+            <span class="code-file">payments.py:</span><span class="line-no">810</span>
+            <span class="message">User supplied CVC code 819</span>
+
+            <br>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="log-data-overload" class="hide-by-default initially-hidden">
+        <img class="noisy-log" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/logging-and-monitoring/noisy-logs-17c5d2d1da84fcd3c40e4eb3e3bfad496361ba653cb67832cc2aa196659d5606.gif" />
+      </div>
+
+      <div id="website-metrics" class="hide-by-default initially-hidden">
+        <img class="example-metrics" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/logging-and-monitoring/example-metrics-701eb6327f82e6387c20ce95fb00a9010853bcedfba8658b2e64030905f3272c.png" />
+      </div>
+
+      <div id="website-errors" class="hide-by-default initially-hidden">
+        <img class="error-reporting" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/logging-and-monitoring/error-reporting-39a355c993edb0d492d11296c27a1b5e51645f41d128ec0efcf2861754b88fbc.png" />
+      </div>
+
+      <div id="amy-bed" class="hide-by-default initially-hidden">
+        <img class="amy-bed" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/amy-bed-41a1b123b25e05b7b1ccdd472c8fa151b89091012b7f2224667ff8f1f5967b7d.png" />
+      </div>
+
+      <div id="response-plan-illustration" class="hide-by-default initially-hidden">
+        <img class="troubleshooting" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/amy-checklist-3ee626b0100675722b43b10d6204580d84183fdfa26bfc1e155fad651f0a98d3.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 illustrations">
+      <div id="code-logs" class="hide-by-default initially-hidden">
+        <div class="code-window">
+          <div class="heading">sessions.py</div>
+          <div class="contents">
+<pre id="example-logging-code" class="snippet">
+<code class="python hljs">import logging
+
+def establish_session(user_id)
+  logging.info("Establishing session for user: {}".format(user_id))
+
+  user = find_user(user_id)
+
+  if not user:
+    logging.error("Unable to find user {}!".format(user_id))
+    raise UserNotFoundException(user_id)
+
+  login_user(user)
+
+  logging.info("Established session for user: {}".format(user_id))
+  logging.debug("Last logged in: {}".format(user.last_login_time))
+
+  return user</code>
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 illustrations">
+      <div id="code-logs-output" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./application.log</div>
+          <div class="contents">
+            <span class="timestamp">12:59:41.2</span>
+            <span class="level level-info">INFO&nbsp;</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">4&nbsp;</span>
+            <span class="message">Establishing session for user: 3892</span>
+
+            <br>
+
+            <span class="timestamp">12:59:41.8</span>
+            <span class="level level-error">ERROR</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">9&nbsp;</span>
+            <span class="message">Unable to find user 3892!</span>
+
+            <br>
+
+            <span class="timestamp">12:59:43.2</span>
+            <span class="level level-info">INFO&nbsp;</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">4&nbsp;</span>
+            <span class="message">Establishing session for user: 94012</span>
+
+            <br>
+
+            <span class="timestamp">12:59:43.8</span>
+            <span class="level level-info">INFO&nbsp;</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">19</span>
+            <span class="message">Established session for user: 94012</span>
+
+            <br>
+
+            <span class="timestamp">12:59:43.8</span>
+            <span class="level level-debug">DEBUG</span>
+            <span class="code-file">sessions.py:</span><span class="line-no">21</span>
+            <span class="message">Last logged in: 3 days ago</span>
+
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div id="log-debug" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./debug.log</div>
+          <div id="debug-log" class="contents level-log"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="log-info" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./info.log</div>
+          <div id="info-log" class="contents level-log"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="log-warning" class="hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./warnings.log</div>
+          <div id="warning-log" class="contents level-log"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 illustrations">
+      <div id="brute-force-attack" class="interactive-exercise hide-by-default initially-hidden">
+        <div class="log-window">
+          <div class="heading">tail -f ./application.log</div>
+          <div id="brute-force-logs" class="contents"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 illustrations">
+      <div id="brute-force-alert" class="interactive-exercise hide-by-default initially-hidden">
+        <div class="configuration-window">
+          <div class="heading">Configure alert</div>
+          <div class="contents">
+            Send an alert when log messages containing the text<br>
+            <input id="log-alert-pattern" type="text" placeholder="Enter pattern"/><br>
+            occur more than <input id="log-alert-threshold" type="number" value="10"/> time(s) per minute.<br>
+            <div id="log-alert-message"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var intervals = []
+
+  function startLogging() {
+    stopLogging()
+    writeLogs("#log", false)
+  }
+
+  function startWebLogging() {
+    stopLogging()
+    writeWebLogs("#web-server-log")
+  }
+
+  function startLevelsLogging() {
+    stopLogging()
+
+    writeLogs(".level-log", false)
+  }
+
+  function startShippedLogs() {
+    stopLogging()
+    writeLogs("#shipped-logs", true)
+  }
+
+  function startBruteForceAttack() {
+    stopLogging()
+    writeLogs("#brute-force-logs", false, generateLogMessageDuringBruteForceAttack)
+  }
+
+  function stopLogging() {
+    console.log(intervals)
+
+    while (intervals.length > 0) {
+      clearInterval(intervals.pop())
+    }
+  }
+
+  Array.prototype.any = function () {
+    return this[Math.floor(Math.random() * this.length)]
+  }
+
+  var COMPONENTS = ['web.1', 'web.2', 'web.1', 'worker.1', 'worker.2', 'api.1', 'api.2', 'admin']
+  var LEVELS     = ['DEBUG', 'DEBUG', 'DEBUG', 'DEBUG', 'INFO', 'INFO', 'INFO', 'INFO', 'INFO', 'WARNING', 'ERROR']
+  var FILES      = ['clock.py', 'handlers.py', 'email.py', 'proxy.py', 'jobs.py', 'application.py', 'util.py', 'downloads.py', 'users.py', 'accounts.py', 'data.py']
+
+  var ACTIONS = {
+    'DEBUG' : {
+      'Database' : [
+        'has %n connection(s)',
+        'terminated connection',
+        'connection acquired after %n attempt(s)'
+      ],'Connection' : [
+        'initiated from %ip',
+        'terminated from %ip',
+        'acknowledged from %ip'
+      ],'Lock' : [
+        'released',
+        'acquired'
+      ],
+      'Failed'      : 'to acquire lock, retrying..',
+      'Initialized' : 'worker',
+      'Terminated'  : 'worker',
+      'Scheduled'   : 'item',
+      'Sprocket'    : [
+        'borked',
+        'de-borked',
+        're-borked',
+        're-cogged',
+        'galumphed'
+      ],
+      'Flange' : [
+        'is in an uncanny state',
+        'could be better',
+        'is exceedingly healthy'
+      ]
+    },
+    'INFO' : {
+      "User %id" : [
+        'logged in',
+        'changed their password',
+        'updated their profile',
+        'sent a friend request',
+        'accepted a friend request',
+        'logged out',
+        'closed their account',
+        'ate some toast',
+        'regrets eating that toast',
+        'has grown a beard'
+      ],
+      "Database" : [
+        'closed connection',
+        'refreshed connection',
+        'completed query in %ms',
+        'fulfilled transaction in %ms',
+        'updated state successfully'
+      ],
+      "API" : [
+        'returned response code 200',
+        'returned response code 200',
+        'returned response code 201',
+        'returned response code 200 after %n retries',
+        'is feeling mildly uncomfortable'
+      ],
+      "Index" : [
+        'is being rebuilt...',
+        'rebuilt successfully'
+      ],
+      "Admin %id" : [
+        'created a new account %id',
+        'edited privileges on account %id',
+        'sent an invite',
+        'is watching you eat toast'
+      ],
+      'Reflupper' : 'congealed successfully'
+    },
+    'WARNING' : {
+      "API" : [
+        'returned response code 300',
+        'returned response code 301'
+      ],
+      "User %id" : [
+        'failed to login'
+      ],
+      "Index" : [
+        "is stale",
+        'flummoxed'
+      ]
+    },
+    'ERROR' : {
+      "API" : [
+        'returned response code 400',
+        'returned response code 401',
+        'returned response code 402'
+      ],
+      "User" : [
+        'not found'
+      ],
+      "Database" : [
+        'connection terminated',
+        'is unreachable'
+      ],
+      "Failed to" : "connect to database"
+    }
+  }
+
+  function generateLogMessage(key, data, message) {
+    if (data === undefined) {
+      data = ACTIONS
+    }
+
+    var value = data[key]
+
+    if (typeof value === 'string') {
+      return message + ' ' + value
+    }
+
+    if (Array.isArray(value)) {
+      return message + ' ' + value.any()
+    }
+
+    var next = Object.keys(value).any()
+
+    if (message === undefined) {
+      message = next
+    }
+    else {
+      message = message + ' ' + next
+    }
+
+    return generateLogMessage(next, value, message)
+  }
+
+  var matches = []
+  var searchPattern = ''
+
+  function generateLogMessageDuringBruteForceAttack(key, data, message) {
+    var random  = Math.random();
+    var logMessage;
+
+    if (random > 0.8) {
+      logMessage = generateLogMessage(key, data, message)
+    }
+    else if (random > 0.05) {
+      logMessage = "User %id failed to log in"
+    }
+    else {
+      logMessage = "User %id logged in"
+    }
+
+    if (searchPattern.length >= 5 && logMessage.toLowerCase().indexOf(searchPattern.toLowerCase()) > -1) {
+      matches.push(Date.now())
+    }
+
+    updateAlertMessage()
+
+    return logMessage
+  }
+
+  function updateAlertMessage() {
+    var pattern = $("#log-alert-pattern").val()
+
+    var logAlertMessage = $("#log-alert-message");
+
+    if (pattern.length === 0) {
+      return
+    }
+
+    if (pattern.length < 5) {
+      logAlertMessage.html("Please supply a pattern longer than 5 characters.");
+      logAlertMessage.removeClass().addClass("diagnostic");
+      return
+    }
+
+    if (searchPattern !== pattern) {
+      searchPattern = pattern
+      matches = []
+    }
+    else {
+      while (matches.length > 0 && matches[0] < Date.now() - 60 * 1000) {
+        matches.shift()
+      }
+    }
+
+    var noOfMatches = matches.length;
+    var requiredMatches = parseInt($("#log-alert-threshold").val())
+
+    if (noOfMatches > requiredMatches) {
+      if (!logAlertMessage.hasClass('alert-fired')) {
+        $("#brute-force-alert").shake();
+      }
+
+      logAlertMessage.html(
+        "<strong>Alert fired!</strong> " + noOfMatches + " matches in the last minute."
+      )
+      logAlertMessage.removeClass().addClass("alert-fired");
+    }
+    else {
+      if (noOfMatches === 1) {
+        logAlertMessage.html("1 match in the last minute...");
+      }
+      else {
+        logAlertMessage.html("" + noOfMatches + " matches in the last minute...");
+      }
+
+      logAlertMessage.removeClass().addClass("diagnostic");
+    }
+  }
+
+  function writeLogs(target, includeLoggingComponent, logMessageFunction) {
+    logMessageFunction = logMessageFunction || generateLogMessage
+
+    var intervalID = setInterval(function() {
+      writeLog(target, includeLoggingComponent, logMessageFunction)
+    }, 800)
+
+    intervals.push(intervalID)
+  }
+
+  function writeLog(target, addComponent, logMessageFunction) {
+    var timestamp = formatDate(new Date())
+    var level     = LEVELS.any()
+    var codeFile  = FILES.any()
+    var lineNo    = Math.ceil(Math.random() * 1500)
+    var message   = logMessageFunction(level)
+
+    if (message === 'User %id logged in') {
+      level    = 'INFO'
+      codeFile = 'accounts.py'
+      lineNo   = 32
+    }
+    else if (message === 'User %id failed to log in') {
+      level    = 'WARNING'
+      codeFile = 'accounts.py'
+      lineNo   = 17
+    }
+
+    message = message.replace('%id', Math.ceil(Math.random() * 10000000).toString())
+    message = message.replace('%id', Math.ceil(Math.random() * 10000000).toString())
+    message = message.replace('%n',  Math.ceil(Math.random() * 10).toString())
+    message = message.replace('%ms', Math.ceil(Math.random() * 2000).toString() + 'ms')
+    message = message.replace('%ip', Math.floor(Math.random() * 255).toString() + '.' +
+                                     Math.floor(Math.random() * 255).toString() + '.' +
+                                     Math.floor(Math.random() * 255).toString() + '.' +
+                                     Math.floor(Math.random() * 255).toString())
+
+    var component = ''
+
+    if (addComponent) {
+      component = '<span class="component">['  + COMPONENTS.any() + ']</span>'
+    }
+
+    var element = $(target)
+
+    while (element[0].children.length > 50) {
+      element.find('.log-message:lt(1)').remove();
+    }
+
+    element.html(element.html() +
+                   '<span class="log-message log-message-' + level.toLowerCase() + '">' +
+                   '<span class="timestamp">'  + timestamp + '</span> ' + component + ' ' +
+                   '<span class="level level-' + level.toLowerCase()+ '">' + level + '</span> ' +
+                   '<span class="code-file">'  + codeFile  + ':</span>' +
+                   '<span class="line-no">'    + lineNo    + '</span> ' +
+                   '<span class="message">'    + message   + '.</span><br></span>')
+
+    for (var i=0; i < element.length; i++) {
+      var div = element[i];
+      div.scrollTop = div.scrollHeight - div.clientHeight;
+    }
+  }
+
+  function writeWebLogs(target) {
+    var intervalID = setInterval(function() {
+      writeWebLog(target)
+    }, 800)
+
+    intervals.push(intervalID)
+  }
+
+  var METHODS      = [ 'GET','GET','GET','GET','GET','GET','GET','GET','GET','GET','GET','POST','POST','PUT','DELETE' ]
+  var STATUS_CODES = [ '200','200','200','200','200','200','200','200','200','201','400','404' ]
+
+  var URLS = [
+    '/','../index.html','../index.html','../index.html','../index.html','/home',
+    '/event','/events/search',
+    '/profile','/profile/edit',
+    '/messages', '/messages/new',
+    '/list', '/list/0', '/list/1','/list/2','/list/3','/list/4',
+    '/logout','/login',
+    '/uploads','/uploads/new',
+    '/share',
+    '/bookmarks'
+  ]
+
+  function writeWebLog(target) {
+    var timestamp  = formatDate(new Date())
+    var method     = METHODS.any()
+    var statusCode = STATUS_CODES.any()
+    var url        = URLS.any()
+    var timing     = Math.ceil(Math.random() * 800).toString() + 'ms'
+
+    var element = $(target)
+
+    while (element[0].children.length > 50) {
+      element.find('.log-message:lt(1)').remove();
+    }
+
+    element.html(element.html() +
+      '<div class="log-message">' +
+      '<span class="timestamp">'   + timestamp   + '</span> ' +
+      '<span class="method">'      + method      + '</span> ' +
+      '<span class="status-code">' + statusCode  + '</span> ' +
+      '<span class="url">www.example.com' + url  + '</span> ' +
+      '<span class="timing">'      + timing      + '</span></div>')
+
+    var div = element[0];
+    div.scrollTop = div.scrollHeight - div.clientHeight;
+  }
+
+  function formatDate(date) {
+    var day   = (date.getDate()).toString();
+    var month = (date.getMonth() + 1).toString();
+    var year  = (date.getFullYear()).toString();
+
+    var hours   = (date.getHours()).toString();
+    var mins    = (date.getMinutes() ).toString();
+    var seconds = (date.getSeconds()).toString();
+    var mills   = (date.getMilliseconds()).toString();
+
+    if (day.length === 1) {
+      day = '0' + day
+    }
+
+    if (month.length === 1) {
+      month = '0' + month
+    }
+
+    if (hours.length === 1) {
+      hours = '0' + hours
+    }
+
+    if (mins.length === 1) {
+      mins = '0' + mins
+    }
+
+    if (seconds.length === 1) {
+      seconds = '0' + seconds
+    }
+
+    while (mills.length < 3) {
+      mills = '0' + mills
+    }
+
+    mills = mills[0]
+
+    return '' + year + '-' + month + '-' + day + ' ' + hours + ':' + mins + ':' + seconds + '.' + mills
+  }
+
+  $.fn.shake = function() {
+    this.each(function(i) {
+      for (var x = 1; x <= 3; x++) {
+        $(this).animate({
+          marginLeft: -5, marginRight: 5
+        }, 30).animate({
+          marginLeft: 5, marginRight: -5
+        }, 20).animate({
+          marginLeft: -2, marginRight: 2
+        }, 10).animate({
+          marginLeft: 2, marginRight: -2
+        }, 20).animate({
+          marginLeft: 0, marginRight: 0
+        }, 10);
+      }
+    });
+
+    return this;
+  }
+
+</script>
+
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/logging-and-monitoring by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:31 GMT -->
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/embedded/sql-injection/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title>Log in</title>
+  <link rel="stylesheet" media="all" href="../../../app- .herokuapp.com/assets/application-b5fe8eced4667b62d7b604f7eb8f80b9937b5137e7c5221f0ed6d349050fb9ff.css" />
+  <script src="../../../app- .herokuapp.com/assets/application-90fba03fb570014b9c67de195e3eed232f088506657454a08797e9fb0634c2b4.js"></script>
+</head>
+<body>
+
+  
+<div class="backdrop" style="background: url('../../../app- .herokuapp.com/assets/gradient-72076d93c14304a7ffb25953c6d979a609b1ab8e7b31620c4832b45d3d674d66.jpg') repeat-x">
+
+</div>
+
+<div class="header">
+  <img class="logo" src="../../../app- .herokuapp.com/assets/logo-2-4f4d28f2398c1615c25433c4bbad04839ee4ff4ee5b8cbb51c7a9b0a90ac5c9a.png" />
+  <div class='menu-strip' style="background: url('../../../app- .herokuapp.com/assets/gradient-2-370a93c9f18bd87b9b1ffa97934b1f8e812aa2af5dbdbf96357e8f0b921b9789.png') repeat-x"></div>
+</div>
+
+<div class="login" style="background: url('../../../app- .herokuapp.com/assets/login-background-ab30acb309bf2fb3dcd73cae0e721f5c9e9e1ebc1ed2e4b380a0a7f00df4c16c.png')">
+
+
+  <form id="login-form" autocomplete="off" action="https://www. .com/embedded/sql-injection/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="GRhX8msR141bG61d9sPhhOzWz+MBR1DWsFBVmj0vNIT1DvdWCnJV6tJrfBOsdovaN3HRhR0IHvQonZFliGt36w==" />
+
+    <input id="email" placeHolder="Enter your email" autocomplete="false" type="text" name="session[email]" />
+
+    <input id="password" placeHolder="Enter your password" autocomplete="new-password" title="..." data-unmasked="" type="password" name="session[password]" />
+
+    <input type="submit" name="commit" value="Log in" class="action-button" data-disable-with="Log in" />
+
+</form>
+</div>
+
+<div class="footer">
+  <h3>Trust us with your money</h3>
+  <p>Our website is totally secure and almost never gets hacked.</p>
+  <img src="../../../app- .herokuapp.com/assets/banking-2-d60ae3885602c0720fb7f9257a56c951ecb4eed918801797b0308db26f516c6e.png" />
+</div>
+
+<script>
+  $(document).ready(function() {
+    window.parent.postMessage(JSON.stringify({
+      event:    'load',
+      url:      window.location.href,
+      email:    $("#email").val(),
+      password: $("#password").data('unmasked')
+    }), '*')
+
+    $("#email").keyup(function() {
+      window.parent.postMessage(JSON.stringify({
+        event:    'keystroke',
+        url:      window.location.href,
+        email:    $("#email").val(),
+        password: $("#password").data('unmasked')
+      }), '*')
+    });
+
+    $("#password").tooltip({
+      tooltipClass: "keystrokes",
+      content: '',
+      collision: 'none'
+    }).on('mouseout focusout', function(e) {
+      e.stopImmediatePropagation();
+    });
+
+    $("#password").focus(passwordUpdated);
+
+    $('#login-form').disableAutoFill({ randomizeInputName: true, debugMode: false });
+  });
+
+  function passwordUpdated() {
+    var password = $("#password").data('unmasked');
+
+    $("#password").tooltip({
+      content: password || ''
+    })
+
+    if (password) {
+      $("#password").tooltip('open');
+    } else {
+      $("#password").tooltip('close');
+    }
+
+    window.parent.postMessage(JSON.stringify({
+      event:    'keystroke',
+      url:      window.location.href,
+      email:    $("#email").val(),
+      password: $("#password").data('unmasked')
+    }), '*')
+  }
+</script>
+
+
+
+
+</body>
+
+<!-- Mirrored from www. .com/embedded/sql-injection/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:55 GMT -->
+</html>

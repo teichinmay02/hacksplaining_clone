@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/user-enumeration by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>User Enumeration</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="H0tfVbbtpdtm1jFTXVWqnpMSpUoDISyN8eXB9VX/6KuGW9JnN7fF5av4vNry7dB5d6sxZBauMUSSkaWkF/SwWA==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/user-enumeration" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="User Enumeration" />
+<meta property="og:description"  content="If an attacker can abuse your authentication function to test whether a username exists on your site, it makes exploiting other vulnerabilities much easier. Let&#39;s see some common ways users can be enumerated. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="If an attacker can abuse your authentication function to test whether a username exists on your site, it makes exploiting other vulnerabilities much easier. Let&#39;s see some common ways users can be enumerated. →" />
+
+<meta name="twitter:title"       content="User Enumeration">
+<meta name="twitter:description" content="If an attacker can abuse your authentication function to test whether a username exists on your site, it makes exploiting other vulnerabilities much easier. Let&#39;s see some common ways users can be enumerated. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises user_enumeration unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          User Enumeration
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/icon.gif')"></div>
+
+  <div class="strip">
+    User Enumeration
+  </div>
+  <div class="blurb">
+
+    <p>If an attacker can abuse your authentication function to test whether a username exists on your site, it makes exploiting other vulnerabilities much easier.</p>
+
+    <p>
+      <strong>
+        Let's see some common ways users can be enumerated.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="User Enumeration"
+             data-id="user_enumeration"
+             data-captions="on" >
+
+          
+        <div id="user-enumeration" class="container">
+  <div class="row top">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <a class="unselectable" href="#harvesting"><div id="start" class=" instruction" title="Start" introductory="true" next="harvesting">
+
+        Many types of attack on websites are concerned with bypassing the
+        authentication system. Logging into a site usually requires that a user
+        supply a username and a password.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#guessing-passwords"><div id="harvesting" class=" instruction" title="Harvesting" introductory="true" next="guessing-passwords">
+
+        If an attacker can harvest the list of usernames for a site, they
+        have half the authentication information they need to access those
+        accounts.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#leaky-vessel"><div id="guessing-passwords" class=" instruction" title="Guessing Passwords" introductory="true" next="leaky-vessel">
+
+        Guessing passwords is harder, but possible. An attacker will use tools
+        to <strong>brute-force</strong> common passwords, or if your usernames
+        are email addresses, they might use <strong>social engineering</strong>
+        to trick users into revealing their password.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#login-page"><div id="leaky-vessel" class=" instruction" title="Leaky Vessel" introductory="true" next="login-page">
+
+        <strong>Your site will be more secure if an attacker cannot probe it for
+        usernames.</strong> Let's look at some common ways that sites leak
+        information about what is and isn't a valid username.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="../prevention/user-enumeration.html"><div id="finish" class=" instruction" title="How do we prevent this?">
+
+        <strong>Those are the most common ways users can be enumerated.</strong>
+        Let's recap.
+
+<div class="next"></div></div></a>
+    </div>
+
+    <div class="col-md-3"></div>
+
+  </div>
+
+  <div class="row bottom">
+
+    <div class="col-md-3 captions">
+
+      <a class="unselectable" href="#safe-login-page"><div id="login-page" class=" instruction" show="#bad-login,#trix-concentrating" title="Login Page" triggerOnClick="userEnumerationOnLoginPage" next="safe-login-page">
+
+        If your login page has different error messages for unrecognized usernames
+        and incorrect passwords, an attacker can write a script to submit usernames
+        and test the response.
+
+<div class="next"></div></div></a>
+      <script>
+        function reset(target, error) {
+          $(target).find('input[type="text"],input[type="password"]').val("");
+          $(target).removeClass("loading");
+          $(target).find(".submit").removeClass("clicked");;
+
+          if (error !== undefined) {
+            $(target).find(".error-message .message").text(error)
+            $(target).find(".error-message").fadeIn();
+          }
+          else {
+            $(target).find(".error-message").hide();
+          }
+        }
+
+        function typing(target, text, andThen) {
+          sounds.play('typing-short')
+
+          $(target)
+            .data('typed', null)
+            .typed({
+              strings: [ text ],
+              typeSpeed: 20,
+              startDelay: 500,
+              contentType: 'text',
+              showCursor: true,
+              onStringTyped: function () {
+                if (andThen !== undefined) andThen();
+              }
+            }
+          );
+        }
+      </script>
+
+      <script>
+        reset("#bad-login");
+
+        function userEnumerationOnLoginPage() {
+          animating();
+          reset("#bad-login");
+          setTimeout(unknownUser, 100);
+        }
+
+        function unknownUser() {
+          typing("#bad-login .username", "david", unknownUserPassword);
+        }
+
+        function unknownUserPassword() {
+          typing("#bad-login .password", "password", unknownUserSubmit);
+        }
+
+        function unknownUserSubmit() {
+          $("#bad-login .submit").addClass("clicked");
+          $("#bad-login").addClass("loading");
+
+          setTimeout(unknownUserErrorMessage, 2000);
+        }
+
+        function unknownUserErrorMessage() {
+          reset("#bad-login", "Unknown user.");
+
+          thinks("#david");
+          setTimeout(incorrectPassword, 1000);
+        }
+
+        function incorrectPassword() {
+          typing("#bad-login .username", "alex", incorrectPasswordPassword);
+        }
+
+        function incorrectPasswordPassword() {
+          typing("#bad-login .password", "password", incorrectPasswordSubmit);
+        }
+
+        function incorrectPasswordSubmit() {
+          $("#david").hide();
+
+          $("#bad-login .submit").addClass("clicked");
+          $("#bad-login").addClass("loading");
+
+          setTimeout(incorrectPasswordErrorMessage, 1000);
+        }
+
+        function incorrectPasswordErrorMessage() {
+          reset("#bad-login", "Password incorrect.");
+          thinks("#alex");
+
+          $("#trix-concentrating").hide();
+          $("#trix-malicious").show();
+
+          done();
+        }
+      </script>
+
+      <a class="unselectable" href="#login-delay"><div id="safe-login-page" class=" instruction" show="#safe-login,#trix-concentrating" title="Safe Login Page" triggerOnClick="safeLoginPage" next="login-delay">
+
+        <strong>A safer approach is to return a generic error message</strong>
+        when a login attempt fails.
+
+<div class="next"></div></div></a>
+      <script>
+        function safeLoginPage() {
+          animating();
+          reset("#safe-login");
+          setTimeout(genericLoginError, 100);
+        }
+
+        function genericLoginError() {
+          typing("#safe-login .username", "maria", genericLoginErrorPassword);
+        }
+
+        function genericLoginErrorPassword() {
+          typing("#safe-login .password", "password", genericLoginErrorSubmit);
+        }
+
+        function genericLoginErrorSubmit() {
+          $("#safe-login .submit").addClass("clicked");
+          $("#safe-login").addClass("loading");
+
+          setTimeout(genericLoginErrorMessage, 1000);
+        }
+
+        function genericLoginErrorMessage() {
+          reset("#safe-login", "Unknown user or password.");
+          $("#trix-concentrating").hide();
+          $("#trix-frustrated").show();
+
+          thinks("#maria");
+
+          done();
+        }
+      </script>
+
+      <a class="unselectable" href="#login-synchronized"><div id="login-delay" class=" instruction" show="#timed-login,#trix-frustrated" title="Computation Cost of Login" triggerOnClick="timingTheLoginProcess" next="login-synchronized">
+
+        If it takes longer to check a <strong>correct username</strong> and an
+        <strong>incorrect password</strong>, a clever attacker will be able to
+        spot the difference.
+
+<div class="next"></div></div></a>
+      <script>
+        function timingTheLoginProcess() {
+          animating();
+          reset("#timed-login");
+          setTimeout(timedLogin, 100);
+        }
+
+        function timedLogin() {
+          typing("#timed-login .username", "antonio",
+            function() {
+              typing("#timed-login .password", "password", function() {
+                $("#timed-login .submit").addClass("clicked");
+                $("#timed-login").addClass("loading");
+
+                setTimeout(function () {
+                  thinks("#mississippis");
+
+                  setTimeout(function () {
+                    $("#mississippis .thinks").text("2 Mississippis...")
+
+                    setTimeout(function () {
+                      $("#mississippis .thinks").text("3 Mississippis...")
+
+                      setTimeout(function () {
+                        $("#mississippis .thinks").text("4 Mississippis...")
+
+                        setTimeout(function () {
+                          $("#mississippis .thinks").text("5 Mississippis...")
+
+                          setTimeout(function () {
+                            $("#mississippis .thinks").text("Aha! That seemed like work.")
+
+                            $("#trix-frustrated").hide();
+                            $("#trix-neutral").show();
+
+                            done();
+
+                          }, 500);
+                        }, 1000);
+                      }, 1000);
+                    }, 1000);
+                  }, 1000);
+                }, 1000);
+
+                setTimeout(function () {
+                  reset("#timed-login", "Unknown user or password.");
+                }, 5000);
+              })
+            }
+          )
+        }
+      </script>
+
+      <a class="unselectable" href="#login-cookie"><div id="login-synchronized" class=" instruction" show="#timed-login,#trix-neutral" title="Hiding the Computation Cost" next="login-cookie">
+
+        <strong>Make sure all login code-paths take about the same time on average.</strong>
+        For instance, perform time-consuming operations like password-hashing
+        even when you know the username is wrong.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#forgotten-password-page"><div id="login-cookie" class=" instruction" show="#responses,.debug" title="Cookie Set Before the Password is Checked" fx="pop" next="forgotten-password-page">
+
+        <strong>Make sure that everything in the HTTP response is identical in
+        all login failure scenarios, too.</strong> Be sure not to respond with a cookie
+        unless <em>both</em> the username and password are correct.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#forgotten-password-email"><div id="forgotten-password-page" class=" instruction" show="#bad-reset-page,#trix-concentrating" title="Password Reset Page" triggerOnClick="interrogatingThePasswordResetPage" next="forgotten-password-email">
+
+        <strong>Password reset pages are another avenue of attack.</strong>
+        If somebody tries to reset a password for an unknown username, some
+        sites will respond with a message indicating that the account does not exist.
+        Try to avoid this.
+
+<div class="next"></div></div></a>
+      <script>
+        function interrogatingThePasswordResetPage() {
+          animating();
+          reset("#bad-reset-page");
+          setTimeout(passwordResetUsername, 100);
+        }
+
+        function passwordResetUsername() {
+          typing("#bad-reset-page .username", "andrea", passwordResetSubmit);
+        }
+
+        function passwordResetSubmit() {
+          $("#bad-reset-page")
+            .addClass("loading")
+            .find(".submit")
+            .addClass("clicked");
+
+          setTimeout(passwordResetErrorMessage, 1000);
+        }
+
+        function passwordResetErrorMessage() {
+          reset("#bad-reset-page", "Unknown user.");
+          thinks("#andrea");
+
+          $("#trix-concentrating").hide();
+          $("#trix-malicious").show();
+
+          done();
+        }
+      </script>
+
+      <a class="unselectable" href="#registration"><div id="forgotten-password-email" class=" instruction" show="#good-reset-page,#trix-concentrating" title="Password Reset Email" triggerOnClick="unableToAbuseThePasswordResetPage" next="registration">
+
+        <strong>If your password reset process involves sending an email, have the user
+        enter their email address.</strong> Then send an email with a password
+        reset link if the account exists - and a sign-up email if it's a new
+        email address.
+
+<div class="next"></div></div></a>
+      <script>
+        function unableToAbuseThePasswordResetPage() {
+          animating();
+          reset("#good-reset-page");
+          setTimeout(safePasswordResetUsername, 100);
+        }
+
+        function safePasswordResetUsername() {
+          typing("#good-reset-page .username", "daniel@gmail.com", safePasswordResetSubmit);
+        }
+
+        function safePasswordResetSubmit() {
+          $("#good-reset-page")
+            .addClass("loading")
+            .find(".submit")
+            .addClass("clicked");
+
+          setTimeout(passwordResetGenericErrorMessage, 1000);
+        }
+
+        function passwordResetGenericErrorMessage() {
+          reset("#good-reset-page", "Check your email!");
+
+          $("#trix-concentrating").hide();
+          $("#trix-frustrated").show();
+
+          thinks("#daniel");
+
+          done();
+        }
+      </script>
+
+      <a class="unselectable" href="#captcha"><div id="registration" class=" instruction" show="#registration-page,#trix-concentrating" title="Sign Up Page" triggerOnClick="interrogatingTheRegistrationPage" next="captcha">
+
+        Same deal with registration pages. Try to avoid having your site tell
+        people that a supplied username is already taken. If your usernames are
+        email addresses, send a password reset email when a user absentmindedly
+        tries to sign-up a second time.
+
+<div class="next"></div></div></a>
+      <script>
+        function interrogatingTheRegistrationPage() {
+          animating();
+          reset("#registration-page");
+          setTimeout(typingEmailOnRegistrationPage, 100);
+        }
+
+        function typingEmailOnRegistrationPage() {
+          typing("#registration-page .username", "jose@gmail.com", registrationPageSubmit);
+        }
+
+        function registrationPageSubmit() {
+          $("#registration-page")
+            .addClass("loading")
+            .find(".submit")
+            .addClass("clicked");
+
+          setTimeout(registrationPageErrorMessage, 1000);
+        }
+
+        function registrationPageErrorMessage() {
+          reset("#registration-page", "This account already exists!");
+          thinks("#jose");
+
+          $("#trix-concentrating").hide();
+          $("#trix-malicious").show();
+
+          done();
+        }
+      </script>
+
+      <a class="unselectable" href="#exponential-backoff"><div id="captcha" class=" instruction" show="#registration-page-with-captcha" title="CAPTCHA" fx="plink" next="exponential-backoff">
+
+        <strong>If usernames need to be unique, but are <em>not</em> email addresses,
+        protect your sign-up page with some sort of CAPTCHA. </strong> This will make it
+        very difficult for an attacker to mine username information with a script.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#uri-probing"><div id="exponential-backoff" class=" instruction" show=".exponential-backoff" title="Exponential Backoff" fx="pop" next="uri-probing">
+
+        If you are very security-minded, consider adding an <strong>exponential backoff</strong>
+        after each failed login attempt, so subsequent retries take longer and longer.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#finish"><div id="uri-probing" class=" instruction" show=".probing" title="URI Probing" next="finish">
+
+        Lastly, if each user is granted a unique URL (e.g. for user profile pages),
+        make sure an attacker cannot enumerate usernames. It might seem like a good
+        idea to differentiate responses with <strong>HTTP 404 (not found)</strong> and
+        <strong>HTTP 403 (forbidden)</strong>, but this leaks information.
+
+<div class="next"></div></div></a>
+    </div>
+
+    <div class="col-md-6 diagrams">
+
+      <div id="bad-login"
+     class="browser hide-by-default"
+     animation="slide">
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/login</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="error-message-space">
+            <div class="error-message alert alert-danger">
+              <i class="fa fa-warning"></i>
+              <span class="message"></span>
+            </div>
+          </div>
+
+          <div class="dummy-label"> Username </div>
+          <input autocomplete="off" type="text" class="username form-control">
+
+          <div class="dummy-label"> Password </div>
+          <input type="password" autocomplete="new-password" class="password form-control">
+
+          <input type="submit" name="Login" value="Login" class="submit btn btn-primary">
+        </div>
+
+
+  </div>
+</div>
+      <div id="safe-login"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/login</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="error-message-space">
+            <div class="error-message alert alert-danger">
+              <i class="fa fa-warning"></i>
+              <span class="message"></span>
+            </div>
+          </div>
+
+          <div class="dummy-label"> Username </div>
+          <input autocomplete="off" type="text" class="username form-control">
+
+          <div class="dummy-label"> Password </div>
+          <input type="password" autocomplete="new-password" class="password form-control">
+
+          <input type="submit" name="Login" value="Login" class="submit btn btn-primary">
+        </div>
+
+
+  </div>
+</div>
+      <div id="timed-login"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/login</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="error-message-space">
+            <div class="error-message alert alert-danger">
+              <i class="fa fa-warning"></i>
+              <span class="message"></span>
+            </div>
+          </div>
+
+          <div class="dummy-label"> Username </div>
+          <input autocomplete="off" type="text" class="username form-control">
+
+          <div class="dummy-label"> Password </div>
+          <input type="password" autocomplete="new-password" class="password form-control">
+
+          <input type="submit" name="Login" value="Login" class="submit btn btn-primary">
+        </div>
+
+
+  </div>
+</div>
+      <div id="responses" class="hide-by-default" animation="slide-down">
+
+        <div id="response-no-cookie" class="debug hide-by-default" animation="">
+
+
+      <div class="debug-header selected">Headers</div>
+
+
+      <div class="debug-header">Preview</div>
+
+
+      <div class="debug-header">Response</div>
+
+
+      <div class="debug-header">Cookies</div>
+
+
+
+    <div class="section">
+      <div class="heading">
+
+        <span class="toggle">
+          ▼
+        </span>
+
+        General
+
+      </div>
+
+
+          <div class="field">
+            <div class="key">   Request Method: </div>
+            <div class="value"> POST </div>
+          </div>
+
+
+          <div class="field">
+            <div class="key">   Status Code: </div>
+            <div class="value"> 401 Unauthorized </div>
+          </div>
+
+
+    </div>
+
+
+    <div class="section">
+      <div class="heading">
+
+        <span class="toggle">
+          ▼
+        </span>
+
+        Response Headers
+
+      </div>
+
+
+          <div class="field">
+            <div class="key">   Content-Type: </div>
+            <div class="value"> text/html </div>
+          </div>
+
+
+    </div>
+
+
+</div>
+        <div id="response-with-cookie" class="debug hide-by-default" animation="">
+
+
+      <div class="debug-header selected">Headers</div>
+
+
+      <div class="debug-header">Preview</div>
+
+
+      <div class="debug-header">Response</div>
+
+
+      <div class="debug-header">Cookies</div>
+
+
+
+    <div class="section">
+      <div class="heading">
+
+        <span class="toggle">
+          ▼
+        </span>
+
+        General
+
+      </div>
+
+
+          <div class="field">
+            <div class="key">   Request Method: </div>
+            <div class="value"> POST </div>
+          </div>
+
+
+          <div class="field">
+            <div class="key">   Status Code: </div>
+            <div class="value"> 401 Unauthorized </div>
+          </div>
+
+
+    </div>
+
+
+    <div class="section">
+      <div class="heading">
+
+        <span class="toggle">
+          ▼
+        </span>
+
+        Response Headers
+
+      </div>
+
+
+          <div class="field">
+            <div class="key">   Content-Type: </div>
+            <div class="value"> text/html </div>
+          </div>
+
+
+          <div class="field blink">
+            <div class="key">   Set-Cookie: </div>
+            <div class="value"> session_id=1429830 </div>
+          </div>
+
+
+    </div>
+
+
+</div>
+      </div>
+
+      <div id="bad-reset-page"
+     class="browser hide-by-default"
+     animation="slide">
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/reset</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="error-message-space">
+            <div class="error-message alert alert-danger">
+              <i class="fa fa-warning"></i>
+              <span class="message"></span>
+            </div>
+          </div>
+
+          <div class="dummy-label"> Enter Your Username to Reset Your Password </div>
+          <input autocomplete="off" type="text" class="username form-control">
+
+          <input type="submit" name="Login" value="Reset Password" class="submit btn btn-primary">
+        </div>
+
+
+  </div>
+</div>
+      <div id="good-reset-page"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/reset</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="error-message-space">
+            <div class="error-message alert alert-danger">
+              <i class="fa fa-warning"></i>
+              <span class="message"></span>
+            </div>
+          </div>
+
+          <div class="dummy-label"> Enter Your Email to Reset Your Password </div>
+          <input autocomplete="off" type="text" class="username form-control">
+
+          <input type="submit" name="Login" value="Reset Password" class="submit btn btn-primary">
+        </div>
+
+
+  </div>
+</div>
+      <div id="registration-page"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/register</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="error-message-space">
+            <div class="error-message alert alert-danger">
+              <i class="fa fa-warning"></i>
+              <span class="message"></span>
+            </div>
+          </div>
+
+          <div class="dummy-label"> Enter Your Email to Sign Up </div>
+          <input autocomplete="off" type="text" class="username form-control">
+
+          <input type="submit" name="Login" value="Register" class="submit btn btn-primary">
+        </div>
+
+
+  </div>
+</div>
+      <div id="registration-page-with-captcha"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">example.com/register</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+        <div class="dummy-form">
+          <div class="dummy-label"> Prove you're not a robot </div>
+          <div class="dummy-label"> <strong>Pick the bird with the biggest guns!</strong> </div>
+
+          <div style="text-align: center">
+            <img class="birdy-arms" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/user-enumeration/birds-with-arms-1-cc025c30a7794f469d30dc482f433ed23b02b01c388d5b0e279cf7bfd6cd8f26.png" />
+            <img class="birdy-arms" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/user-enumeration/birds-with-arms-2-9c09b904f3675ff99a81f38fb3c03b2446dd10719e64fb10c971ad114cf8fa71.png" />
+            <img class="birdy-arms" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/user-enumeration/birds-with-arms-3-317d9d836baa2d1832d9736326cde6cbc15ce9fa87aa89a98cecbbbf5d02ccdb.png" />
+          </div>
+        </div>
+
+
+  </div>
+</div>
+      <div class="pane-title exponential-backoff hide-by-default">Exponential Backoff</div>
+      <pre  class="snippet  exponential-backoff hide-by-default"><code class="ruby ">login_failures = session[:login_failures] || 0
+
+sleep(0.0001 * 2 ** login_failures)</code></pre>
+      <div class="probing pane-title hide-by-default">URI Probing</div>
+      <div id="probing" class="probing hide-by-default" animation="logs">
+        <div>example.com/user/david       403</div>
+        <div>example.com/user/robin       404</div>
+        <div>example.com/user/maria       403</div>
+        <div>example.com/user/daniel      404</div>
+        <div>example.com/user/jose        403</div>
+        <div>example.com/user/jon         403</div>
+        <div>example.com/user/brian       404</div>
+        <div>example.com/user/cynthia     403</div>
+        <div>example.com/user/nolan       403</div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3 right-panel">
+      <img class="character hide-by-default" id="trix-neutral" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/trix-neutral-flipped-73a1a0d2d0bf3ca9897a5b9078deb34b62d4a2d3e488dda548872f590d376b5c.png" />
+      <img class="character hide-by-default" id="trix-concentrating" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/trix-concentrating-5d649850f7fa83959199e9cb18b666215b48b6588b793cbe7e69b3e9f7d108f1.png" />
+      <img class="character hide-by-default" id="trix-malicious" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/trix-malicious-f5a8f7a930edce68ebfd3d7d6b02b30e9fa0f9653307a94c8aa39fa17f7c1ea0.png" />
+      <img class="character hide-by-default" id="trix-frustrated" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/trix-frustrated-c5944f5338a5239b50a0cb442bdfef4ee9f9ff23454df96db26da1dea5fd25c3.png" />
+
+      <span id="david" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        No <strong>david</strong>...
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="alex" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        ...I see you <strong>alex</strong>. You are going on my list.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="maria" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Well, that doesn't help.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="mississippis" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        1 Mississippi...
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="andrea" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Oh, really?
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="daniel" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Nrrrrrrgh.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="jose" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        One more for the list.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>    </div>
+
+  </div>
+</div>
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/user-enumeration by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:19 GMT -->
+</html>

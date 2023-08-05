@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/prevention/xss-stored by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Protecting Your Users Against Cross-site Scripting</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="hp+PgixOr63o2yxWepNobX1S4G9vydFUnVGs3a30NOkfjwKwrRTPkyX1od/VKxKKmet0QXpGzJ3+JciM7/9sGg==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/prevention/xss-stored" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Protecting Your Users Against Cross-site Scripting" />
+<meta property="og:description"  content="If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS). Let&#39;s see how an attacker could take advantage of cross-site scripting. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-stored/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS). Let&#39;s see how an attacker could take advantage of cross-site scripting. →" />
+
+<meta name="twitter:title"       content="Protecting Your Users Against Cross-site Scripting">
+<meta name="twitter:description" content="If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS). Let&#39;s see how an attacker could take advantage of cross-site scripting. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="light-background logged-out prevention  unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      <div class="header">
+  <nav class="navbar navbar-expand-lg ">
+
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsing-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+      <span class="navbar-brand logo">
+        <a href="../index.html">
+          <div class="title"> </div>
+        </a>
+      </span>
+
+      <div class="navbar-collapse collapse justify-content-end" id="collapsing-menu">
+
+        <div class="navbar-nav mr-auto">
+
+        </div>
+
+        <ul class="navbar-nav justify-content-end">
+
+
+            <li class="nav-item nav-features"><a class="nav-link" href="../features.html">Features</a></li>
+            <li class="nav-item nav-lessons"><a class="nav-link" href="../lessons.html">Lessons</a></li>
+            <li class="nav-item nav-enterprise"><a class="nav-link" href="../enterprise.html">Enterprise</a></li>
+            <li class="nav-item nav-owasp top 10"><a class="nav-link" href="../owasp.html">OWASP Top 10</a></li>
+            <li class="nav-item nav-pci compliance"><a class="nav-link" href="../pci.html">PCI Compliance</a></li>
+            <li class="nav-item nav-the book"><a class="nav-link" href="../book.html">The Book</a></li>
+            <li class="nav-item nav-login"><a class="nav-link" href="../login.html">Login</a></li>
+            <li class="nav-item nav-signup"><a class="nav-link" href="../join.html">SignUp</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+
+      
+<script>
+  hljs.configure({ classPrefix: 'code-' });
+  hljs.highlightAll();
+</script>
+
+<div class="main reading xss-stored">
+
+  <div class="container">
+    <div class="row prevention-tips has-sponsor">
+      <div class="row title modest">
+        Protecting Your Users Against Cross-site Scripting
+      </div>
+
+      
+<p><strong>Cross-site scripting</strong> (XSS) is one of the most common methods
+hackers use to attack websites. XSS vulnerabilities permit a malicious user to
+execute arbitrary chunks of JavaScript when other users visit your site.</p>
+
+<p class="well"><strong>XSS is the most common publicly reported security vulnerability, and part of
+every hacker’s toolkit.</strong></p>
+
+
+
+      <h3 id="risks">Risks</h3>
+
+      <div class="ratings">
+  <div class="rating prevalence common">
+    <div class="category">
+      <span class="category-label">
+        Prevalence
+      </span>
+
+      <span class="description">
+        Common
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons prevalence common">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+      </div>
+   </div>
+  </div>
+
+  <div class="rating exploitability easy">
+    <div class="category">
+      <span class="category-label">
+        Exploitability
+      </span>
+
+      <span class="description">
+        Easy
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons exploitability easy"">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="rating impact harmful">
+    <div class="category">
+      <span class="category-label">
+        Impact
+      </span>
+
+      <span class="description">
+        Harmful
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons impact harmful">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+      <p><strong>What could a determined hacker do when exploiting a XSS vulnerability?</strong></p>
+
+<p>XSS allows arbitrary execution of JavaScript code, so the damage that can be 
+done by an attacker depends on the sensitivity of the data being handled by your
+site. Some of the things hackers have done by exploiting XSS:</p>
+
+<ul>
+  <li>
+<strong>Spreading <a href="../glossary.html">worms</a> on social media sites.</strong> Facebook, Twitter and YouTube have all been successfully attacked in this way.</li>
+  <li>
+<strong>Session hijacking.</strong>  Malicious JavaScript may be able to send the session ID to a remote site under the hacker’s control, allowing the hacker to impersonate that user by hijacking a session in progress.</li>
+  <li>
+<strong>Identity theft</strong>. If the user enters confidential information such as credit card numbers into a compromised website, these details can be stolen using malicious JavaScript.</li>
+  <li><strong><a href="../glossary.html">Denial of service attacks</a> and website vandalism.</strong></li>
+  <li>
+<strong>Theft of sensitive data</strong>, like passwords.</li>
+  <li>
+<strong>Financial fraud</strong> on banking sites.</li>
+</ul>
+
+
+
+
+      <h3 id="protection">Protection</h3>
+
+<p>To protect against stored XSS attacks, make sure any dynamic content
+coming from the data store cannot be used to inject JavaScript on a page.</p>
+
+<h6 id="escape-dynamic-content">Escape Dynamic Content</h6>
+
+<p>Web pages are made up of HTML, usually described in template files, with
+dynamic content woven in when the page is rendered. <strong>Stored
+XSS attacks</strong> make use of the improper treatment of dynamic content coming
+from a backend data store.  The attacker abuses an editable field by inserting
+some JavaScript code, which is evaluated in the browser when another user 
+visits that page.</p>
+
+<p>Unless your site is a content-management system, it is rare that you want
+your users to author raw HTML. Instead, you should <strong>escape</strong>
+all dynamic content coming from a data store, so the browser knows it is
+to be treated as the <em>contents</em> of HTML tags, as opposed to raw HTML.</p>
+
+<p>Escaping dynamic content generally consists of replacing significant
+characters with the HTML entity encoding:</p>
+
+<table class="data-table">
+  <tr> <td> &lt; </td> <th> &amp;#60 </th> </tr>
+  <tr> <td> &gt; </td> <th> &amp;#62 </th> </tr>
+  <tr> <td> &amp; </td> <th> &amp;#38 </th> </tr>
+  <tr> <td> " </td> <th> &amp;#34 </th> </tr>
+  <tr> <td> ' </td> <th> &amp;#39 </th> </tr>
+</table>
+
+<p>Most modern frameworks will escape dynamic content by default – see the
+<a href="xss-stored.html#code-samples">code samples below</a> for details.</p>
+
+<p>Escaping editable content in this way means it will never be treated as executable
+code by the browser. This closes the door on most XSS attacks.</p>
+
+<h6 id="allowlist-values">Allowlist Values</h6>
+
+<p>If a particular dynamic data item can only take a handful of valid values,
+the best practice is to restrict the values in the data store, and have
+your rendering logic only permit known good values. For instance, instead of
+asking a user to type in their country of residence, have them select from a
+drop-down list.</p>
+
+<h6 id="implement-a-content-security-policy">Implement a Content-Security Policy</h6>
+
+<p>Browsers support <a href="https://www.html5rocks.com/en/tutorials/security/content-security-policy/">Content-Security Policies</a>
+that allow the author of a web-page to control where JavaScript (and other resources)
+can be loaded and executed from. XSS attacks rely on the attacker being
+able to run malicious scripts on a user’s web page - either by
+injecting inline <code>&lt;script&gt;</code> tags somewhere within the <code>&lt;html&gt;</code> tag of a 
+page, or by tricking the browser into loading the JavaScript from a 
+malicious third-party domain.</p>
+
+<p>By setting a content security policy in the response header, you can
+tell the browser to <em>never</em> execute inline JavaScript, and to lock down 
+which domains can host JavaScript for a page:</p>
+
+<table class="definitions">
+<tr>
+<th>Content-Security-Policy: script-src 'self' https://apis.google.com</th>
+</tr>
+<tr>
+<td class="caption">
+  By listing the URIs from which scripts <i>can</i> be loaded, you 
+  are implicitly stating that inline JavaScript is <b>not</b> allowed.
+</td>
+</tr>
+</table>
+
+<p>The content security policy can also be set in a <code>&lt;meta&gt;</code> tag in the <code>&lt;head&gt;</code>
+element of the page:</p>
+
+<pre><code>&lt;meta http-equiv="Content-Security-Policy" 
+      content="script-src 'self' https://apis.google.com"&gt;
+</code></pre>
+
+<p><strong>This approach will protect your users very effectively!</strong> However, it may take
+a considerable amount of discipline to make your site ready for such a header.
+Inline scripts tags are considered bad practice in modern web-development -
+mixing content and code makes web-applications difficult to maintain - but are
+common in older, legacy sites.</p>
+
+<p>To migrate away from inline scripts incrementally, consider makings use of
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_CSP_violation_reports">CSP Violation Reports</a>.
+By adding a <code>report-uri</code> directive in your policy header, the browser will
+notify you of any policy violations, rather than preventing inline JavaScript
+from executing:</p>
+
+<table class="definitions">
+<tr>
+<th>Content-Security-Policy-Report-Only: script-src 'self'; report-uri https://example.com/csr-reports</th>
+</tr>
+</table>
+
+<p>This will give you reassurance that there are no lingering inline scripts,
+before you ban them outright.</p>
+
+<h6 id="sanitize-html">Sanitize HTML</h6>
+
+<p>Some sites have a legitimate need to store and render raw HTML. If your site stores and renders rich content, you need 
+to use a HTML sanitization library to ensure malicious users cannot inject scripts in their HTML submissions.</p>
+
+<h3 id="code-samples">Code Samples</h3>
+
+<p>Preventing XSS vulnerabilities requires using the right code libraries, and
+performing thorough code reviews. Below are some examples of what to look out 
+for when checking your code.</p>
+
+<a class="toggle collapsed" data-bs-toggle="collapse" href="#pythona1d8312f-31da-4bc7-88c8-201deb20842a-examples" aria-expanded="false" aria-controls="pythona1d8312f-31da-4bc7-88c8-201deb20842a-examples"><h5 id="python">Python</h5></a><span id="pythona1d8312f-31da-4bc7-88c8-201deb20842a-examples" class="collapse">
+
+<h6 id="django">Django</h6>
+
+<p>Templates in Django escape HTML by default, so anything that looks like
+the following is generally safe:</p>
+
+<pre class="good"><code>
+**{{ contents }}**
+
+</code></pre>
+
+<p>You can override escape by using the
+<a href="https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#std:templatefilter-safe"><code>| safe</code></a> 
+filter. There are often good reasons to do this, but you will need to conduct code
+reviews on anything that uses this command:</p>
+
+<pre class="warning"><code>
+**{{ contents | safe }}**
+
+</code></pre>
+
+<p>Note that HTML-escaping can also be turned on or off with the
+<a href="https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#autoescape"><code>{% autoescape %}</code></a>
+tag.</p>
+
+<h6 id="flask">Flask</h6>
+
+<p><a href="https://flask.palletsprojects.com/en/2.2.x/templating/#controlling-autoescaping">Flask templates</a> escape HTML by 
+default, so code that looks like the following is generally safe:</p>
+
+<pre class="good"><code class="language-html">
+&lt;ul id="navigation"&gt;
+  {% for item in navigation %}
+    &lt;li&gt;&lt;a href="{{ item.href }}"&gt;{{ item.caption }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+    
+</code></pre>
+
+<p>However, escaping can be turned off by using the <code>safe</code> keyword:</p>
+
+<pre class="warning"><code class="language-html">
+&lt;ul id="navigation"&gt;
+  {% for item in navigation %}
+    &lt;li&gt;&lt;a href="{{ item.href }}"&gt;{{ item.caption | safe }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+
+</code></pre>
+
+<p>Or enclosing everything in an <code>autoescape false</code> block:</p>
+
+<pre class="warning"><code class="language-html">{% autoescape false %}
+  &lt;ul id="navigation"&gt;
+    {% for item in navigation %}
+      &lt;li&gt;&lt;a href="{{ item.href }}"&gt;{{ item.caption }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+  &lt;/ul&gt;
+{% endautoescape %}
+</code></pre>
+
+<p>Be sure to conduct code reviews on any templates that use these features!</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#ruby417fc537-5bf7-483c-8edd-d7a56e0b4f2d-examples" aria-expanded="false" aria-controls="ruby417fc537-5bf7-483c-8edd-d7a56e0b4f2d-examples"><h5 id="ruby">Ruby</h5></a><span id="ruby417fc537-5bf7-483c-8edd-d7a56e0b4f2d-examples" class="collapse">
+
+<h6 id="rails">Rails</h6>
+
+<p>Rails templates escape HTML by default, so anything that looks like
+the following is generally safe:</p>
+
+<pre class="good"><code class="language-html">
+&lt;%= contents %&gt;
+
+</code></pre>
+
+<p>You can override escape by using the
+<a href="https://api.rubyonrails.org/v3.0.9/classes/ActionView/Helpers/RawOutputHelper.html"><code>raw</code></a>
+function, or using the <code>&lt;%==</code> operator. There are often good reasons to do this, 
+but you will need to conduct code reviews on anything that uses these functions:</p>
+
+<pre class="warning"><code class="language-html">
+&lt;%= raw contents %&gt;
+
+&lt;%== contents %&gt;
+
+</code></pre>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#java72cab0ab-c12c-4fd3-b634-18d941e88ef4-examples" aria-expanded="false" aria-controls="java72cab0ab-c12c-4fd3-b634-18d941e88ef4-examples"><h5 id="java">Java</h5></a><span id="java72cab0ab-c12c-4fd3-b634-18d941e88ef4-examples" class="collapse">
+
+<h6 id="java-server-pages">Java Server Pages</h6>
+
+<p>Use the <code>c:out</code> tag to safely escape HTML:</p>
+
+<pre class="good"><code>
+&lt;c:out value="${contents}"&gt;
+
+</code></pre>
+
+<p>The following ways of writing to a template <em>do not</em> escape HTML, so you should use them with care:</p>
+
+<pre class="warning"><code>
+&lt;%= contents %&gt;
+
+${contents}
+
+&lt;%
+   out.println(contents);
+%&gt;
+
+</code></pre>
+
+<p>Consider using a
+<a href="https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/StringEscapeUtils.html#escapeHtml(java.lang.String)">third-party library</a>
+if you need to escape HTML manually.</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#c35413ddd2a-80c5-4c96-bbfd-b6df86105fc0-examples" aria-expanded="false" aria-controls="c35413ddd2a-80c5-4c96-bbfd-b6df86105fc0-examples"><h5 id="c35">C#</h5></a><span id="c35413ddd2a-80c5-4c96-bbfd-b6df86105fc0-examples" class="collapse">
+
+<h6 id="aspnet">ASP.NET</h6>
+
+<p>Use either of the following functions to safely escape HTML (the <code>&lt;%:</code> 
+form was introduced in ASP.NET 4.0):</p>
+
+<pre class="good"><code class="language-html">
+&lt;%= HttpUtility.HtmlEncode(contents) %&gt;
+
+&lt;%: contents %&gt;
+
+</code></pre>
+
+<p>The following way of writing to a template <strong>does not</strong> escape HTML 
+automatically, so you should use them with care:</p>
+
+<pre class="warning"><code class="language-html">
+&lt;%= contents %&gt;
+
+</code></pre>
+
+<p>Use <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.httputility.htmlencode"><code>HttpUtility.HtmlEncode(...)</code></a>
+if you need to escape HTML manually.</p>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#node18ac5f19-78f8-4afc-a0ab-5df87ab7b6cd-examples" aria-expanded="false" aria-controls="node18ac5f19-78f8-4afc-a0ab-5df87ab7b6cd-examples"><h5 id="node">Node</h5></a><span id="node18ac5f19-78f8-4afc-a0ab-5df87ab7b6cd-examples" class="collapse">
+
+<h6 id="mustachejs">Mustache.js</h6>
+
+<p>Tags in double mustaches automatically escape HTML:</p>
+
+<pre class="good"><code>
+{{ contents }}
+
+</code></pre>
+
+<p>Tags in triple mustaches <em>do not</em> escape HTML, and should be used with care:</p>
+
+<pre class="warning"><code>
+{{{ contents }}}
+
+</code></pre>
+
+<h6 id="dustjs">Dust.js</h6>
+
+<p>Key tags automatically escape HTML:</p>
+
+<pre class="good"><code>
+{ contents }
+
+</code></pre>
+
+<p>However, escaping can be disabled with the <code>|s</code> operator,
+so use this wth care</p>
+
+<pre class="warning"><code>
+{ contents | s }
+
+</code></pre>
+
+<h6 id="nunjucks">Nunjucks</h6>
+
+<p>If auto-escaping is turned on in the environment, Nunjucks will
+automatically escape tags for safe output:</p>
+
+<pre class="good"><code>
+{{ contents }}
+
+</code></pre>
+
+<p>Content marked with the safe filter will not be escaped – use this
+function with care:</p>
+
+<pre class="warning"><code>
+{{ contents | safe }}
+
+</code></pre>
+
+<p>Auto-escaping can be disabled for a template, in which case tags need
+to be escaped manually:</p>
+
+<pre class="good"><code>
+{{ contents | escape }}
+
+</code></pre>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#php5af9c862-f4e8-4181-9d1b-637bf8921e47-examples" aria-expanded="false" aria-controls="php5af9c862-f4e8-4181-9d1b-637bf8921e47-examples"><h5 id="php">PHP</h5></a><span id="php5af9c862-f4e8-4181-9d1b-637bf8921e47-examples" class="collapse">
+
+<p>The <a href="https://www.php.net/manual/en/function.echo.php"><code>echo</code></a> command <strong>does not</strong> escape 
+HTML by default, which means that any code like the following, which pulls data 
+directly out of the HTTP request, is vulnerable to XSS attacks:</p>
+
+<pre><code class="language-php">
+&lt;?php
+  echo $_POST["comment"];
+?&gt;
+
+</code></pre>
+
+<p>Be sure to use the <a href="https://www.php.net/strip_tags"><code>strip_tags</code></a> function or the 
+<a href="https://www.php.net/htmlspecialchars"><code>htmlspecialchars</code></a> function to safely escape 
+parameters:</p>
+
+<pre><code class="language-php">
+&lt;?php
+  echo strip_tags($_POST["comment"]);
+?&gt;
+
+</code></pre>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#angularjse5233739-ce0c-48a6-9745-86eb93bc9026-examples" aria-expanded="false" aria-controls="angularjse5233739-ce0c-48a6-9745-86eb93bc9026-examples"><h5 id="angularjs">AngularJS</h5></a><span id="angularjse5233739-ce0c-48a6-9745-86eb93bc9026-examples" class="collapse">
+
+<p>In Angular any dynamic content written out in curly brackets will automatically
+be escaped, so the following is safe:</p>
+
+<pre class="good"><code class="language-angularjs">  &lt;div&gt;{{dynamicContent}}&lt;/div&gt;
+</code></pre>
+
+<p>Be wary of any code that binds dynamic content to the <code>innerHTML</code> attribute
+since that will not be escaped automatically:</p>
+
+<pre class="bad"><code class="language-angular2html">  &lt;div [innerHTML]="dynamicContent"&gt;&lt;/div&gt;
+  &lt;div innerHTML="{{dynamicContent}}"&gt;&lt;/div&gt;
+</code></pre>
+
+</span><a class="toggle collapsed" data-bs-toggle="collapse" href="#react274248c1-0080-481d-8ef7-05ca52bb7e93-examples" aria-expanded="false" aria-controls="react274248c1-0080-481d-8ef7-05ca52bb7e93-examples"><h5 id="react">React</h5></a><span id="react274248c1-0080-481d-8ef7-05ca52bb7e93-examples" class="collapse">
+
+<p>In React any dynamic content written out in curly brackets will automatically
+be escaped, so the following is safe:</p>
+
+<pre class="good"><code class="language-jsx">render() {
+  return &lt;div&gt;{dynamicContent}&lt;/div&gt;
+}
+</code></pre>
+
+<p>React allows you write out raw HTML by binding content to the 
+<code>dangerouslySetInnerHTML</code> property, which is named to remind you of the 
+security risk! Watch out for any code that looks like the following:</p>
+
+<pre class="bad"><code class="language-react">render() {
+  return &lt;div dangerouslySetInnerHTML={ __html: dynamicContent } /&gt;
+}
+</code></pre>
+
+</span><h3 id="other-considerations">Other Considerations</h3>
+
+<h6 id="http-only-cookies">HTTP-only Cookies</h6>
+
+<p>Our <a href="../exercises/xss-stored.html">example hack</a> shows how a session-hijacking attack can 
+use malicious JavaScript to steal the cookie containing the user’s session ID. 
+There is rarely a good reason to read or manipulate cookies in client-side 
+JavaScript, so consider marking cookies as
+<a href="https://en.wikipedia.org/wiki/HTTP_cookie#HttpOnly_cookie">HTTP-only</a>, meaning 
+that cookies will be received, stored, and sent by the browser, but cannot be 
+modified or read by JavaScript.</p>
+
+<h3 id="further-reading">Further Reading</h3>
+
+<ul>
+  <li><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/?utm_source= &amp;utm_medium=post&amp;utm_campaign=articlelink">How Cross-site Scripting Works</a></li>
+  <li><a href="https://web.dev/csp/">Content security policy</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP">CSP (Content Security Policy) on the Mozilla Developer Network</a></li>
+  <li><a href="https://www.netsparker.com/blog/web-security/content-security-policy/?utm_source= &amp;utm_medium=post&amp;utm_campaign=articlelink">Content Security Policy Explained</a></li>
+</ul>
+
+
+
+        <h3 id="related">Related Vulnerabilities</h3>
+
+        <div class="related-vulnerabilities">
+            <a href="../exercises/xss-reflected.html"><div id="xss_reflected"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Reflected XSS
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-reflected/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-reflected/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-reflected/icon-animated.gif"
+           data-loop="true"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-reflected/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+</a>
+            <a href="../login9dd3.html"><div id="xss_dom"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    DOM-based XSS
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-dom/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-dom/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-dom/icon-animated.gif"
+           data-loop="true"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-dom/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+</a>
+        </div>
+
+    </div>
+
+      
+
+
+
+  </div>
+
+
+    <div class="container">
+      <div class="row quiz-link">
+        <a href="../join9eb9.html?next=%2Fquiz%2Fxss-stored">
+          <div class="link-question">
+            Got all that?
+          </div>
+
+          <div class="link-link">
+            Test Yourself →
+          </div>
+
+          <div class="link-caption">
+            <div>Take our quiz to make sure everything is clear</div>
+          </div>
+</a>      </div>
+    </div>
+
+
+
+</div>
+
+      
+  <footer class="regular">
+  <div class="container">
+    <ul>
+      <li>
+        <a href="../lessons.html">Lessons</a>
+      </li>
+      <li>
+        <a href="../glossary.html">Glossary</a>
+      </li>
+      <li>
+        <a href="../privacy.html">Privacy</a>
+      </li>
+      <li>
+        <a href="../legal.html">Legal</a>
+      </li>
+
+      <li class="pull-right copyright">
+          <a class="contact-us"
+             title="Get in touch"
+             href="mailto:question@ .com"
+             rel="noopener noreferrer">
+            <span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+
+        <a href="../index.html">
+          <span style="font-family: 'Oxygen'">©</span> 2023  
+</a>      </li>
+    </ul>
+  </div>
+</footer>
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/prevention/xss-stored by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:06 GMT -->
+</html>

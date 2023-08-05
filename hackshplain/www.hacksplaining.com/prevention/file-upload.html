@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/prevention/file-upload by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Protecting Your File Uploads</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="lBD8UegG1Jec3mNlwFo86YepTwzDvzzJn4pqcIh4xF0NAHFjaVy0qVHw7uxv4kYOYxDbItYwIQD8/g4hynOcrg==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/prevention/file-upload" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Protecting Your File Uploads" />
+<meta property="og:description"  content="File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application. Let&#39;s review a typical exploitation scenario. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application. Let&#39;s review a typical exploitation scenario. →" />
+
+<meta name="twitter:title"       content="Protecting Your File Uploads">
+<meta name="twitter:description" content="File uploads should be treated with caution - they represent an easy way for an attacker to inject malicious code into your application. Let&#39;s review a typical exploitation scenario. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="light-background logged-out prevention  unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      <div class="header">
+  <nav class="navbar navbar-expand-lg ">
+
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsing-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+      <span class="navbar-brand logo">
+        <a href="../index.html">
+          <div class="title"> </div>
+        </a>
+      </span>
+
+      <div class="navbar-collapse collapse justify-content-end" id="collapsing-menu">
+
+        <div class="navbar-nav mr-auto">
+
+        </div>
+
+        <ul class="navbar-nav justify-content-end">
+
+
+            <li class="nav-item nav-features"><a class="nav-link" href="../features.html">Features</a></li>
+            <li class="nav-item nav-lessons"><a class="nav-link" href="../lessons.html">Lessons</a></li>
+            <li class="nav-item nav-enterprise"><a class="nav-link" href="../enterprise.html">Enterprise</a></li>
+            <li class="nav-item nav-owasp top 10"><a class="nav-link" href="../owasp.html">OWASP Top 10</a></li>
+            <li class="nav-item nav-pci compliance"><a class="nav-link" href="../pci.html">PCI Compliance</a></li>
+            <li class="nav-item nav-the book"><a class="nav-link" href="../book.html">The Book</a></li>
+            <li class="nav-item nav-login"><a class="nav-link" href="../login.html">Login</a></li>
+            <li class="nav-item nav-signup"><a class="nav-link" href="../join.html">SignUp</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+
+      
+<script>
+  hljs.configure({ classPrefix: 'code-' });
+  hljs.highlightAll();
+</script>
+
+<div class="main reading file-upload">
+
+  <div class="container">
+    <div class="row prevention-tips has-sponsor">
+      <div class="row title modest">
+        Protecting Your File Uploads
+      </div>
+
+      <p><strong>File uploads represent an easy way for an attacker to inject malicious
+code into your application.</strong> You need to ensure uploaded files are kept
+at arm’s length until they are fully secured, or else you risk creating
+an easy route to having your systems compromised.</p>
+
+
+
+      <h3 id="risks">Risks</h3>
+
+      <div class="ratings">
+  <div class="rating prevalence common">
+    <div class="category">
+      <span class="category-label">
+        Prevalence
+      </span>
+
+      <span class="description">
+        Common
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons prevalence common">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+      </div>
+   </div>
+  </div>
+
+  <div class="rating exploitability moderate">
+    <div class="category">
+      <span class="category-label">
+        Exploitability
+      </span>
+
+      <span class="description">
+        Moderate
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons exploitability moderate"">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="rating impact harmful">
+    <div class="category">
+      <span class="category-label">
+        Impact
+      </span>
+
+      <span class="description">
+        Harmful
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons impact harmful">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+      <p><strong>Sophisticated hackers typically exploit a combination of vulnerabilities when
+attacking your site – uploading malicious code to a server is step one in the 
+hacker playbook.</strong> The next step is finding a way to execute the malicious code.</p>
+
+<p>Even <a href="https://threatpost.com/ebay-fixes-file-upload-and-patch-disclosure-bugs/111898">big companies</a>
+fall foul to this vulnerability, particularly if they are running complex,
+legacy code bases.</p>
+
+
+
+
+      <h3 id="protection">Protection</h3>
+
+<p>Any input coming from a user ought to be treated with suspicion until it has been guaranteed to be safe. 
+This is particularly true of uploaded files, because your application will typically treat them as a big
+blob of data at first, allowing an attacker to smuggle any kind of malicious 
+code they desire onto your system.</p>
+
+<h6 id="segregate-your-uploads">Segregate Your Uploads</h6>
+
+<p>File uploads are generally intended to be inert. Unless you are building a very
+particular type of website, you are typically expecting images, videos, or document 
+files, rather than executable code. If this is the case, making sure uploaded 
+files are kept separate from application code is a key security consideration.</p>
+
+<p>Consider using <a href="https://aws.amazon.com/s3/">cloud-based storage</a> or a 
+<a href="../glossary.html">content management system</a> to store
+uploaded files. Alternatively, if you are  sure of your ability to scale your 
+backend, you could write uploaded files to your database. Both of these approaches 
+prevent accidental execution of an executable file.</p>
+
+<p>Even storing uploaded files on a remote file server or in a separate disk 
+partition helps, by isolating the potential damage a malicious file can do.</p>
+
+<h6 id="ensure-upload-files-cannot-be-executed">Ensure Upload Files Cannot Be Executed</h6>
+
+<p>However you end up storing your uploaded files, if they are written to disk,
+ensure they are written in such a way that the operating system knows not to
+treat them as executable code. Your web server process should have read and 
+write permissions on the directories used to store uploaded content, but 
+should <em>not</em> be able to execute any files there. If you are using a Unix-based 
+operating system, make sure uploaded files are written without the “executable” 
+flag in the file permissions.</p>
+
+<h6 id="rename-files-on-upload">Rename Files on Upload</h6>
+
+<p>Rewriting or obfuscating file names will make it harder for an attacker to locate
+a malicious file once they have uploaded it. Uploaded files are generally
+made available back over HTTP – what’s the point of uploading an image if it 
+isn’t available anywhere on your site, for instance? Implement a method of 
+indirection when serving the uploaded content back in the browser, so the content 
+is not referenced by its name from the original upload.</p>
+
+<h6 id="validate-file-formats-and-extensions">Validate File Formats and Extensions</h6>
+
+<p>Make sure you check the file extension of uploaded files against a white-list of
+permitted file types. Do this on the server-side, since client-side checks
+can be circumvented.</p>
+
+<h6 id="validate-the-content-type-header">Validate the Content-Type Header</h6>
+
+<p>Files uploaded from a browser will be accompanied by a <code>Content-Type</code>
+header. Make sure the supplied type belongs to a white-listed list of permitted
+file types. (Be aware that simple scripts or proxies can spoof the file type, though,
+so this protection, while useful, is not enough to dissuade a sophisticated attacker.)</p>
+
+<h6 id="use-a-virus-scanner">Use a Virus Scanner</h6>
+
+<p>Virus scanners are very adept at spotting malicious files masquerading as a different
+file type, so if you are accepting file uploads, running up-to-date virus scanning
+is strongly recommended.</p>
+
+<h3 id="other-considerations">Other Considerations</h3>
+
+<h6 id="check-file-sizes">Check File Sizes</h6>
+
+<p>A cheap and easy way to perform a <a href="../glossary.html">denial-of-service</a>
+attack is to upload a very large file, in the hope that the server runs out of space.
+Make sure you put a maximum size on the size of the files you accept.</p>
+
+<h6 id="sanitize-filenames">Sanitize Filenames</h6>
+
+<p>Overlong filenames could be abused to exploit <strong>buffer overflow</strong>
+vulnerabilities. Similarly, files with special characters in the name can cause
+weird behaviour, depending on how they are treated by your software. It is good
+practice to ensure file names are sanitized before being written to disk.</p>
+
+<h6 id="be-careful-with-compressed-files">Be Careful with Compressed Files</h6>
+
+<p>If your site accepts compressed content, such as zip files, be aware that it is
+possible to create malicious archive files designed to crash or render useless
+the program or system reading them. A <strong>zip bomb</strong> is crafted so that unpacking 
+it will take up a large amount of time, disk space, or memory – typically, the 
+zip will expand to be huge on disk when unpacked. Don’t deal with compressed 
+content unless you absolutely have to, and make sure to run an anti-virus scanner 
+if you do!</p>
+
+<h3 id="further-reading">Further Reading</h3>
+
+<ul>
+  <li><a href="https://www.acunetix.com/blog/articles/introduction-web-shells-part-1/?utm_source= &amp;utm_medium=post&amp;utm_campaign=articlelink">An Introduction to Web-shells</a></li>
+  <li><a href="https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload">Unrestricted File Upload Vulnerabilities</a></li>
+</ul>
+
+
+
+        <h3 id="related">Related Vulnerabilities</h3>
+
+        <div class="related-vulnerabilities">
+            <a href="../login4981.html"><div id="broken_access_control"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Broken Access Control
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+</a>
+            <a href="../login0f92.html"><div id="directory_traversal"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Directory Traversal
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+</a>
+        </div>
+
+    </div>
+
+      
+
+
+
+  </div>
+
+
+    <div class="container">
+      <div class="row quiz-link">
+        <a href="../join8d75.html?next=%2Fquiz%2Ffile-upload">
+          <div class="link-question">
+            Got all that?
+          </div>
+
+          <div class="link-link">
+            Test Yourself →
+          </div>
+
+          <div class="link-caption">
+            <div>Take our quiz to make sure everything is clear</div>
+          </div>
+</a>      </div>
+    </div>
+
+
+
+</div>
+
+      
+  <footer class="regular">
+  <div class="container">
+    <ul>
+      <li>
+        <a href="../lessons.html">Lessons</a>
+      </li>
+      <li>
+        <a href="../glossary.html">Glossary</a>
+      </li>
+      <li>
+        <a href="../privacy.html">Privacy</a>
+      </li>
+      <li>
+        <a href="../legal.html">Legal</a>
+      </li>
+
+      <li class="pull-right copyright">
+          <a class="contact-us"
+             title="Get in touch"
+             href="mailto:question@ .com"
+             rel="noopener noreferrer">
+            <span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+
+        <a href="../index.html">
+          <span style="font-family: 'Oxygen'">©</span> 2023  
+</a>      </li>
+    </ul>
+  </div>
+</footer>
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/prevention/file-upload by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:10 GMT -->
+</html>

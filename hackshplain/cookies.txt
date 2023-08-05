@@ -1,0 +1,6 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www. .com	TRUE	/	FALSE	1999999999	_vulnerable-app_session	QjhpczFrbkhWWFBDWC9LU2tJRFdiSUkvRFFaS1pvUW9RTGR1Nm9JOHUrMThTZWJnZGtDQUU2cE1VNGlCRU10Y1hxcnkvM1dGRHV0OHlhMlQ5NU9Qa0tYalhkRlFLeXBmMEtPS0hVOUZEVndMZnVBdDV1NGRyYnVWWkYzamhyQ2hXSldSK3VXRmhpN3gvNzNsQnNRU1JnPT0tLTcybVd2d2prbVl6b3hlRTZCVENtMVE9PQ%3D%3D--2fe2f5f1b861f46eb37ccc9ecd0a738e8d1687ab
+www. .com	TRUE	/	FALSE	1999999999	SameSite	None
+www. .com	TRUE	/	FALSE	1999999999	_session_id	f9525da956a94b138f5c62b1d5e1897c
+

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/command-execution by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:46:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Command Execution</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="K9a1I20QzGXtVZpBwWQ3LcXDRLTh7LPw23urmOO66yGyxjgR7EqsWyB7F8hu3E3KIXrQmvRjrjm4D8/JobGz0g==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/command-execution" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Command Execution" />
+<meta property="og:description"  content="Many web applications call operating system processes via the command line. If your application calls out to the OS, you need to be sure command strings are securely constructed. Let&#39;s see why. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="Many web applications call operating system processes via the command line. If your application calls out to the OS, you need to be sure command strings are securely constructed. Let&#39;s see why. →" />
+
+<meta name="twitter:title"       content="Command Execution">
+<meta name="twitter:description" content="Many web applications call operating system processes via the command line. If your application calls out to the OS, you need to be sure command strings are securely constructed. Let&#39;s see why. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises command_execution unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          Command Execution
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/icon.gif')"></div>
+
+  <div class="strip">
+    Command Execution
+  </div>
+  <div class="blurb">
+
+    <p>Many web applications call operating system processes via the command line. If your application calls out to the OS, you need to be sure command strings are securely constructed.</p>
+
+    <p>
+      <strong>
+        Let's see why.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="Command Execution"
+             data-id="command_execution"
+             data-captions="on" >
+
+          
+        <div id="command-injection" class="container">
+  <div class="row top">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+      <a class="unselectable" href="#remote-execution"><div id="start" class=" instruction" title="Start" introductory="true" next="remote-execution">
+
+        <strong>Many websites make use of command line calls to read files,
+        send emails, and perform other native operations.</strong> If your site
+        transforms untrusted input into shell commands, you need to take care
+        to sanitize the input.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#hosting"><div id="remote-execution" class=" instruction" title="Remote Execution" introductory="true" next="hosting">
+
+        <p>
+          If you don't, an attacker will be able to craft HTTP requests that
+          execute whatever command they want.
+        </p>
+
+        <p>
+          <strong>Let's see how easy it is.</strong>
+        </p>
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="../prevention/command-execution.html"><div id="finish" class=" instruction" show="" title="How do we prevent this?">
+
+        <div class="icon">
+          <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        </div>
+
+        <div class="message">
+          <strong>Being vulnerable to remote code execution is a severe risk.</strong>
+          Better learn to protect ourselves, eh?
+        </div>
+
+<div class="next"></div></div></a>
+    </div>
+
+    <div class="col-md-3"></div>
+
+  </div>
+
+  <div class="row bottom">
+
+    <div class="col-md-3 captions left-panel">
+
+      <a class="unselectable" href="#eval"><div id="hosting" class=" instruction" show="#site" title="Hosting" fx="pop" next="eval">
+
+        <strong>Imagine you run a simple site that performs DNS lookups.</strong>
+        Your site shells out to the <code>nslookup</code> command, then prints the result.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#curious-hacker"><div id="eval" class=" instruction" show="#code,.caption" title="The Cat Function" trigger="highlightBadness" next="curious-hacker">
+
+        <strong>Have a look at the code.</strong> Since the <code>domain</code>
+        parameter is not sanitized, you are vulnerable to command injection.
+
+<div class="next"></div></div></a>
+      <script>
+        function blink(element, nth, delayTime) {
+          $($(element)[nth])
+            .delay(delayTime)
+            .animate({backgroundColor: "#777733"}, 700)
+            .animate({backgroundColor: "#333333"}, 700);
+        }
+
+        function highlightBadness() {
+          hljs.initHighlighting();
+
+          blink("#code .code-string",   2, 0);
+          blink("#code .code-variable", 1, 1000);
+          blink("#code .code-string",   3, 2000);
+
+          blink("#code .code-string",   2, 3000);
+          blink("#code .code-variable", 1, 4000);
+          blink("#code .code-string",   3, 5000);
+
+          blink("#code .code-string",   2, 6000);
+          blink("#code .code-variable", 1, 7000);
+          blink("#code .code-string",   3, 8000);
+        }
+      </script>
+
+      <a class="unselectable" href="#curious-and-curiouser"><div id="curious-hacker" class=" instruction" show="#site,#slim-neutral,#fixin-to" title="A Curious Hacker" next="curious-and-curiouser">
+
+        <strong>Slim is a no-good basement-dweller who wants to hack your
+        website.</strong> He has already noticed you are running PHP, and
+        wonders how he can take advantage of that.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#experimentation"><div id="curious-and-curiouser" class=" instruction" show="#site,#slim-concentrating" title="Curiouser and Curiouser" trigger="lookupIP" next="experimentation">
+
+        While running a simple domain lookup, he notices that the domain is
+        passed in the query string under the <code>domain</code> parameter.
+
+<div class="next"></div></div></a>
+      <script>
+        function reset(andShow) {
+          this.find('input[type="text"]').val("");
+          this.removeClass("loading");
+          this.find('input[type="button"]').removeClass("clicked");
+
+          this.find(".results").hide();
+
+          if (andShow !== undefined) {
+            this.find(andShow).fadeIn();
+          }
+        }
+
+        function typing(target, text, andThen) {
+          sounds.play('typing-short')
+
+          $(target)
+            .data('typed', null)
+            .typed({
+              strings: [ text ],
+              typeSpeed: 50,
+              startDelay: 800,
+              contentType: 'text',
+              showCursor: true,
+              onStringTyped: function () {
+                if (andThen !== undefined) andThen();
+              }
+            }
+          );
+        }
+
+        function lookupIP() {
+          animating();
+          typing("#site .domain", "google.com", submitHarmlessSearch);
+        }
+
+        function submitHarmlessSearch() {
+          var site = $("#site");
+
+          site
+            .addClass("loading")
+            .find(".address").text("search-o-bot.com?domain=google.com");
+
+          setTimeout(reset.bind(site, ".regular"), 2500)
+          setTimeout(sounds.play.bind("plink"), 2500)
+
+          setTimeout(function() {
+            thinks("#slim-is-curious");
+            done();
+          }, 3000);
+        }
+      </script>
+
+      <a class="unselectable" href="#command-output"><div id="experimentation" class=" instruction" show="#site,#slim-concentrating" title="Experimentation" triggerOnClick="maliciousLookup" next="command-output">
+
+        He guesses that the IP lookup is performed via an operating system
+        function, and attempts to tag on an extra command on the end.
+
+<div class="next"></div></div></a>
+      <script>
+        function maliciousLookup() {
+          animating();
+          typing("#site .domain", "google.com && echo \"HAXXED\"", submitMaliciousSearch);
+        }
+
+        function submitMaliciousSearch() {
+          var site = $("#site");
+
+          site
+            .addClass("loading")
+            .find(".address").text("search-o-bot.com?domain=google.com%3Becho%20%22HAXXED%22");
+
+          setTimeout(reset.bind(site, ".pwned"), 2500);
+          setTimeout(sounds.play.bind("scratch"), 2500);
+
+          setTimeout(function() {
+            done();
+          }, 3000);
+        }
+      </script>
+
+      <a class="unselectable" href="#code-execution"><div id="command-output" class=" instruction" show="#owned,#slim-concentrating,#slim-has-hacked" title="Pwned" fx="humming" next="code-execution">
+
+        <strong>Success!</strong> Slim can see the output of his <code>echo</code>
+        command on the web page. This demonstrates that your site is vulnerable to
+        command execution.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#you-try"><div id="code-execution" class=" instruction" show="#owned,#slim-concentrating,#saddle-up" title="Code Execution" fx="laugh" next="you-try">
+
+        <strong>Now he has a mechanism to execute code on the server.</strong>
+        This is very bad news.
+
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#finish"><div id="you-try" class=" instruction" show="#pre-owned,#slim-concentrating" title="Try It At Home" transcript="Now let&#39;s try it ourselves. We will add the command cat on the end of the search term to read a sensitive file on the server." fx="plink" next="finish" await="true">
+
+        <strong>You try it!</strong>
+        Add the command <code>cat /etc/passwd</code> on the end of the search
+        term to read a sensitive file on the server.
+
+<div class="next hidden"></div></div></a>
+      <script>
+        $(function() {
+          var input = $("#pre-owned .domain");
+
+          input.keypress(function(event) {
+            if (event.which == 13) {
+              search();
+            }
+          });
+
+          $("#pre-owned .search").click(search);
+
+          function search() {
+            var term = input.val();
+
+            $("#pre-owned")
+              .addClass("loading")
+              .find(".address").text("search-o-bot.com?domain=" + encodeURIComponent(term));
+
+            setTimeout(function() {
+              $.getJSON('https://www. .com/exercises/command-execution/shell?cmd=' + encodeURIComponent(term), function(response) {
+                $("#pre-owned").removeClass("loading");
+
+                var sections = response.output.split('\n\n');
+
+                if (sections.length > 2) {
+                  sections[sections.length - 1] = '<b class="haxxed">' + sections[sections.length - 1] + '</b>';
+                }
+
+                var html = sections.join('\n\n');
+
+                $("#pre-owned .results").html(html).fadeIn().animate({ scrollTop: 1000 }, 2000);
+
+                if (response.event == 'read') {
+                  $("#slim-concentrating").hide()
+                  $("#slim-malevolent").show()
+
+                  thinks("#thank-you");
+
+                  $(".current")
+                    .removeClass("waiting")
+                    .removeAttr("await")
+                    .append('<div class="next"></div>');
+
+                  sounds.play('scratch')
+                }
+              })
+            }, 1000);
+          }
+        })
+      </script>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div id="site"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">search-o-bot.com</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+        <img class="which" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/which-c022f585673b1872c74bb02fd2a888af778b68cf5319ce78cab046d6b8b01c6f.png" />
+
+        <img class="bot static" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/robot-static-912700feae8ce4e51ed8c2b7b4186cbb5a758036a6b78a67891f280a96afce82.gif" />
+        <img class="bot animated" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/robot-animated-f9dad7295073a7780c50fa76c1a74c1ce6b942fb869519083bad1aaf2d9e1f7e.gif" />
+
+        <div class="form">
+          <div class="input-group">
+            <input type="text" name="domain" class="domain form-control">
+            <span class="input-group-append">
+              <i class="input-group-text fa fa-search"></i>
+            </span>
+          </div>
+
+<pre class="results regular">
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+
+Non-authoritative answer:
+Name:    google.com
+Address: 216.58.192.14
+</pre>
+
+<pre class="results pwned">
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+
+Non-authoritative answer:
+Name:    google.com
+Address: 216.58.192.14
+
+<b class="haxxed">HAXXED</b></pre>
+
+        </div>
+
+
+
+  </div>
+</div>
+      <div id="owned"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">search-o-bot.com?domain=google.com%3Becho%20%22HAXXED%22</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+        <img class="which" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/which-c022f585673b1872c74bb02fd2a888af778b68cf5319ce78cab046d6b8b01c6f.png" />
+
+        <img class="bot static" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/robot-static-912700feae8ce4e51ed8c2b7b4186cbb5a758036a6b78a67891f280a96afce82.gif" />
+        <img class="bot animated" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/robot-animated-f9dad7295073a7780c50fa76c1a74c1ce6b942fb869519083bad1aaf2d9e1f7e.gif" />
+
+        <div class="form">
+          <div class="input-group">
+            <input type="text" name="domain" class="domain form-control">
+            <span class="input-group-append">
+              <i class="class="input-group-text fa fa-search"></i>
+            </span>
+          </div>
+
+<pre class="results pwned">
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+
+Non-authoritative answer:
+Name:    google.com
+Address: 216.58.192.14
+
+<b class="haxxed">HAXXED</b></pre>
+
+        </div>
+
+
+
+  </div>
+</div>
+      <div id="pre-owned"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">search-o-bot.com</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+        <img class="which" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/which-c022f585673b1872c74bb02fd2a888af778b68cf5319ce78cab046d6b8b01c6f.png" />
+
+        <img class="bot static" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/robot-static-912700feae8ce4e51ed8c2b7b4186cbb5a758036a6b78a67891f280a96afce82.gif" />
+        <img class="bot animated" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/command-execution/robot-animated-f9dad7295073a7780c50fa76c1a74c1ce6b942fb869519083bad1aaf2d9e1f7e.gif" />
+
+        <div class="form">
+          <div class="input-group">
+            <input type="text" name="domain" class="domain form-control" value="google.com && ">
+            <span class="input-group-append search">
+              <i class="input-group-text fa fa-search"></i>
+            </span>
+          </div>
+
+          <pre class="results regular hide-by-default"></pre>
+
+        </div>
+
+
+
+  </div>
+</div>
+      <pre id="code" class="snippet  hide-by-default"><code class="php warning">&lt;?php
+  if (isset($_GET[&#39;domain&#39;])) {
+    echo &#39;&lt;pre&gt;&#39;;
+    $domain = $_GET[&#39;domain&#39;];
+    $lookup = system(&quot;nslookup {$domain}&quot;);
+    echo($lookup);
+    echo &#39;&lt;/pre&gt;&#39;;
+  }
+?&gt;</code><img class="icon" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/warning-705637f7cacef63011b5e6e3775ecac4766d8686f062674a8ca84c582f239c50.png" /></pre>
+      <div class="caption hide-by-default">
+        Notice how the 'domain' parameter is taken in from the GET request,
+        and immediately interpolated into a command string.
+      </div>
+
+    </div>
+
+    <div class="col-md-3 hacker right-panel">
+
+      <img class="character hide-by-default" id="slim-concentrating" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/slim-concentrating-7a4616011c6adec1b3112e38aee00c718333663631b925c05f8a49caa7351c1a.png" />
+      <img class="character hide-by-default" id="slim-frustrated" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/slim-frustrated-d6586a4aa3b8b31401e45cdb93f49360797ee5b05b35c1b097d17c822f29a4d7.png" />
+      <img class="character hide-by-default" id="slim-malevolent" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/slim-malevolent-a3a227fed3d042804654f0f80a0fac5b897149e516cb7a195d7dfa2d3af0d046.png" />
+      <img class="character hide-by-default" id="slim-neutral" src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/slim-neutral-5fa00eb8c45ddb972585814472504a6c516f8c0182de9e0467ee2358d279cec0.png" />
+
+      <span id="fixin-to" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        I'm fixin' to cause some trouble.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="slim-is-curious" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Hmm, there's a storm a-brewin'...
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="slim-has-hacked" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Well ain't that a hair in the butter.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="saddle-up" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Time to saddle up buckeroo!
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="thank-you" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Thank you kindly pardner.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+    </div>
+
+  </div>
+</div>
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/command-execution by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:46:56 GMT -->
+</html>

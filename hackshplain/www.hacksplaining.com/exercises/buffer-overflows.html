@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/buffer-overflows by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Buffer Overflows</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="gh4p8Nvv0F4AcpaOjJaaxp+n+fMLucrnwudhoz/yR8kbDqTCWrWwYM1cGwcjLuAhex5t3R421y6hkwXyffkfOg==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/buffer-overflows" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Buffer Overflows" />
+<meta property="og:description"  content="An attacker can use buffer overflows to take your site offline or to inject malicious code Let&#39;s learn how they work. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/buffer-overflows/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="An attacker can use buffer overflows to take your site offline or to inject malicious code Let&#39;s learn how they work. →" />
+
+<meta name="twitter:title"       content="Buffer Overflows">
+<meta name="twitter:description" content="An attacker can use buffer overflows to take your site offline or to inject malicious code Let&#39;s learn how they work. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises buffer_overflows unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/buffer-overflows/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          Buffer Overflows
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/buffer-overflows/icon.gif')"></div>
+
+  <div class="strip">
+    Buffer Overflows
+  </div>
+  <div class="blurb">
+
+    <p>An attacker can use buffer overflows to take your site offline or to inject malicious code</p>
+
+    <p>
+      <strong>
+        Let's learn how they work.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="Buffer Overflows"
+             data-id="buffer_overflows"
+             data-captions="on" >
+
+          
+        <div id="buffer-overflows" class="container">
+  <div class="row top" style="height: 200px">
+
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6">
+
+      <a class="unselectable" href="#what-is-a-buffer"><div id="start" class=" instruction" introductory="true"><p>A <span class="vulnerability">buffer overflow</span> occurs when a program tries to write too much data in a fixed length block of memory (a buffer). Buffer overflows can be used by attackers to crash a web-server or execute malicious code.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#exercise-buffer-overflow"><div id="what-is-a-buffer" class=" instruction" show="#buffer-illustration" trigger="bufferExample"><p>A <strong>buffer</strong> is a block of contiguous memory used to hold data. High-level languages will check the length of a buffer before writing to it, but low-level languages like C, C++ and Assembly require the application itself to do this type of checking.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#overflow"><div id="exercise-buffer-overflow" class=" instruction" show="#overflow-code,#overflow-prompt" trigger="focusPrompt"><p>Take a look at this very simple C program that does not check the length of the input. Try entering a username that is longer than 8 characters and watch what happens.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#no-ops"><div id="overflow" class=" instruction" show="#buffer-illustration" trigger="bufferOverflow"><p>Extra data that overflows a buffer will will be written into the nearby memory space, and will often crash the application. Under some circumstances, an attacker will be able to sneak their own code into the overflowed data, and have this “shellcode” executed within the vulnerable application.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#managed-memory"><div id="no-ops" class=" instruction" show="#buffer-illustration" trigger="noopSlide"><p>One common approach is to fill as much of the program’s memory space as possible with no-op (“no operation”) instructions then place the injected code at the end. If the progam’s execution context lands on any of the no-op codes, it will skip to the next no-op, then the next, and so on, until it finally executes the injected code.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#stack-vulnerabilities"><div id="managed-memory" class=" instruction" show="#memory-managed-languages"><p>Most languages used to write web-code - like Python, Ruby, Node, Java and .NET - used “managed memory”, and are immune to buffer overflow attacks.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#finish"><div id="stack-vulnerabilities" class=" instruction" show=".overflow-vulnerability"><p>However web-servers, language runtimes, and operating systems are frequently written in low-level languages, and can exhibit the vulnerability. The fact that 80% of the web is running on one of the four web-servers means anytime a vulnerability is discovered, it can be widely exploited!</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="../prevention/buffer-overflows.html"><div id="finish" class=" instruction"><div class="icon"><img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" /></div><div class="message"><p>Let’s learn how to protect against buffer overflows!</p>
+</div><div class="next"></div></div></a>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 illustrations">
+
+      <div id="buffer-illustration" class="hide-by-default initially-hidden">
+        <table class="memory-space">
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+          <tr>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+            <td/> <td/> <td/> <td/> <td/> <td/> <td/> <td/>
+          </tr>
+        </table>
+      </div>
+
+
+      <div id="memory-managed-languages" class="hide-by-default initially-hidden">
+        <div id="memory-managed-code" class="code-window">
+          <div class="heading">Safe.java</div>
+          <div class="contents">
+            <pre id="vulnerable-code" class="snippet">
+<code class="java hljs">
+try {
+   String[] array = { "a", "b", "c" };
+   array[25] = "z";
+}
+catch (ArrayIndexOutOfBoundsException e) {
+   // Attempts to overflow the buffer will raise an error in Java.
+   e.printStackTrace();
+}
+</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div id="overflow-code" class="code-window hide-by-default initially-hidden">
+        <div class="heading">oops.c</div>
+        <div class="contents">
+            <pre id="vulnerable-code" class="snippet">
+<code class="c hljs">void askForUsername()
+{
+  // Buffer can only hold 8 characters!
+  char buffer[8];
+
+  printf("Enter supply your username:\n");
+  scanf("%s", buffer);
+  printf("You entered: %s\n", buffer);
+}
+
+int main()
+{
+  while(1) askForUsername();
+
+  return 0;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div id="overflow-prompt" class="code-window hide-by-default initially-hidden">
+        <div class="heading">Running: "oops.c"</div>
+        <div class="contents command-line">
+          <div>Enter supply your username: <input class="prompt" maxlength="20" type="text"/></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <img class="overflow-vulnerability initially-hidden hide-by-default vuln-1" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/buffer-overflows/apache-vulnerability-27aa19aaa50b257fb88ca97b1ae25643e64f9c908df5b37a6af556a0ba519480.png" />
+    </div>
+    <div class="col-sm-4">
+      <img class="overflow-vulnerability initially-hidden hide-by-default vuln-2" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/buffer-overflows/nginx-vulnerability-eb57828f44695641014fceb0324d6ea131d2189a31be250c30790757e272a2b1.png" />
+    </div>
+    <div class="col-sm-4">
+      <img class="overflow-vulnerability initially-hidden hide-by-default vuln-3" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/buffer-overflows/iis-vulnerability-6bec5b713d2ab46f80a5e37a7d484fb86e0d3b3c71b84274a47197d36d92d5ed.png" />
+    </div>
+  </div>
+</div>
+
+<script>
+  var overflowText = 'too_much_data_to_fit_in_the_buffer'
+  var painting     = 'current'
+
+  function clearBuffer() {
+    $(".memory-space td").text('')
+    $(".memory-space td").removeClass()
+
+    for (var row = 0; row < 8; row++) {
+      for (var col = 0; col < 16; col++) {
+        var selector = ".memory-space tr:nth-child(" + (row + 1 ) + ") td:nth-child(" + (col + 1) + ")";
+        $(selector).text(row.toString(16) + col.toString(16));
+      }
+    }
+  }
+
+  function writeToBuffer(value, row, col) {
+    painting = Math.random() * 16;
+
+    clearBuffer();
+
+    shadeBuffer(value, row, col, row, col, 0, painting);
+  }
+
+  function shadeBuffer(value, row, col, initRow, initCol, i, paintFlag) {
+    if (i === 8 || painting !== paintFlag) {
+      writeBufferContents(value, initRow, initCol, 'overflow', paintFlag);
+      return
+    }
+
+    var selector = ".memory-space tr:nth-child(" + row + ") td:nth-child(" + col + ")";
+
+    $(selector).text('');
+    $(selector).addClass('buffer');
+
+    col++;
+
+    if (col > 16) {
+      col = 1;
+      row ++;
+    }
+
+    setTimeout(function() {
+      shadeBuffer(value, row, col, initRow, initCol, i+1, paintFlag);
+    }, 100)
+  }
+
+  function writeBufferContents(value, row, col, className, paintFlag) {
+    if (value.length === 0 || painting !== paintFlag) {
+      return
+    }
+
+    var selector = ".memory-space tr:nth-child(" + row + ") td:nth-child(" + col + ")";
+
+    if (value[0] === '☠') {
+      className = 'shellcode';
+    }
+
+    $(selector).text(value[0]);
+
+    if (!$(selector).hasClass('buffer')) {
+      if (value[0] === '☠') {
+        $(selector).addClass(className + ' skull');
+      }
+      else {
+        $(selector).addClass(className);
+      }
+    }
+
+    value = value.substr(1)
+
+    col++;
+
+    if (col > 16) {
+      col = 1;
+      row ++;
+    }
+
+    setTimeout(function() {
+      writeBufferContents(value, row, col, className, paintFlag)
+    }, 100)
+  }
+
+  function bufferExample() {
+    writeToBuffer('buffer  ', 3, 8)
+  }
+
+  function bufferOverflow() {
+    writeToBuffer(overflowText, 3, 8)
+  }
+
+  function noopSlide() {
+    writeToBuffer('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>☠☠☠☠☠☠☠', 3, 8)
+  }
+
+  function focusPrompt() {
+    $(".prompt").focus();
+
+    $("body").on("keydown", ".prompt", function (e) {
+      if (e.keyCode === 13) {
+        var text = $('.prompt').val();
+
+        $('.prompt').replaceWith(text);
+
+        if (text.length <= 8) {
+          $(".command-line").html(
+            $(".command-line").html() + '<div>You entered: ' + text + '</div><div>Enter supply your username: <input maxlength="20" class="prompt" type="text"/></div>'
+          );
+
+          $(".prompt:enabled").focus();
+        }
+        else {
+          overflowText = text;
+          $(".command-line").html($(".command-line").html() + '<div class="seg-fault">Segmentation fault</div>');
+          $("#overflow-prompt").shake();
+        }
+      }
+    });
+
+    $.fn.shake = function() {
+      this.each(function(i) {
+        for (var x = 1; x <= 3; x++) {
+          $(this).animate({
+            marginLeft: -5, marginRight: 5
+          }, 30).animate({
+            marginLeft: 5, marginRight: -5
+          }, 20).animate({
+            marginLeft: -2, marginRight: 2
+          }, 10).animate({
+            marginLeft: 2, marginRight: -2
+          }, 20).animate({
+            marginLeft: 0, marginRight: 0
+          }, 10);
+        }
+      });
+
+      return this;
+    }
+  }
+</script>
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/buffer-overflows by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:32 GMT -->
+</html>

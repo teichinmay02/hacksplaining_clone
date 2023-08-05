@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/ssrf by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Server-Side Request Forgery</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="p3zGy1Vs7hpslRKQb/2Pzv0lC40xxrNuiaEcNcgSMrA+bEv51DaOJKG7nxnARfUpGZyfoyRJrqfq1XhkihlqQw==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/ssrf" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Server-Side Request Forgery" />
+<meta property="og:description"  content="An attacker can use SSRF vulnerabilities to probe your internal network Let&#39;s see how. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="An attacker can use SSRF vulnerabilities to probe your internal network Let&#39;s see how. →" />
+
+<meta name="twitter:title"       content="Server-Side Request Forgery">
+<meta name="twitter:description" content="An attacker can use SSRF vulnerabilities to probe your internal network Let&#39;s see how. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises ssrf unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          Server-Side Request Forgery
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/icon.gif')"></div>
+
+  <div class="strip">
+    Server-Side Request Forgery
+  </div>
+  <div class="blurb">
+
+    <p>An attacker can use SSRF vulnerabilities to probe your internal network</p>
+
+    <p>
+      <strong>
+        Let's see how.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="Server-Side Request Forgery"
+             data-id="ssrf"
+             data-captions="on" >
+
+          
+        <div id="ssrf" class="container">
+  <div class="row top">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+
+      <a class="unselectable" href="#arbitrary"><div id="start" class=" instruction" introductory="true"><p>There are many reasons your web-server might make outgoing HTTP requests, including calling third-party web-services or accessing meta-data from remote URLs.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="#sharing"><div id="arbitrary" class=" instruction" show="#your-server-inert"><p>If your web-server makes HTTP requests to arbitrary domains that can be chosen by an attacker, you may be vulnerable to <span class="vulnerability">server-side request forgery</span> (SSRF) attacks.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#metadata"><div id="sharing" class=" instruction" show="#your-server-inert"><p>Suppose you run a social media site that encourages users to share links and discuss the latest news.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#attacker"><div id="metadata" class=" instruction" show="#laptop-http, #your-server-inert, #third-party-server-alive"><p>A site like this typically generate preview information for each URL a user shares, which will be generated from the meta-data on the remote page. This often entails making an HTTP request from web-server each time a link is shared.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#denial-of-service"><div id="attacker" class=" instruction" show="#laptop-http, #your-server-http, #third-party-server-alive"><p>This gives an attacker an opportunity to trigger HTTP requests from your web-server to URLs of their choosing.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#proxy"><div id="denial-of-service" class=" instruction" show="#laptop-fast, #your-server-fast, #third-party-server-alive"><p>One risk is that an attacker will launch a <strong>denial-of-service</strong> attack on a third party by using you as a proxy - an attack you will get blamed for.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#internal-network"><div id="proxy" class=" instruction" show="#laptop-fast, #your-server-fast, #third-party-server-dead"><p>By spamming your server with requests to fetch meta-data from a third-party domain, the attacker overwhelm that website while hiding behind your web server.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#information-leakage"><div id="internal-network" class=" instruction" show="#laptop-http-2, #your-server-http-2, #network"><p>Another risk is that an attacker will be able to probe your internal network by triggering requests to private IP addresses.</p>
+<div class="next"></div></div></a>
+      <a class="unselectable" href="#finish"><div id="information-leakage" class=" instruction" show="#laptop-http-2, #your-server-http-2, #network"><p>If the responses from these HTTP requests are leaked - for instance, in error messages - the attacker may even be able to read information from sensitive data stores.</p>
+<div class="next"></div></div></a>
+
+      <a class="unselectable" href="../prevention/ssrf.html"><div id="finish" class=" instruction"><div class="icon"><img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" /></div><div class="message"><p>Clearly we need to defend against this type of attack. Let’s see how to do that.</p>
+</div><div class="next"></div></div></a>
+
+    </div>
+
+    <div class="col-md-2"></div>
+
+  </div>
+
+  <div class="row bottom">
+
+    <table class="diagram">
+      <tr>
+        <td class="laptop">
+          <img id="laptop-inert" class="hidden initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/laptop-de35822b1cc01264861615eb695d70958e2cb4218b2c7621289de6ad0b80d0a9.gif" />
+          <img id="laptop-http" class="hidden initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/laptop-http-d878b36181c704eb2d2fd9373f887e7a933b2d92ca183fd01c801278bbf6e18d.gif" />
+          <img id="laptop-fast" class="hidden initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/laptop-fast-8835b3ce09d5f6c8c60a7ab2e4525af22ef327063cee27ec39b7d1ca9f3eb1d9.gif" />
+          <img id="laptop-http-2" class="hidden initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/laptop-http-2-d878b36181c704eb2d2fd9373f887e7a933b2d92ca183fd01c801278bbf6e18d.gif" />
+
+        </td>
+        <td class="server-1">
+          <img id="your-server-inert" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/server-1-335571c6593b05da693ae23d435977e1b44c50a5faf6a3fd1e6f6f0d8a74824e.gif" />
+          <img id="your-server-http" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/server-1-http-ec15e30f497facf8a8a779f35bf49ccc459ebbf77d733f731b366cc63d86ef8f.gif" />
+          <img id="your-server-fast" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/server-1-fast-51931b0f756d78e14cfb321a7f1bc7bd8788c718422d6370359e1363f2035ae8.gif" />
+          <img id="your-server-http-2" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/server-1-http-2-ec15e30f497facf8a8a779f35bf49ccc459ebbf77d733f731b366cc63d86ef8f.gif" />
+        </td>
+        <td class="server-2">
+          <img id="third-party-server-alive" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/server-2-alive-591de0c9c538ded378be87fae8977369fa1a704dcd0340616799383041e5d2f8.gif" />
+          <img id="third-party-server-dead" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/server-2-dead-1764abecd1f672c8de861d79208ed9514e5318836a72e6f2250f0feb78d47802.gif" />
+          <img id="network" class="initially-hidden hide-by-default" src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/ssrf/network-5d24bfede54a23393e4931b45b850a0ad172934451c43005754845d4609639eb.gif" />
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+</div>
+
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/ssrf by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:35 GMT -->
+</html>

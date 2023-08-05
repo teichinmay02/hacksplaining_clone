@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/prevention/email-spoofing by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>Protecting Against Email Spoofing</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="CDNw9MjeeJfKnWpYb/eKabs/FpqknLp7Jze0oCZ30+uRI/3GSYQYqQez59HAT/COX4aCtLETp7JEQ9DxZHyLGA==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/prevention/email-spoofing" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="Protecting Against Email Spoofing" />
+<meta property="og:description"  content="Email spoofing is the sending of email messages with a forged &quot;from&quot; address. Let&#39;s see how spoofed emails could harm your users. →" />
+<meta property="og:image"        content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/email-spoofing/screenshot.png" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content="Email spoofing is the sending of email messages with a forged &quot;from&quot; address. Let&#39;s see how spoofed emails could harm your users. →" />
+
+<meta name="twitter:title"       content="Protecting Against Email Spoofing">
+<meta name="twitter:description" content="Email spoofing is the sending of email messages with a forged &quot;from&quot; address. Let&#39;s see how spoofed emails could harm your users. → %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="light-background logged-out prevention  unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      <div class="header">
+  <nav class="navbar navbar-expand-lg ">
+
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsing-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+      <span class="navbar-brand logo">
+        <a href="../index.html">
+          <div class="title"> </div>
+        </a>
+      </span>
+
+      <div class="navbar-collapse collapse justify-content-end" id="collapsing-menu">
+
+        <div class="navbar-nav mr-auto">
+
+        </div>
+
+        <ul class="navbar-nav justify-content-end">
+
+
+            <li class="nav-item nav-features"><a class="nav-link" href="../features.html">Features</a></li>
+            <li class="nav-item nav-lessons"><a class="nav-link" href="../lessons.html">Lessons</a></li>
+            <li class="nav-item nav-enterprise"><a class="nav-link" href="../enterprise.html">Enterprise</a></li>
+            <li class="nav-item nav-owasp top 10"><a class="nav-link" href="../owasp.html">OWASP Top 10</a></li>
+            <li class="nav-item nav-pci compliance"><a class="nav-link" href="../pci.html">PCI Compliance</a></li>
+            <li class="nav-item nav-the book"><a class="nav-link" href="../book.html">The Book</a></li>
+            <li class="nav-item nav-login"><a class="nav-link" href="../login.html">Login</a></li>
+            <li class="nav-item nav-signup"><a class="nav-link" href="../join.html">SignUp</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+
+      
+<script>
+  hljs.configure({ classPrefix: 'code-' });
+  hljs.highlightAll();
+</script>
+
+<div class="main reading email-spoofing">
+
+  <div class="container">
+    <div class="row prevention-tips has-sponsor">
+      <div class="row title modest">
+        Protecting Against Email Spoofing
+      </div>
+
+      <p><strong>Email spoofing is the sending of email messages with a forged “from” address.</strong> 
+Using a spoofed email address is common tactic email scammers use to gain the
+trust of their victims. You need to make sure the emails your website and
+organization sends are marked as authentic.</p>
+
+
+
+      <h3 id="risks">Risks</h3>
+
+      <div class="ratings">
+  <div class="rating prevalence common">
+    <div class="category">
+      <span class="category-label">
+        Prevalence
+      </span>
+
+      <span class="description">
+        Common
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons prevalence common">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-prevelance-on-08c87a35753a8cffcf36b11e7964cfaf357ed53beea25705689f8b289b9260db.png" />
+      </div>
+   </div>
+  </div>
+
+  <div class="rating exploitability easy">
+    <div class="category">
+      <span class="category-label">
+        Exploitability
+      </span>
+
+      <span class="description">
+        Easy
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons exploitability easy"">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-exploitability-on-72a414cbfd6607547d507635de7609d1ba1bbfc36e454851949c4efc6fdd6f82.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="rating impact worrying">
+    <div class="category">
+      <span class="category-label">
+        Impact
+      </span>
+
+      <span class="description">
+        Worrying
+      </span>
+    </div>
+
+    <div class="level">
+      <div class="rating-icons impact worrying">
+        <img class="on one" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on two" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+        <img class="on three" src="../../d1o5lmfp4gliop.cloudfront.net/assets/icons/rating-impact-on-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+      <p>Over 95% of email sent over the internet consists of unwanted email: “spam”.
+Most spam uses spoofed addresses. If your domains are being used in spam 
+messages, spammers may be taking advantage of your users to:</p>
+
+<ul>
+  <li>
+<strong>Steal their credentials</strong> by sending “phishing” messages.</li>
+  <li>
+<strong>Trick them into falling for online scams</strong> by abusing the trust they have
+in your site.</li>
+  <li>
+<strong>Spread malware</strong> by sharing malicious attachments.</li>
+</ul>
+
+
+
+
+      <h3 id="protection">Protection</h3>
+
+<p>As a website owner you should prevent your domains being used in spam mail by 
+adopting both of the following approaches:</p>
+
+<ul>
+  <li>
+<strong>Implement the Sender Policy Framework (SPF):</strong> publish a <a href="https://www.cloudflare.com/learning/dns/dns-records/">DNS record</a>  to 
+explicitly state which servers are allowed to send email from your domain.</li>
+  <li>
+<strong>Implement Domain Key Identified Mail (DKIM):</strong> use a <a href="../glossary.html">digital signature</a>
+to prove that outgoing email was legitimately sent from your domain, and that 
+it wasn’t modified in transit.</li>
+</ul>
+
+<p>There is also an emerging umbrella standard called <strong>DMARC</strong> (“Domain-based 
+Message Authentication, Reporting &amp; Conformance”) that you should be aware of.
+<a href="https://dmarc.org/overview/">Read more about DMARC here</a>.</p>
+
+<p>Adopting these technologies also has the benefit that the emails you send are
+less likely to be marked as spam.</p>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Implementing SPF and DKIM requires publishing new DNS records and making 
+configuration changes to your technology stack - consult the documentation for 
+your email sending service or software for details. Here are the relevant 
+documentation links for some of the more common methods of sending email.</p>
+
+<h5 id="transactional-email-services">Transactional Email Services</h5>
+
+<p>Transaction emails are sent programmatically in response to actions on a 
+website or application. If your site makes use of transactional email (during
+sign-ups or password resets, for example) you need to ensure you are sending
+authenticated mails. Here’s how to set up authenticated emails in the leading
+transactional email services.</p>
+
+<ul>
+  <li><a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/authentication.html">Amazon Simple Email Service</a></li>
+  <li><a href="https://documentation.mailgun.com/en/latest/quickstart-sending.html">Mailgun</a></li>
+  <li><a href="https://postmarkapp.com/guides/dkim">Postmark</a></li>
+  <li><a href="https://sendgrid.com/blog/a-dkim-faq/">SendGrid</a></li>
+</ul>
+
+<h5 id="email-marketing-services">Email Marketing Services</h5>
+
+<p>Email marketing services allow bulk-sending of emails to targeted mailing lists.
+If your sales and marketing staff make use of this kind of service, you need
+to ensure they are sending authenticated mails.</p>
+
+<ul>
+  <li><a href="https://docs.aweber-static.com/pdfs/deliverability.pdf">AWeber</a></li>
+  <li><a href="https://www.benchmarkemail.com/resources/email-marketing-articles/email-authentication">Benchmark</a></li>
+  <li><a href="https://kb.mailchimp.com/accounts/email-authentication/set-up-custom-domain-authentication-dkim-and-spf">MailChimp</a></li>
+</ul>
+
+<h5 id="mail-transfer-agents">Mail Transfer Agents</h5>
+
+<p>If you organization hosts its own email servers, your system administrators 
+will be making use of “Mail Transfer Agent” software. The most common MTAs are
+Microsoft Exchange (on Windows) and SendMail/Postfix (on Linux). Here’s how to
+implement authenticated email on those platforms:</p>
+
+<ul>
+  <li><a href="https://blogs.technet.microsoft.com/fasttracktips/2016/07/16/spf-dkim-dmarc-and-exchange-online/">Microsoft Exchange</a></li>
+  <li><a href="https://help.ubuntu.com/community/Postfix/DKIM">Postfix</a></li>
+</ul>
+
+
+
+    </div>
+
+      
+
+
+
+  </div>
+
+
+    <div class="container">
+      <div class="row quiz-link">
+        <a href="../join26db.html?next=%2Fquiz%2Femail-spoofing">
+          <div class="link-question">
+            Got all that?
+          </div>
+
+          <div class="link-link">
+            Test Yourself →
+          </div>
+
+          <div class="link-caption">
+            <div>Take our quiz to make sure everything is clear</div>
+          </div>
+</a>      </div>
+    </div>
+
+
+
+</div>
+
+      
+  <footer class="regular">
+  <div class="container">
+    <ul>
+      <li>
+        <a href="../lessons.html">Lessons</a>
+      </li>
+      <li>
+        <a href="../glossary.html">Glossary</a>
+      </li>
+      <li>
+        <a href="../privacy.html">Privacy</a>
+      </li>
+      <li>
+        <a href="../legal.html">Legal</a>
+      </li>
+
+      <li class="pull-right copyright">
+          <a class="contact-us"
+             title="Get in touch"
+             href="mailto:question@ .com"
+             rel="noopener noreferrer">
+            <span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+
+        <a href="../index.html">
+          <span style="font-family: 'Oxygen'">©</span> 2023  
+</a>      </li>
+    </ul>
+  </div>
+</footer>
+
+
+
+  </div>
+
+    <script src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/prevention/email-spoofing by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:48:13 GMT -->
+</html>

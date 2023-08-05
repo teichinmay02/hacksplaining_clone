@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/owasp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:46:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+  <title>OWASP Top 10</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon"                 href="touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all" href="../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script src="../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="jXBYc6pXX0pnFMwHJVtVG5d5ajQ6r5hGrJLXC79iQ04UYNVBKw0/dKo6QY6K4y/8c8D+Gi8ghY/P5rNa/WkbvQ==" />
+
+  
+
+  <meta property="og:url"          content="https://www. .com/owasp" />
+<meta property="og:type"         content="website" />
+<meta property="og:title"        content="OWASP Top 10" />
+<meta property="og:description"  content="The best protection against being hacked is well-informed developers. Make your development team into security experts today." />
+<meta property="og:image"        content="https://d1o5lmfp4gliop.cloudfront.net/assets/robot-animated-f9dad7295073a7780c50fa76c1a74c1ce6b942fb869519083bad1aaf2d9e1f7e.gif" />
+<meta property="og:site_name"    content=" "/>
+
+<meta property="fb:app_id"       content="495778420623064">
+
+<meta name="description"         content=" : Security Training for Developers" />
+
+<meta name="twitter:title"       content="OWASP Top 10">
+<meta name="twitter:description" content="The best protection against being hacked is well-informed developers. Make your development team into security experts today. %>">
+
+<meta name="application-name"                content=" "/>
+<meta name="msapplication-TileColor"         content="#000000"/>
+<meta name="msapplication-square70x70logo"   content="windows-tiny.png"/>
+<meta name="msapplication-square150x150logo" content="windows-square.png"/>
+<meta name="msapplication-wide310x150logo"   content="windows-wide.png"/>
+<meta name="msapplication-square310x310logo" content="windows-large.png"/>
+
+
+  
+
+
+
+</head>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SZ91HC6JB6');
+  </script>
+
+
+
+<body class="light-background logged-out static owasp unknown_device unknown_browser unknown_browser0 windows non-ie">
+
+  <div class="content">
+
+
+      <div class="header">
+  <nav class="navbar navbar-expand-lg ">
+
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsing-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+      <span class="navbar-brand logo">
+        <a href="index.html">
+          <div class="title"> </div>
+        </a>
+      </span>
+
+      <div class="navbar-collapse collapse justify-content-end" id="collapsing-menu">
+
+        <div class="navbar-nav mr-auto">
+
+        </div>
+
+        <ul class="navbar-nav justify-content-end">
+
+
+            <li class="nav-item nav-features"><a class="nav-link" href="features.html">Features</a></li>
+            <li class="nav-item nav-lessons"><a class="nav-link" href="lessons.html">Lessons</a></li>
+            <li class="nav-item nav-enterprise"><a class="nav-link" href="enterprise.html">Enterprise</a></li>
+            <li class="active nav-item nav-owasp top 10"><a class="nav-link" href="owasp.html">OWASP Top 10</a></li>
+            <li class="nav-item nav-pci compliance"><a class="nav-link" href="pci.html">PCI Compliance</a></li>
+            <li class="nav-item nav-the book"><a class="nav-link" href="book.html">The Book</a></li>
+            <li class="nav-item nav-login"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item nav-signup"><a class="nav-link" href="join.html">SignUp</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+
+      
+
+<div class="owasp">
+  <div class="container">
+    <div class="title row">
+      <h1>OWASP Top 10</h1>
+      <h2>Top 10 Web Application Security Risks</h2>
+    </div>
+  </div>
+  <div class="container main-content">
+    <p class="intro">
+      <strong>
+        Each year OWASP (the Open Web Application Security Project) publishes
+        the top ten security vulnerabilities. It represents a broad consensus
+        about the most critical security risks to web applications.
+      </strong>
+
+      Click through on the lessons below to learn more about how to protect
+      against each security risk.
+    </p>
+
+    <div id="broken-access-control"
+         class="description incomplete">
+
+      <h3>1. Broken Access Control</h3>
+
+      <p>
+        Access control enforces policy such that users cannot act outside of their intended permissions.
+        Failures typically lead to unauthorized information disclosure, modification, or destruction of
+        all data or performing a business function outside the user's limits.
+      </p>
+
+      <div class="exercises">
+        <a href="login4981.html">
+          <div id="broken_access_control"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Broken Access Control
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/broken-access-control/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="login0f92.html">
+          <div id="directory_traversal"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Directory Traversal
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/directory-traversal/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="exercises/csrf.html">
+          <div id="csrf"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Cross-site Request Forgery
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/csrf/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/csrf/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/csrf/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/csrf/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="cryptographic-failures"
+         class="description incomplete">
+
+      <h3>2. Cryptographic Failures</h3>
+
+      <p>
+        Many web applications and APIs do not properly protect sensitive data
+        with strong encryption. Attackers may steal or modify such weakly protected
+        data to conduct credit card fraud, identity theft, or other crimes.
+        Sensitive data must be encryption at rest and in transit, using a modern
+        (and correctly configured) encryption algorithm.
+      </p>
+
+      <div class="exercises">
+        <a href="exercises/unencrypted-communication.html">
+          <div id="unencrypted_communication"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Unencrypted Communication
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/unencrypted-communication/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/unencrypted-communication/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/unencrypted-communication/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/unencrypted-communication/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="injection" class="description incomplete">
+      <h3>3. Injection</h3>
+
+      <p>
+        Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when
+        untrusted data is sent to an interpreter as part of a command or query.
+        The attacker’s hostile data can trick the interpreter into executing
+        unintended commands or accessing data without proper authorization.
+      </p>
+
+      <div class="exercises">
+        <a href="exercises/sql-injection.html">
+          <div id="sql_injection"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    SQL Injection
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="exercises/command-execution.html">
+          <div id="command_execution"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Command Execution
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/command-execution/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="insecure-design"
+         class="description incomplete">
+      <h3>4. Insecure Design</h3>
+
+      <p>
+        Pre-coding activities are critical for the design of secure software. The design phase
+        of you development lifecycle should gather security requirements and model threats,
+        and development time should be budgeted to allow for these requirements to be met.
+        As software changes, your team should test assumptions and conditions for expected and
+        failure flows, ensuring they are still accurate and desirable. Failure to do so will
+        let slip critical information to attackers, and fail to anticipate novel attack
+        vectors.
+      </p>
+
+      <div class="exercises">
+        <a href="login21b3.html">
+          <div id="insecure_design"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Insecure Design
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/insecure-design/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/insecure-design/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/insecure-design/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/insecure-design/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="loginab73.html">
+          <div id="information_leakage"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Information Leakage
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/information-leakage/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/information-leakage/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/information-leakage/icon-animated.gif"
+           data-loop="true"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/information-leakage/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="exercises/file-upload.html">
+          <div id="file_upload"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    File Upload Vulnerabilities
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/file-upload/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="security-misconfiguration"
+         class="description incomplete">
+
+      <h3>5. Security Misconfiguration</h3>
+
+      <p>
+        Your software is only as secure as you configure it to be. Using ad hoc configuration
+        standards can lead to default accounts being left in place, open cloud storage, misconfigured
+        HTTP headers, and verbose error messages containing sensitive information.
+        Not only must all operating systems, frameworks, libraries, and applications be
+        securely configured, but they must be patched/upgraded in a timely fashion.
+      </p>
+
+      <div class="exercises">
+        <a href="loginddda.html">
+          <div id="lax_security_settings"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Lax Security Settings
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/lax-security-settings/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/lax-security-settings/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/lax-security-settings/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/lax-security-settings/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="vulnerable-and-outdated-components"
+         class="description incomplete">
+
+      <h3>6. Vulnerable and Outdated Components</h3>
+
+      <p>
+        Components, such as libraries, frameworks, and other software modules, run
+        with the same privileges as the application. If a vulnerable component is
+        exploited, such an attack can facilitate serious data loss or server takeover.
+        Applications and APIs using components with known vulnerabilities may undermine
+        application defenses and enable various attacks and impacts.
+      </p>
+
+      <div class="exercises">
+        <a href="login9bb3.html">
+          <div id="toxic_dependencies"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Toxic Dependencies
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/toxic-dependencies/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/toxic-dependencies/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/toxic-dependencies/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/toxic-dependencies/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="identification-and-authentication-failures"
+         class="description incomplete">
+
+      <h3>7. Identification and Authentication Failures</h3>
+
+      <p>
+        Application functions related to authentication and session management
+        are often implemented incorrectly, allowing attackers to compromise
+        passwords, keys, or session tokens, or to exploit other implementation
+        flaws to assume other users’ identities temporarily or permanently.
+      </p>
+
+      <div class="exercises">
+        <a href="exercises/password-mismanagement.html">
+          <div id="password_mismanagement"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Password Mismanagement
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/password-mismanagement/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/password-mismanagement/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/password-mismanagement/icon-animated.gif"
+           data-loop="true"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/password-mismanagement/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="login0551.html">
+          <div id="privilege_escalation"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Privilege Escalation
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/privilege-escalation/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/privilege-escalation/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/privilege-escalation/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/privilege-escalation/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="exercises/user-enumeration.html">
+          <div id="user_enumeration"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    User Enumeration
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/user-enumeration/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="login6d03.html">
+          <div id="session_fixation"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Session Fixation
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/session-fixation/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/session-fixation/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/session-fixation/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/session-fixation/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>        <a href="login4ed9.html">
+          <div id="weak_session"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Weak Session IDs
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/weak-session/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/weak-session/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/weak-session/icon-animated.gif"
+           data-loop="false"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/weak-session/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="software-and-data-integrity-failures" class="description">
+
+      <h3>8. Software and Data Integrity Failures</h3>
+
+      <p>
+        Software and data integrity failures relate to code and infrastructure that does not protect
+        against integrity violations. An example of this is where an application relies upon plugins,
+        libraries, or modules from untrusted sources, repositories, and content delivery networks (CDNs).
+        An insecure deployment pipeline can introduce the potential for unauthorized access, malicious code,
+        or system compromise. Lastly, many applications now include auto-update functionality, where
+        updates are downloaded without sufficient integrity verification and applied to the previously
+        trusted application. Attackers could potentially upload their own updates to be distributed and
+        run on all installations.
+      </p>
+    </div>
+
+    <div id="security-logging-and-monitoring-failures"
+         class="description incomplete">
+
+      <h3>9. Security Logging and Monitoring Failures</h3>
+
+      <p>
+        Insufficient logging and monitoring, coupled with missing or ineffective
+        integration with incident response, allows attackers to further attack systems,
+        maintain persistence, pivot to more systems, and tamper, extract, or destroy
+        data. Most breach studies show time to detect a breach is over 200 days,
+        typically detected by external parties rather than internal processes or
+        monitoring.
+      </p>
+
+      <div class="exercises">
+        <a href="exercises/logging-and-monitoring.html">
+          <div id="logging_and_monitoring"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Logging and Monitoring
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/icon-animated.gif"
+           data-loop="true"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/logging-and-monitoring/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+    </div>
+
+    <div id="ssrf"
+         class="description incomplete">
+
+      <h3>10. Server-Side Request Forgery</h3>
+
+      <p>
+        Server-Side Request Forgery (SSRF) flaws occur whenever a web application
+        fetches a remote resource without validating the user-supplied URL. It allows
+        an attacker to coerce the application to send a crafted request to an unexpected
+        destination, even when protected by a firewall, VPN, or another type of network
+        access control list (ACL).
+      </p>
+
+      <div class="exercises">
+        <a href="exercises/ssrf.html">
+          <div id="ssrf"
+     class="exercise-link active">
+
+  <div class="exercise-label">
+    Server-Side Request Forgery
+  </div>
+
+  <div class="spacer">
+
+
+      <div class="img animated-icon animation-trigger"
+           data-color="white"
+           data-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/icon.gif"
+           data-animating="false"
+           data-animated-icon="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/icon-animated.gif"
+           data-animated-icon-next="https://d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/icon-animated.gif"
+           data-loop="true"></div>
+
+      <script>
+        $('<img />', { src: 'https://d1o5lmfp4gliop.cloudfront.net/images/exercises/ssrf/icon-animated.gif' });
+      </script>
+
+
+  </div>
+
+</div>
+
+</a>      </div>
+
+    </div>
+
+  </div>
+</div>
+
+      
+
+
+
+  </div>
+
+    <script src="../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js" id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/owasp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:46:46 GMT -->
+</html>

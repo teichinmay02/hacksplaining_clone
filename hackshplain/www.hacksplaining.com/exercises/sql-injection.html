@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/exercises/sql-injection by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:46:53 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+  <title>SQL Injection</title>
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://d1o5lmfp4gliop.cloudfront.net/assets/favicon-d2fd4b2666fd6a6c2eacee13d0d844a558942079e549b7f971085de9cab55511.ico" />
+
+  <link rel="apple-touch-icon" href="../touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../touch-icon-ipad-retina.png">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" media="all"
+    href="../../d1o5lmfp4gliop.cloudfront.net/assets/application-1f27c21e9caba5e224e9039708363bb3d6393bcd0cec34182ef97d314c3d7fe1.css" />
+  <script
+    src="../../d1o5lmfp4gliop.cloudfront.net/assets/application-9865c3a61c1ffdfed4986c79c8214c39119b9dd0fa2157ea9bdc023c8edbd459.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token"
+    content="xuRy2f9+6d3OnjBQzSfSMU7EyKoKlBGgWVyg25t39GRf9P/rfiSJ4wOwvdlin6jWqn1chB8bDGk6KMSK2Xyslw==" />
+
+
+
+  <meta property="og:url" content="https://www. .com/exercises/sql-injection" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SQL Injection" />
+  <meta property="og:description"
+    content="If you are vulnerable to SQL Injection, attackers can run arbitrary commands against your database. Ready to see how? →" />
+  <meta property="og:image"
+    content="https://www. .comhttps://d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/screenshot.png" />
+  <meta property="og:site_name" content=" " />
+
+  <meta property="fb:app_id" content="495778420623064">
+
+  <meta name="description"
+    content="If you are vulnerable to SQL Injection, attackers can run arbitrary commands against your database. Ready to see how? →" />
+
+  <meta name="twitter:title" content="SQL Injection">
+  <meta name="twitter:description"
+    content="If you are vulnerable to SQL Injection, attackers can run arbitrary commands against your database. Ready to see how? → %>">
+
+  <meta name="application-name" content=" " />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="msapplication-square70x70logo" content="windows-tiny.png" />
+  <meta name="msapplication-square150x150logo" content="windows-square.png" />
+  <meta name="msapplication-wide310x150logo" content="windows-wide.png" />
+  <meta name="msapplication-square310x310logo" content="windows-large.png" />
+
+
+
+
+
+
+</head>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ91HC6JB6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZ91HC6JB6');
+</script>
+
+
+
+<body
+  class="off-white logged-out exercises sql_injection unknown_device unknown_browser unknown_browser0 windows non-ie"
+  style="background-color: black;">
+
+  <div class="content">
+
+
+
+    <div class="exercise-title">
+      <a href="#">
+        <div class="inline">
+          <img class="logo" src="../../d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/icon.gif" />
+        </div>
+
+        <div class="inline title">
+          <div>
+            SQL Injection
+          </div>
+          <div class="tracking"></div>
+        </div>
+
+        <a class="back-to-lessons" href="../lessons.html">
+          <i class="fa fa-times-circle back-icon"></i>
+          <div class="back-label">Exit</div>
+        </a>
+      </a>
+    </div>
+
+
+    <noscript>
+      <div class="row">
+        <p class="alert alert-danger no-script">
+          This site needs JavaScript to work!
+        </p>
+      </div>
+    </noscript>
+
+    <div class="main exercise">
+
+      <div class="card-holder">
+        <div id="intro" class="intro">
+          <a id="start-exercise" href="#start">
+            <div class="card">
+
+              <div class="img porthole"
+                style="background-color: white; background-position: center; background-repeat: no-repeat; background-image: url('../../d1o5lmfp4gliop.cloudfront.net/images/exercises/sql-injection/icon.gif')">
+              </div>
+
+              <div class="strip">
+                SQL Injection
+              </div>
+              <div class="blurb">
+
+                <p>If you are vulnerable to SQL Injection, attackers can run arbitrary commands against your database.
+                </p>
+
+                <p>
+                  <strong>
+                    Ready to see how?
+                  </strong>
+                </p>
+
+              </div>
+            </div>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-holder">
+        <div class="lesson" data-name="SQL Injection" data-id="sql_injection" data-captions="on">
+
+
+
+          <script>
+            var footerClass = "off-white";
+            var lessonBackground = "#efefef";
+          </script>
+
+
+          <div id="sql-injection">
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-3"> </div>
+
+                <div class="col-sm-6">
+
+                  <a class="unselectable" href="../prevention/sql-injection.html">
+                    <div id="finish" class=" instruction" title="How do we prevent this?">
+
+                      <div class="icon">
+                        <img
+                          src="../../d1o5lmfp4gliop.cloudfront.net/assets/skull-56af21599bf07cebbffbecceec1537a9471628fb1d3374433c1d9b8b1ab703bf.png" />
+                      </div>
+
+                      <div class="message">
+                        <strong>Phew.</strong> Now we know how <span class="vulnerability">SQL injection</span>
+                        works, let's learn how to protect against this kind of attack.
+                      </div>
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-sm-3"> </div>
+
+              </div>
+            </div>
+
+            <div class="container" style="background-color: #154c79;">
+              <div class="row">
+                <div id="app-instructions" class="col-md-3">
+
+                  <div class="instructions">
+
+                    <div class="spacier">
+                      <a class="unselectable" href="#introducing-log">
+                        <div id="start" class="points-right instruction" show="#app,#app .blur" title="Start"
+                          next="introducing-log">
+
+                          <strong>
+                            This is the vulnerable application we will be trying to
+                            hack with a <span class="vulnerability">SQL injection</span>
+                            attack.
+                          </strong>
+
+                          <div class="next"></div>
+                        </div>
+                      </a>
+                    </div>
+
+                    <a class="unselectable" href="#second-login-attempt">
+                      <div id="first-login-attempt" class="points-right instruction" show="#app,#log"
+                        title="First Login Attempt" transcript="First, let&#39;s try guessing the password."
+                        next="second-login-attempt" await="invalidLogin">
+
+                        <strong>Go ahead and try logging in with the following credentials:</strong>
+
+                        <div class="login">
+                          <div class="row">
+                            <div class="field">
+                              Email
+                            </div>
+                            <div class="value">
+                              user@email.com
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="field">
+                              Password
+                            </div>
+                            <div class="value">
+                              password
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="next hidden"></div>
+                      </div>
+                    </a>
+                    <script>
+                      function invalidLogin() {
+                        var url = $("#frame").data('url');
+                        return (url.indexOf('invalid') > -1);
+                      }
+                    </script>
+
+                    <a class="unselectable" href="#after-server-error">
+                      <div id="second-login-attempt" class="points-right instruction" show="#app,#log"
+                        title="Second Login Attempt"
+                        transcript="Okay, so guessing the password didn&#39;t work. Let&#39;s try adding a quote character after the password."
+                        next="after-server-error" await="unexpectedError">
+
+                        <strong>Okay, so guessing the password didn't work.</strong>
+                        Let's try adding a quote character after the password:
+
+                        <div class="login">
+                          <div class="row">
+                            <div class="field">
+                              Email
+                            </div>
+                            <div class="value">
+                              user@email.com
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="field">
+                              Password
+                            </div>
+                            <div class="value">
+                              password'
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="next hidden"></div>
+                      </div>
+                    </a>
+                    <script>
+                      function unexpectedError() {
+                        var url = $("#frame").data('url');
+                        return (url.indexOf('unexpected') > -1);
+                      }
+                    </script>
+
+                    <div class="spacier">
+                      <a class="unselectable" href="#error-log">
+                        <div id="after-server-error" class="points-right instruction" show="#app,#log"
+                          title="Server Error"
+                          transcript="The application crashed with an unexpected error. What could that mean?"
+                          next="error-log">
+
+                          <strong>Hmmm.</strong> The application crashed with an unexpected error.
+                          What could that mean?
+
+                          <div class="next"></div>
+                        </div>
+                      </a>
+                    </div>
+
+                    <div class="spacier">
+                      <a class="unselectable" href="#sql-injection-explanation">
+                        <div id="third-login-attempt" class="points-right instruction" show="#app,#log,#code"
+                          title="Experimenting with Passwords"
+                          transcript="Let&#39;s enter the password with a trailing quote character once more."
+                          next="sql-injection-explanation">
+
+                          <strong>Enter the password <span class="input">password'</span> and watch the code
+                            window.</strong>
+
+                          <div class="next"></div>
+                        </div>
+                      </a>
+                    </div>
+
+                    <a class="unselectable" href="#hack-complete">
+                      <div id="fourth-login-attempt" class="points-right instruction" show="#app,#log,#code"
+                        title="Hacking the System" transcript="Now, let&#39;s a specifically crafted password."
+                        next="hack-complete" await="authenticationBypassed">
+
+                        <p>
+                          Enter the following credentials and click "Log in":
+                        </p>
+
+                        <div class="login">
+                          <div class="row">
+                            <div class="field">
+                              Email
+                            </div>
+                            <div class="value">
+                              user@email.com
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="field">
+                              Password
+                            </div>
+                            <div class="value">
+                              ' or 1=1--
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="next hidden"></div>
+                      </div>
+                    </a>
+                    <script>
+                      function authenticationBypassed() {
+                        var url = $("#frame").data('url');
+                        return (url.indexOf('account') > -1);
+                      }
+                    </script>
+
+                    <div class="spacier">
+                      <a class="unselectable" href="#sql-injection-footnote">
+                        <div id="hack-complete" class="points-right instruction" show="#app,#log,#code"
+                          title="Hack complete!" next="sql-injection-footnote">
+
+                          <strong>And we are in!</strong>
+
+                          We successfully gained access to the application without having
+                          to guess the password, using <span class="vulnerability">SQL injection</span>.
+
+                          <div class="next"></div>
+                        </div>
+                      </a>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div id="app" class="col-md-9 hide-by-default">
+
+                  <div class="pane-title">Application</div>
+
+                  <div class="pane">
+                    <div id="blur" class="blur hide-by-default"></div>
+
+                    <iframe id="frame" width="100%" height="100%" scrolling="no"
+                      src="../embedded/sql-injection/index.html" style="background: #ddd">
+
+                      <!-- Vulnerable application shown here. -->
+
+                    </iframe>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div id="log" class="col-sm-auto hide-by-default">
+
+                  <div class="pane-title">Logs</div>
+
+                  <div class="pane">
+                    <iframe width="100%" height="100%" src="../embedded/sql-injection/logs.html">
+
+                      <!-- Application logs go here. -->
+
+                    </iframe>
+                  </div>
+
+                  <a class="unselectable" href="#first-login-attempt">
+                    <div id="introducing-log" class="points-up instruction" show="#app,#log,#app .blur"
+                      title="The Log Window"
+                      transcript="Here are the application logs. Watch what happens here when we interact with the vulnerable application."
+                      next="first-login-attempt">
+
+                      <strong>Here are the application logs.</strong>
+
+                      Watch what happens here when you interact with the
+                      vulnerable application.
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                  <a class="unselectable" href="#introducing-code">
+                    <div id="error-log" class="points-up instruction" show="#app,#log,#app .blur"
+                      title="A Suspicious Error" next="introducing-code">
+
+                      <strong>The logs show a SQL syntax error.</strong>
+
+                      This indicates that the quote character messed something up in an
+                      unexpected way.
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                </div>
+
+                <div id="code" class="col-sm-auto hide-by-default">
+
+                  <div class="pane-title">Code</div>
+
+                  <div class="pane">
+                    <pre class="code-sql code">
+            <div id="source-code">
+
+              <!-- SQL statements go here -->
+
+            </div>
+          </pre>
+
+                    <div id="raw-code">SELECT *
+                      FROM users
+                      WHERE email = '#email#'
+                      AND pass = '#password#' LIMIT 1</div>
+                  </div>
+
+                  <a class="unselectable" href="#third-login-attempt">
+                    <div id="introducing-code" class="points-up instruction" show="#app,#log,#app .blur, #code"
+                      title="Checking the Code"
+                      transcript="This is what the application code looks like behind the scenes. Watch how the SQL code gets built as we enter the login details."
+                      next="third-login-attempt">
+
+                      <strong>This is what the application code looks like behind the scenes.</strong>
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                  <a class="unselectable" href="#sql-injection-vulnerability">
+                    <div id="sql-injection-explanation" class="points-up instruction" show="#app,#log,#app .blur,#code"
+                      title="Injection Explained" next="sql-injection-vulnerability">
+
+                      <strong>The quote is inserted directly into the SQL string, and terminates
+                        the query early.</strong> This is what caused the syntax error we saw in the logs.
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                  <a class="unselectable" href="#fourth-login-attempt">
+                    <div id="sql-injection-vulnerability" class="points-up instruction"
+                      show="#app,#log,#app .blur,#code" title="Injection = Vulnerability" next="fourth-login-attempt">
+
+                      This behavior indicates that the application might be vulnerable
+                      to <span class="vulnerability">SQL injection</span>.
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                  <a class="unselectable" href="#finish">
+                    <div id="sql-injection-footnote" class="points-up instruction" show="#app,#log,#app .blur,#code"
+                      title="A Bit More Detail"
+                      transcript="The double dashes we entered caused the the database to ignore the rest of the SQL statement, allowing us to be authenticated without having to supply the real password."
+                      next="finish">
+
+                      The <span class="code-comment">--</span> characters you entered caused
+                      the database to ignore the rest of the SQL statement, allowing you to be
+                      authenticated without having to supply the real password.
+
+                      <div class="next"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            $(function () {
+              var messageNo = 0;
+              var email = "?";
+              var password = "?";
+
+              /**
+               * Call back from embedded application - e.g. when the email or password
+               * fields are updated, or the page has been reloaded. Update the SQL in the
+               * code window, making sure to re-do syntax highlighting, and make a note
+               * of the new URL.
+               */
+              var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+              var eventHandler = window[eventMethod];
+              var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
+
+              eventHandler(messageEvent, function (e) {
+                var key = e.message ? "message" : "data";
+                var data = e[key]
+
+                try {
+                  data = JSON.parse(data);
+                }
+                catch (error) {
+                  var description = "{ data: " + e.data + ", message: " + e.message + ", origin: " + e.origin + " }"
+                  var logMessage = "Unable to parse JSON in postMessage() event. Event looks like: " + description + ", error was: " + error + ". (Message no " + messageNo + ")"
+
+                  console.log(logMessage)
+
+                  return
+                }
+
+                messageNo = messageNo + 1;
+
+                $("#frame").data('url', data.url)
+
+                if (data.event === 'keystroke') {
+                  email = data.email;
+                  password = data.password;
+
+                  var newCode = $("#raw-code").text();
+
+                  newCode = newCode.replace("#email#", email);
+                  newCode = newCode.replace("#password#", password);
+
+                  hljs.configure({ classPrefix: 'code-' })
+
+                  $("#source-code").html('<code class="sql">' + newCode + '</code>');
+
+                  $('.sql').each(function (i, e) {
+                    hljs.highlightBlock(e)
+                  });
+                }
+
+                if (awaitingInteraction() && interactionOccurred()) {
+                  console.log("Interaction happened, proceeding to next step.")
+                  nextStep();
+                }
+              }, false);
+            })
+          </script>
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script
+      src="../../d1o5lmfp4gliop.cloudfront.net/assets/exercise-5652b5b649e3d7688a1c4e39179541168716b52f4d2d6c72ea0210af3eebe078.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <script
+    src="../../d1o5lmfp4gliop.cloudfront.net/assets/cookieinfo-1af9cc137c2c2bc8ea4d469f45d357ec43dc6c23537bd0c96aa9b51ff416ce5e.js"
+    id="cookieinfo"></script>
+
+</body>
+
+<script>
+  $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+  });
+</script>
+
+
+<!-- Mirrored from www. .com/exercises/sql-injection by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:46:54 GMT -->
+
+</html>

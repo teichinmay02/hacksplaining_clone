@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www. .com/embedded/sql-injection/logs by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <title></title>
+  <link rel="stylesheet" media="all" href="../../../app- .herokuapp.com/assets/application-b5fe8eced4667b62d7b604f7eb8f80b9937b5137e7c5221f0ed6d349050fb9ff.css" />
+  <script src="../../../app- .herokuapp.com/assets/application-90fba03fb570014b9c67de195e3eed232f088506657454a08797e9fb0634c2b4.js"></script>
+</head>
+<body>
+
+  <div id="logs">
+
+</div>
+
+<script>
+  $(function() {
+    function fetch() {
+      $.getJSON( "logs/stream.json", function( data ) {
+        var logs    = $("#logs");
+        var message = data["message"];
+
+        if (message) {
+          logs.append($('<li>').addClass(message.indexOf("err") > -1 ? "error" : "info").text(message));
+          logs.scrollTop(logs.prop("scrollHeight"));
+        }
+
+        setTimeout(fetch, 800);
+      });
+    }
+
+    setTimeout(fetch, 500);
+  });
+</script>
+
+</body>
+
+<!-- Mirrored from www. .com/embedded/sql-injection/logs by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 12:47:55 GMT -->
+</html>
